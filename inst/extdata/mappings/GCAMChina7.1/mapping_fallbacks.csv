@@ -1,0 +1,946 @@
+region,technology,year,vintage,mapping,subsector,market,sector,input,ghg,resource,scenario,fuel
+Central China Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2020,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2025,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2030,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2035,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2040,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2045,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2050,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2055,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,2060,NA,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Central China Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+China Southern Power Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+East China Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+North China Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northeast China Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,1990,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2005,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2010,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2015,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2020,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2025,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2030,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2035,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2040,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2045,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2050,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2055,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+Northwest China Grid,electricity,NA,2060,elec_cf_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,NA,NA,capacity_map_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2020,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2025,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2030,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2035,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2040,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2045,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2050,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2055,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,2060,NA,capital_gcam_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,electricity,NA,NA,secondary_energy_map_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,base load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,biomass liquids,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,coal to liquids,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,coke,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm hot water_cooking,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,gas to liquids,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,intermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,oil refining,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,peak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural appliances modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural cooling modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural heating modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural hot water_cooking modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural lighting modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban appliances modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban cooling modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban heating modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban hot water_cooking modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban lighting modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,solar pv resource,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,subpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,electricity trade,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,electricity tradeDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridbase load generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridelect_td_bld,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridelectricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridelectricity domestic supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridelectricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  GridelectricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridintermediate electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridintermediate generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridoff peak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridsubpeak electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridsubpeak generation,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_woodpulp,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm lighting,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm appliances,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,base load generation-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,biomass liquids-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,coal to liquids-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,elect_td_bld-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,gas to liquids-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,intermediate generation-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,oil refining-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,peak generation-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_rural-internal-gains-trial-market-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid_urban-internal-gains-trial-market-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,subpeak generation-fixed-output,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,iron and steel-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_woodpulp-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  GridGDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Central  Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA, Southern Power Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,East  Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,North  Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northeast  Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridsolar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Northwest  Gridwind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalscrap-constraint,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,woodpulp_energy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,sawnwood_processing,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,woodpulp_processing,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,agricultural energy use,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,backup_electricity,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,chemical,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,chemical energy use,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,chemical feedstocks,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm cooling,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm heating,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm others,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,construction,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,construction energy use,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,construction feedstocks,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,crude oil,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,csp_backup,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,distributed_solar,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,electricity_net_ownuse,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,electricityDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,gas pipeline,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,geothermal,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,H2 liquid truck,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,H2 pipeline,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,mining energy use,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,natural gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,nuclearFuelGenII,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,nuclearFuelGenIII,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,offshore wind resource,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,onshore wind resource,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,other industrial energy use,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,other industrial feedstocks,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,other industry,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,process heat cement,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,process heat food processing,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,process heat paper,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,refiningDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional biomassOil,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional corn for ethanol,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional sugar for ethanol,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional woodpulp for energy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid cooling modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating TradBio_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others coal_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others modern_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid others TradBio_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total biomass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traditional biomass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,waste biomass for paper,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,iron and steel,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d1,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d10,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d2,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d3,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d4,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d5,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d6,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d7,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d8,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid heating coal_d9,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,gas trade statistical differences,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,gas trade statistical differencesDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded Afr_MidE pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded Afr_MidE pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded biomass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded biomassDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded coal,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded coalDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded EUR pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded EUR pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded LA pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded LA pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded LNG,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded LNGDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded N.Amer pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded N.Amer pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oil,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oilDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded PAC pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded PAC pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded RUS pipeline gas,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded RUS pipeline gasDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,alumina,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,aluminum,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Beef,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,cement,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Corn,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Dairy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,DDGS and feedcakes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FeedCrops,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FiberCrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FodderGrass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FodderHerb_Residue,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Fruits,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Legumes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,MiscCrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_Crops,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_Meat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NutsSeeds,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,OilCrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,OilPalm,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,OtherGrain,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,paper,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Pasture,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Pasture_FodderGrass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Pork,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Poultry,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional beef,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional corn,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional dairy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional fibercrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional fruits,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional iron and steel,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional legumes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional misccrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional nuts_seeds,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional oilcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional oilpalm,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional othergrain,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional pork,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional poultry,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional rice,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional root_tuber,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional sheepgoat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional soybean,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional sugarcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional vegetables,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional wheat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Rice,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,RootTuber,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Scavenging_Other,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,SheepGoat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Soybean,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,SugarCrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total beef,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total corn,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total dairy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total fibercrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total fruits,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total legumes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total misccrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total nuts_seeds,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total oilcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total oilpalm,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total othergrain,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total pork,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total poultry,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total rice,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total root_tuber,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total sheepgoat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total soybean,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total sugarcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total vegetables,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,total wheat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Vegetables,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Wheat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded beef,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded beefDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded corn,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded cornDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded dairy,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded dairyDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded fibercrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded fibercropDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded fruits,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded fruitsDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded iron and steel,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded iron and steelDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded legumes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded legumesDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded misccrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded misccropDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded nuts_seeds,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded nuts_seedsDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oilcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oilcropDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oilpalm,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded oilpalmDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded othergrain,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded othergrainDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded pork,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded porkDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded poultry,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded poultryDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded rice,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded riceDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded root_tuber,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded root_tuberDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sheepgoat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sheepgoatDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded soybean,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded soybeanDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sugarcrop,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sugarcropDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded vegetables,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded vegetablesDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded wheat,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded wheatDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,N fertilizer,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,ammonia,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional ammonia,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded ammonia,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded ammoniaDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,Forest,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_sawnwood,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional industrial_roundwood,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional sawnwood,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded industrial_roundwood,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded industrial_roundwoodDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sawnwood,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded sawnwoodDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,food processing,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FoodDemand_NonStaples,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FoodDemand_Staples,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional woodpulp,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded woodpulp,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,traded woodpulpDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_aviation_intl,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_pass,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_pass_road,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_pass_road_LDV,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_pass_road_LDV_4W,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,carbon-storage,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,onshore carbon-storage,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_freight,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_freight_road,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_freight_roadDemand_int,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_shipping_intl,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,agricultural energy use-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,aluminum-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,cement-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,chemical-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,comm-internal-gains-trial-market-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,construction-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,mining energy use-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_Crops-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_Meat-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,NonFoodDemand_sawnwood-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,other industry-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,paper-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,regional iron and steel-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,resid-internal-gains-trial-market-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_aviation_intl-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_freight-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_pass-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,trn_shipping_intl-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,urban processes-tfe,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,GDP_Trial,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,UnmanagedLand,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,solar-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,wind-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FoodDemand_NonStaples-budget-fraction-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,FoodDemand_Staples-budget-fraction-trial-supply,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,industrial processes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,urban processes,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalbio_externality_cost,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalFodderHerb,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalglobal solar resource,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globallimestone,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalmisc emissions sources,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalnegative_emiss_budget,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globaloffshore carbon-storage,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globaloil-credits,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalOtherMeat_Fish,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalResidue,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalScavenging_Other_Rsrc,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalscrap,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globalunconventional oil upscaling,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,energy_price_map_vGCAMChina7.1,NA,globaluranium,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,final_energy_map_vGCAMChina7.1,NA,NA,iron and steel,scrap-constraint,NA,NA,NA,NA
+NA,NA,NA,NA,final_energy_map_vGCAMChina7.1,NA,NA,process heat food processing,solar,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,agricultural energy use,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,construction energy use,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,construction feedstocks,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,mining energy use,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,other industrial energy use,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,other industrial feedstocks,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,process heat cement,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,process heat food processing,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,waste biomass for paper,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,process heat paper,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,construction,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,coke,NA,NA,NA,NA,NA
+NA,NA,NA,NA,production_map_vGCAMChina7.1,NA,NA,food processing,NA,NA,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Corn,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,FiberCrop,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Fruits,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,H2 liquid truck,NA,H2,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,H2 pipeline,NA,H2,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,H2 wholesale dispensing,NA,H2,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Legumes,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,MiscCrop,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,NutsSeeds,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,OilCrop,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,OilPalm,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,OtherGrain,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Rice,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,RootTuber,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Soybean,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,SugarCrop,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,UnmanagedLand,NA,H2,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Vegetables,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,NA,NA,Wheat,NA,H2_AWB,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,ForestFire,NA,UnmanagedLand,NA,H2,NA,NA,NA
+NA,NA,NA,NA,nonco2_emis_sector_map_vGCAMChina7.1,GrasslandFires,NA,UnmanagedLand,NA,H2,NA,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,bio_externality_cost,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,biomass,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,distributed_solar,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,geothermal,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,global solar resource,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,offshore wind resource,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,onshore wind resource,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,traditional biomass,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,solar pv resource,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,DDGS and feedcakes,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,limestone,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,OtherMeat_Fish,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,Residue,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,Scavenging_Other_Rsrc,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,scrap,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,uranium,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,offshore carbon-storage,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,onshore carbon-storage,NA,NA
+NA,NA,NA,NA,res_extraction_map_vGCAMChina7.1,NA,NA,NA,NA,NA,misc emissions sources,NA,NA
+AH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+BJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+CQ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+FJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HA,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HB,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HE,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HI,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HK,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+LN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+MC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+NM,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+NX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+QH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+TJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+XJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+XZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+YN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+ZJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+AH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+BJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+CQ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+FJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HA,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HB,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HE,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HI,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HK,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+LN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+MC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+NM,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+NX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+QH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+TJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+XJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+XZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+YN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+ZJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+AH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+BJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+CQ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+FJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HA,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HB,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HE,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HI,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HK,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JL,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JS,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+LN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+MC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+NM,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+NX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+QH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SC,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SD,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SH,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SX,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+TJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+XJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+XZ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+YN,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+ZJ,NA,2015,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+AH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+BJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+CQ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+FJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+GZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HA,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HB,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HE,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HI,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HK,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+HN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+JX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+LN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+MC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+NM,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+NX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+QH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+SX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+TJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+XJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+XZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+YN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+ZJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,coal
+AH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+BJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+CQ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+FJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+GZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HA,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HB,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HE,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HI,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HK,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+HN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+JX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+LN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+MC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+NM,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+NX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+QH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+SX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+TJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+XJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+XZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+YN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+ZJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,natural gas
+AH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+BJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+CQ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+FJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+GZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HA,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HB,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HE,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HI,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HK,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+HN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JL,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JS,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+JX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+LN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+MC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+NM,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+NX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+QH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SC,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SD,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SH,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+SX,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+TJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+XJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+XZ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+YN,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil
+ZJ,NA,2020,NA,regional_primary_energy_prices_vGCAMChina7.1,NA,NA,NA,NA,NA,NA,ref,oil

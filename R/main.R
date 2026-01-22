@@ -916,6 +916,8 @@ launch_gcamreport_ui <- function(data_path = NULL, data = NULL, GCAM_version = '
     data <- assign("data", get(load(data_path)))
   }
 
+  .myGlobals$GCAM_version <- GCAM_version
+
   # define the dataset for launching the ui
   sdata <<- suppressWarnings(
     data %>%

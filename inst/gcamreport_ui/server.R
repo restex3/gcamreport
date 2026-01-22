@@ -4,6 +4,10 @@ library(magrittr)
 # Define server ----------------------------------------------------------------
 
 server <- function(input, output, session) {
+  GCAM_version <- .myGlobals$GCAM_version
+  if (is.null(GCAM_version)) {
+    GCAM_version <- "v7.1"
+  }
   ## -- select all/none variables
   observeEvent(input$select_all_variables, {
     tree_vars <<- do_mount_tree(cols.global, names(cols.global), selec = TRUE)
