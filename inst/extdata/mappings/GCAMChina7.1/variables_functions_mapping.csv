@@ -95,3 +95,4 @@ income_clean;get_income;;subregional income
 consumption_hh_clean;get_consumption_hh;;building total final energy by service
 yield_clean;get_yield;ag_production_clean,land_clean;
 refliq_bioshare;get_refliq_bioshare;;refined liquids production by tech
+iron_steel_prod_tech_clean;get_iron_steel_prod_tech;;iron and steel production by tech

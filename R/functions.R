@@ -4093,6 +4093,40 @@ get_industry_production <- function(GCAM_version = "v7.1") {
   industry_production_clean <<- industry_production_clean
 }
 
+#' get_iron_steel_prod_tech
+#'
+#' Retrieve iron and steel production by technology.
+#' @param GCAM_version Main GCAM compatible version: 'v7.1' (default), 'v7.2', 'v7.0'.
+#' @keywords internal industry
+#' @return `iron_steel_prod_tech_clean` global variable
+#' @importFrom magrittr %>%
+#' @export
+get_iron_steel_prod_tech <- function(GCAM_version = "v7.1") {
+  var <- scenario <- region <- year <- value <- sector <- subsector <- technology <- Units <- unit_conv <- NULL
+  iron_steel_prod_tech_clean <- NULL
+
+  check_queries("iron_steel_prod_tech_clean", GCAM_version)
+
+  iron_steel_prod_tech_clean <-
+    check_inf(rgcam::getQuery(prj, "iron and steel production by tech"),
+              dataset_name = "iron and steel production by tech") %>%
+    dplyr::filter(Units == "Mt") %>%
+    left_join_strict(get(paste('iron_steel_prod_tech_map', GCAM_version, sep = '_'),
+                         envir = asNamespace("gcamreport")),
+                     by = c("sector", "subsector", "technology"),
+                     mapping = paste('iron_steel_prod_tech_map', GCAM_version, sep = '_'),
+                     multiple = "all") %>%
+    dplyr::filter(var != 'NoReported', !is.na(var)) %>%
+    filter_variables() %>%
+    dplyr::mutate(value = value * unit_conv) %>%
+    dplyr::group_by(scenario, region, year, var) %>%
+    dplyr::summarise(value = sum(value, na.rm = TRUE)) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  iron_steel_prod_tech_clean <<- iron_steel_prod_tech_clean
+}
+
 #' get_iron_steel_imports
 #'
 #' Retrieve iron steel imports.

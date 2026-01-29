@@ -163,6 +163,12 @@ production_map_vGCAMChina7.1 <- readr::read_csv(
 ) %>% gather_map()
 use_data(production_map_vGCAMChina7.1, overwrite = T)
 
+iron_steel_prod_tech_map_vGCAMChina7.1 <- readr::read_csv(
+  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "iron_steel_prod_tech_map.csv"),
+  comment = "#"
+) %>% gather_map()
+use_data(iron_steel_prod_tech_map_vGCAMChina7.1, overwrite = T)
+
 secondary_energy_map_vGCAMChina7.1 <- readr::read_csv(
   file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "capacity_map.csv"),
   comment = "#"
@@ -438,6 +444,28 @@ decode_html <- function(text) {
 }
 # Applying the function to decode HTML entities in col1
 template_vGCAMChina7.1$Unit <- sapply(template_vGCAMChina7.1$Unit, decode_html)
+iron_steel_prod_vars <- data.frame(
+  Variable = c(
+    "Production|Steel|Blast Furnace",
+    "Production|Steel|EAF-scrap",
+    "Production|Steel|Hydrogen-DRI",
+    "Production|Steel|EAF-DRI",
+    "Production|Steel|Blast Furnace|BLASTFUR",
+    "Production|Steel|Blast Furnace|BLASTFUR CCS",
+    "Production|Steel|Blast Furnace|BLASTFUR with hydrogen",
+    "Production|Steel|Blast Furnace|Biomass-based",
+    "Production|Steel|EAF-scrap|EAF with scrap",
+    "Production|Steel|EAF-DRI|EAF with DRI",
+    "Production|Steel|EAF-DRI|EAF with DRI CCS",
+    "Production|Steel|Hydrogen-DRI|Hydrogen-based DRI"
+  ),
+  Unit = "Mt/yr",
+  Tier = 3,
+  Internal_variable = "iron_steel_prod_tech_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, iron_steel_prod_vars)
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 
