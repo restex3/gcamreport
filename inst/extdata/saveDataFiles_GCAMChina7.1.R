@@ -466,6 +466,30 @@ iron_steel_prod_vars <- data.frame(
   stringsAsFactors = FALSE
 )
 template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, iron_steel_prod_vars)
+
+primary_energy_elec_vars <- data.frame(
+  Variable = c(
+    "Primary Energy|Electricity|Oil|w/o CCS",
+    "Primary Energy|Electricity|Gas|w/o CCS",
+    "Primary Energy|Electricity|Coal|w/o CCS",
+    "Primary Energy|Electricity|Biomass|w/o CCS",
+    "Primary Energy|Electricity|Coal|w/ CCS",
+    "Primary Energy|Electricity|Oil|w/ CCS",
+    "Primary Energy|Electricity|Biomass|w/ CCS",
+    "Primary Energy|Electricity|Gas|w/ CCS",
+    "Primary Energy|Electricity|Nuclear",
+    "Primary Energy|Electricity|Hydro",
+    "Primary Energy|Electricity|Wind",
+    "Primary Energy|Electricity|Geothermal",
+    "Primary Energy|Electricity|Solar"
+  ),
+  Unit = "EJ/yr",
+  Tier = 3,
+  Internal_variable = "primary_energy_electricity_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, primary_energy_elec_vars)
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 

@@ -3405,6 +3405,99 @@ get_primary_energy <- function(GCAM_version = "v7.1") {
 }
 
 
+#' get_primary_energy_electricity
+#'
+#' Retrieve primary energy from electricity generation by fuel and CCS.
+#' @param GCAM_version Main GCAM compatible version: 'v7.1' (default), 'v7.2', 'v7.0'.
+#' @keywords internal energy
+#' @return `primary_energy_electricity_clean` global variable.
+#' @importFrom magrittr %>%
+#' @export
+get_primary_energy_electricity <- function(GCAM_version = "v7.1") {
+  scenario <- region <- year <- value <- subsector <- technology <- Units <- var <- fuel <- NULL
+  primary_energy_electricity_clean <- NULL
+
+  if (GCAM_version != "vGCAMChina7.1") {
+    warning("primary_energy_electricity_clean is only configured for vGCAMChina7.1; skipping.")
+    primary_energy_electricity_clean <<- data.frame(
+      scenario = character(0),
+      region = character(0),
+      var = character(0),
+      year = numeric(0),
+      value = numeric(0)
+    )
+    return(invisible(NULL))
+  }
+
+  check_queries("primary_energy_electricity_clean", GCAM_version)
+
+  elec_pe <- check_inf(
+    rgcam::getQuery(prj, "elec gen by gen tech (cogen only)"),
+    dataset_name = "elec gen by gen tech (cogen only)"
+  ) %>%
+    dplyr::filter(Units == "EJ")
+
+  if (nrow(elec_pe) == 0) {
+    warning("elec gen by gen tech (cogen only) query is empty; skipping primary_energy_electricity_clean.")
+    primary_energy_electricity_clean <<- data.frame(
+      scenario = character(0),
+      region = character(0),
+      var = character(0),
+      year = numeric(0),
+      value = numeric(0)
+    )
+    return(invisible(NULL))
+  }
+
+  elec_pe <- elec_pe %>%
+    dplyr::mutate(
+      fuel = dplyr::case_when(
+        subsector == "biomass" ~ "Biomass",
+        subsector == "coal" ~ "Coal",
+        subsector == "gas" ~ "Gas",
+        subsector == "refined liquids" ~ "Oil",
+        subsector == "hydro" ~ "Hydro",
+        subsector == "wind" ~ "Wind",
+        subsector %in% c("solar", "rooftop_pv") ~ "Solar",
+        subsector == "geothermal" ~ "Geothermal",
+        TRUE ~ NA_character_
+      ),
+      var = dplyr::case_when(
+        fuel %in% c("Coal", "Oil", "Gas", "Biomass") & grepl("_CCS", technology) ~
+          paste0("Primary Energy|Electricity|", fuel, "|w/ CCS"),
+        fuel %in% c("Coal", "Oil", "Gas", "Biomass") ~
+          paste0("Primary Energy|Electricity|", fuel, "|w/o CCS"),
+        fuel %in% c("Nuclear", "Hydro", "Wind", "Solar", "Geothermal") ~
+          paste0("Primary Energy|Electricity|", fuel),
+        TRUE ~ "NoReported"
+      )
+    )
+
+  record_mapping_fallback(
+    "primary_energy_electricity_clean",
+    elec_pe %>%
+      dplyr::filter(var == "NoReported" | is.na(var)) %>%
+      dplyr::select(subsector, technology) %>%
+      dplyr::distinct()
+  )
+
+  primary_energy_electricity_clean <-
+    elec_pe %>%
+    dplyr::filter(var != "NoReported", !is.na(var)) %>%
+    filter_variables() %>%
+    dplyr::group_by(scenario, region, year, var) %>%
+    dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+    tidyr::complete(
+      tidyr::nesting(scenario, region, year),
+      var = unique(var),
+      fill = list(value = 0)
+    ) %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  primary_energy_electricity_clean <<- primary_energy_electricity_clean
+}
+
+
 #' get_pe_trade_prod
 #'
 #' Retrieve energy trade data.
