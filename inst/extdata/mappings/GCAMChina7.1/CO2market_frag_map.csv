@@ -6,3 +6,15 @@ CO2,Price|Carbon|Energy|Demand|Industry,Industry
 CO2,Price|Carbon|Energy|Demand|Residential and Commercial,Residential and Commercial
 CO2,Price|Carbon|Energy|Demand|Transportation,Transportation
 CO2,Price|Carbon|Energy|Supply,Supply
+ChinaCO2,Price|Carbon,Energy and Industrial Processes
+ChinaCO2,Price|Carbon|Energy,Energy and Industrial Processes
+ChinaCO2,Price|Carbon|Energy|Demand|Industry,Industry
+ChinaCO2,Price|Carbon|Energy|Demand|Residential and Commercial,Residential and Commercial
+ChinaCO2,Price|Carbon|Energy|Demand|Transportation,Transportation
+ChinaCO2,Price|Carbon|Energy|Supply,Supply
+ChinaCO2_NearTerm,Price|Carbon,Energy and Industrial Processes
+ChinaCO2_NearTerm,Price|Carbon|Energy,Energy and Industrial Processes
+ChinaCO2_NearTerm,Price|Carbon|Energy|Demand|Industry,Industry
+ChinaCO2_NearTerm,Price|Carbon|Energy|Demand|Residential and Commercial,Residential and Commercial
+ChinaCO2_NearTerm,Price|Carbon|Energy|Demand|Transportation,Transportation
+ChinaCO2_NearTerm,Price|Carbon|Energy|Supply,Supply
