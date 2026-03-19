@@ -21,6 +21,7 @@
 - [gcamreport](#gcamreport)
   - [Contents](#contents)
   - [Introduction](#introduction)
+  - [GCAM-China Support](#gcam-china-support)
   - [Installation Guide](#installation-guide)
     - [With R](#with-r)
       - [Light mode installation](#light-mode-installation)
@@ -45,6 +46,33 @@
 [Back to Contents](#contents)
 
 `gcamreport` is a tool designed to generate consistent datasets from any scenario run by the Global Change Analysis Model ([GCAM](http://www.globalchange.umd.edu/gcam/)), ensuring they meet the reporting standards of the Integrated Assessment Modeling Consortium ([IAMC](https://www.iamconsortium.org/)) defined in the [Common Definitions](https://github.com/IAMconsortium/common-definitions) repository. In addition, `gcamreport` features an interactive user interface that allows users to create and download plots in real time and export reduced, formatted datasets in spreadsheet format. The tool is currently compatible with GCAM-core versions [6.0](https://zenodo.org/records/6619287), [7.0](https://zenodo.org/records/8010145), [7.1](https://zenodo.org/records/11481167), and [7.2](https://zenodo.org/records/13946379). Moreover, we support the 2015 and 2021 GCAM base years. Check the [version guide](file:///C:/Users/claudia.rodes/Documents/IAM_COMPACT/gcamreport/docs/articles/Version_Guide.html) to see how to run your version! :rocket:
+
+<br>
+
+<!-- ------------------------>
+
+<!-- ------------------------>
+
+## <a name="gcam-china-support"></a>GCAM-China Support
+
+<!-- ------------------------>
+
+<!-- ------------------------>
+
+[Back to Contents](#contents)
+
+Dedicated GCAM-China support and validation notes are documented in:
+
+- [README_GCAM-China.md](README_GCAM-China.md)
+- [GCAM-China_AGENT_MANUAL.md](GCAM-China_AGENT_MANUAL.md)
+- [GCAM-China_IMPROVEMENTS.md](GCAM-China_IMPROVEMENTS.md)
+
+These documents cover:
+
+- the dedicated `vGCAMChina7.1` implementation
+- official workflow comparison status
+- validation scripts and outputs
+- all major GCAM-China specific improvements
 
 <br>
 

@@ -28,6 +28,12 @@ use_data(reg_cont_vGCAMChina7.1, overwrite = T)
 
 
 # emissions maps
+co2_sector_map_vGCAMChina7.1 <- readr::read_csv(
+  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "CO2_sector_map.csv"),
+  comment = "#", na = ""
+) %>% gather_map()
+use_data(co2_sector_map_vGCAMChina7.1, overwrite = T)
+
 co2_ets_sector_map_vGCAMChina7.1 <- readr::read_csv(
   file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "CO2_ETS_sector_map.csv"),
   comment = "#", na = ""
@@ -209,7 +215,7 @@ cf_rgn_vGCAMChina7.1 <- cf_rgn_base %>%
 use_data(cf_rgn_vGCAMChina7.1, overwrite = T)
 
 final_energy_map_vGCAMChina7.1 <- readr::read_csv(
-  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "final_energy_map.csv"),
+  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "final_energy_map_gcamchina.csv"),
   comment = "#"
 ) %>% gather_map()
 use_data(final_energy_map_vGCAMChina7.1, overwrite = T)
@@ -221,7 +227,7 @@ en_demand_price_map_vGCAMChina7.1 <- readr::read_csv(
 use_data(en_demand_price_map_vGCAMChina7.1, overwrite = T)
 
 transport_final_en_map_vGCAMChina7.1 <- readr::read_csv(
-  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "transport_final_en_map.csv"),
+  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "transport_final_en_map_gcamchina.csv"),
   comment = "#", na = ""
 ) %>% gather_map()
 use_data(transport_final_en_map_vGCAMChina7.1, overwrite = T)
@@ -260,15 +266,15 @@ use_data(buildings_en_service_vGCAMChina7.1, overwrite = T)
 
 # capital updates
 capital_gcam_vGCAMChina7.1 <- readr::read_csv(
-  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "L223.GlobalIntTechCapital_elec.csv"),
+  file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "L2234.GlobalIntTechCapital_elecS_CHINA.csv"),
   comment = "#", na = ""
 ) %>%
   dplyr::rename(technology = intermittent.technology) %>%
   dplyr::bind_rows(readr::read_csv(
-    file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "L223.GlobalTechCapital_elec.csv"),
+    file.path(rawDataFolder, "inst/extdata/mappings/GCAMChina7.1", "L2234.GlobalTechCapital_elecS_CHINA.csv"),
     comment = "#", na = ""
   )) %>%
-  dplyr::select(sector = sector.name, subsector = subsector.name, technology, year, capital.overnight)
+  dplyr::select(sector = supplysector, subsector, technology, year, capital.overnight)
 use_data(capital_gcam_vGCAMChina7.1, overwrite = T)
 
 investment_vGCAMChina7.1 <- readr::read_csv(
@@ -381,14 +387,15 @@ convert_vGCAMChina7.1 <- list(
   # for queries such as primary_fuel_prices this conversion is specified in the mapping file
   # These values are taken from GDP inflator in the GCAM R package
   conv_05USD_10USD = 1.100372,
-  conv_90USD_10USD = 1.515897,
-  conv_75USD_10USD = 3.227608,
+  conv_90USD_10USD = 1.511373,
+  conv_75USD_10USD = 3.224173,
   conv_15USD_10USD = 0.91863,
-  conv_19USD_75USD = 0.2658798,
+  conv_19USD_75USD = 0.2672871,
+  conv_10USD_20USD = 1.175896,
   conv_C_CO2 = 44 / 12,
   # Elec related conversions
   hr_per_yr = 8760,
-  EJ_to_GWh = 0.0000036,
+  EJ_to_GWh = 277778,
   bcm_to_EJ = 0.03600,
   GJ_to_EJ = 1.0E9,
   # Energy content of biomass, GJ/ton

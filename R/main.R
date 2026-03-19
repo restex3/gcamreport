@@ -122,7 +122,13 @@ load_project <- function(project_path, desired_regions = "All", scenarios = NULL
     for (s in names(prj)) {
       # for all variables in prj
       for (v in names(prj[[s]])) {
-        prj[[s]][[v]] <- filter_loading_regions(prj[[s]][[v]], desired_regions, v, GCAM_version)
+        if (GCAM_version == "vGCAMChina7.1") {
+          prj[[s]][[v]] <- suppressWarnings(
+            filter_loading_regions(prj[[s]][[v]], desired_regions, v, GCAM_version)
+          )
+        } else {
+          prj[[s]][[v]] <- filter_loading_regions(prj[[s]][[v]], desired_regions, v, GCAM_version)
+        }
       }
     }
   }
@@ -180,13 +186,23 @@ create_project <- function(db_path, db_name, prj_name, scenarios = NULL,
 
   # read the query file
   if(is.null(queries_general_file)) {
-    queries_short <- get(paste('queries_general',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+    if (GCAM_version == "vGCAMChina7.1") {
+      queryFile <- system.file("extdata", "queries", "GCAMChina7.1", "queries_gcamreport_general.xml", package = "gcamreport")
+      queries_short <- rgcam::parse_batch_query(queryFile)
+    } else {
+      queries_short <- get(paste('queries_general',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+    }
   } else {
     queries_short <- rgcam::parse_batch_query(queries_general_file)
   }
 
   if(is.null(queries_nonCO2_file)) {
-    queries_nonCO2_file <- queries_large <- get(paste('queries_nonCO2',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+    if (GCAM_version == "vGCAMChina7.1") {
+      queryFile <- system.file("extdata", "queries", "GCAMChina7.1", "queries_gcamreport_nonCO2.xml", package = "gcamreport")
+      queries_nonCO2_file <- queries_large <- rgcam::parse_batch_query(queryFile)
+    } else {
+      queries_nonCO2_file <- queries_large <- get(paste('queries_nonCO2',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+    }
   } else {
     queries_large <- rgcam::parse_batch_query(queries_nonCO2_file)
   }
@@ -195,7 +211,7 @@ create_project <- function(db_path, db_name, prj_name, scenarios = NULL,
   if (!(length(desired_variables) == 1 && desired_variables == "All")) {
     # create a mapping with the Variables, Internal variables, functions to load
     # them, and the dependencies
-    required_internal_variables <- get(paste('var_fun_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
+    required_internal_variables <- get_runtime_var_fun_map(GCAM_version) %>%
       dplyr::rename("Internal_variable" = "name") %>%
       dplyr::left_join(
         get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
@@ -276,7 +292,7 @@ create_project <- function(db_path, db_name, prj_name, scenarios = NULL,
   }
 
   # Add 'nonCO2' large queries manually (they are too big to use the usual method)
-  var_fun_map <- get(paste('var_fun_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+  var_fun_map <- get_runtime_var_fun_map(GCAM_version)
 
   nonCO2_emiss_sec_query <- var_fun_map[var_fun_map$name == 'co2_ets_bysec',][["queries"]][[1]][1]
   if (!nonCO2_emiss_sec_query %in% rgcam::listQueries(prj) &&
@@ -384,8 +400,10 @@ load_variable <- function(var, GCAM_version = 'v7.1', GWP_version = 'AR5') {
     }
   }
 
-  # print the variable's name
-  print(var$name)
+  # optional low-level progress logging for debugging
+  if (isTRUE(getOption("gcamreport.verbose_internal", FALSE))) {
+    rlang::inform(paste("Loading internal variable:", var$name))
+  }
 
   # load the variable
   arguments <- formals(var$fun)
@@ -789,12 +807,15 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
 
   # make interactive a global variable
   .myGlobals$interactive.global <- interactive
+  if (GCAM_version == "vGCAMChina7.1") {
+    init_gcam_china_run_notes()
+  }
 
   rlang::inform("Loading data, performing checks, and saving output...")
 
   # consider the dependencies and checking functions
   variables.global <- merge(variables.global,
-                             get(paste('var_fun_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
+                             get_runtime_var_fun_map(GCAM_version),
                              by = "name", all = TRUE) %>%
     tidyr::replace_na(list(required = FALSE))
   .myGlobals$variables.global <- variables.global
@@ -804,9 +825,19 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   years_in_prj <<- years_in_prj
   desired_regions.global <<- desired_regions
   desired_variables.global <<- desired_variables
-  for (i in 1:nrow(.myGlobals$variables.global)) {
-    if (.myGlobals$variables.global$required[i]) {
-      load_variable(.myGlobals$variables.global[i, ], GCAM_version, GWP_version)
+  if (GCAM_version == "vGCAMChina7.1") {
+    suppress_dplyr_join_messages(
+      for (i in 1:nrow(.myGlobals$variables.global)) {
+        if (.myGlobals$variables.global$required[i]) {
+          load_variable(.myGlobals$variables.global[i, ], GCAM_version, GWP_version)
+        }
+      }
+    )
+  } else {
+    for (i in 1:nrow(.myGlobals$variables.global)) {
+      if (.myGlobals$variables.global$required[i]) {
+        load_variable(.myGlobals$variables.global[i, ], GCAM_version, GWP_version)
+      }
     }
   }
 
@@ -821,7 +852,11 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   }
 
   # bind and save results
-  do_bind_results(GCAM_version, all_tier1)
+  if (GCAM_version == "vGCAMChina7.1") {
+    suppress_dplyr_join_messages(do_bind_results(GCAM_version, all_tier1))
+  } else {
+    do_bind_results(GCAM_version, all_tier1)
+  }
   save(report, file = paste0(output_file, ".RData"))
 
   if (save_output == TRUE || save_output %in% c("CSV", "XLSX")) {
@@ -846,14 +881,15 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
                                     end = stringr::str_locate(as.character(vet$message), ":") - 1
   )[1]]] <- vet
 
-  if (identical(desired_regions, "All") || length(desired_regions) == gcamreport::GCAM_regions_number) {
+  if (GCAM_version != "vGCAMChina7.1" &&
+      (identical(desired_regions, "All") || length(desired_regions) == gcamreport::GCAM_regions_number)) {
     vet <- do_check_vetting()
     vetting_summary[[stringr::str_sub(as.character(vet$message),
                                       end = stringr::str_locate(as.character(vet$message), ":") - 1
     )[1]]] <- vet
     rlang::inform("Vetting summary:")
     for (e in vetting_summary) {
-      print(e$message)
+      cat(paste0(as.character(e$message), "\n"))
     }
     vetting_summary <<- vetting_summary
     cat("To view the summary details, type:\n")
@@ -865,20 +901,28 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   } else {
     rlang::inform("Vetting summary:")
     for (e in vetting_summary) {
-      print(e$message)
+      cat(paste0(as.character(e$message), "\n"))
     }
     vetting_summary <<- vetting_summary
     cat("To view the summary details, type:\n")
     cat('  - `vetting_summary$`NA variables` to check for NA values\n')
     cat('  - `vetting_summary$`Inf variables` to check for Inf values\n')
-    cat('Since not all regions were selected, there is no vetting related to historical values\n')
+    if (GCAM_version == "vGCAMChina7.1") {
+      cat('Historical World vetting is skipped for `vGCAMChina7.1` because the selected regions are China and provinces, not the standard GCAM world-region set.\n')
+    } else {
+      cat('Since not all regions were selected, there is no vetting related to historical values\n')
+    }
     cat("==============================================================\n")
+  }
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    print_gcam_china_run_notes()
   }
 
   # remove internal variables from the environment
   rm(list = loaded_internal_variables.global, envir = .GlobalEnv)
   rm(list = c("loaded_internal_variables.global"), envir = .GlobalEnv)
-  rm(list = c("ignore.global", "variables.global", "interactive.global", "GCAM_version"), envir = .myGlobals)
+  rm(list = c("ignore.global", "variables.global", "interactive.global", "GCAM_version", "gcam_china_run_notes"), envir = .myGlobals)
   gc()
 
   if (launch_ui) {

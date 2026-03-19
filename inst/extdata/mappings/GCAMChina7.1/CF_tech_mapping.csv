@@ -1,0 +1,20 @@
+technology_gcam,technology_adjust
+biomass_base_conv_CCS,biomass (conv CCS)
+biomass_base_IGCC_CCS,biomass (IGCC CCS)
+biomass_int_conv_CCS,biomass (conv CCS)
+biomass_int_IGCC_CCS,biomass (IGCC CCS)
+coal_base_conv pul_CCS,coal (conv pul CCS)
+coal_base_IGCC_CCS,coal (IGCC CCS)
+coal_int_conv pul_CCS,coal (conv pul CCS)
+coal_int_IGCC_CCS,coal (IGCC CCS)
+PV_base_storage,PV_storage
+CSP_int,CSP
+CSP_peak,CSP
+CSP_subpeak,CSP
+PV_int,PV
+PV_peak,PV
+PV_subpeak,PV
+wind_base,wind
+wind_base_offshore,wind_offshore
+wind_int,wind
+wind_subpeak,wind

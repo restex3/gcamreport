@@ -9,7 +9,7 @@ global_temp_clean;get_temperature;;global mean temperature
 co2_concentration_clean;get_co2_concentration;;CO2 concentrations
 nonbio_share;get_nonbio_tmp;;CO2 emissions by sector (excluding resource production),CO2 emissions by sector (no bio) (excluding resource production)
 co2_tech_nobio;get_co2_tech_nobio_tmp;nonbio_share;CO2 emissions by tech (excluding resource production)
-co2_emiss;get_co2_emiss;;CO2 emissions by tech (excluding resource production),CO2 emissions by resource production,CO2 emissions by region
+co2_emiss;get_co2_emiss;;CO2 emissions by sector,CO2 emissions by resource production,CO2 emissions by region
 iron_steel_map;get_iron_steel_map;;industry final energy by tech and fue
 co2_tech_ironsteel;get_co2_iron_steel;co2_tech_nobio,iron_steel_map;
 LUC_emiss;get_lu_co2;;LUC emissions by region
@@ -29,8 +29,8 @@ primary_energy_electricity_clean;get_primary_energy_electricity;;elec gen by gen
 pe_trade_prod;get_pe_trade_prod;;resource production,purpose-grown biomass production,residue biomass production,MSW production
 pe_trade_supply;get_pe_trade_supply;;supply of all markets
 pe_trade;get_pe_trade;pe_trade_prod,pe_trade_supply;
-secondary_energy_clean;get_elec_gen_tech;secondary_solids;elec gen by gen tech,gas production by tech,hydrogen production by tech,refined liquids production by tech,district heat production by subsector (fuel)
-secondary_energy_raw;get_elec_gen_tech;secondary_solids;elec gen by gen tech,gas production by tech,hydrogen production by tech,refined liquids production by tech,district heat production by subsector (fuel)
+secondary_energy_clean;get_elec_gen_tech;secondary_solids;elec gen by gen tech (incl cogen),gas production by tech,hydrogen production by tech,refined liquids production by tech,district heat production by subsector (fuel)
+secondary_energy_raw;get_elec_gen_tech;secondary_solids;elec gen by gen tech (incl cogen),gas production by tech,hydrogen production by tech,refined liquids production by tech,district heat production by subsector (fuel)
 secondary_solids;get_secondary_solids;;inputs by sector
 fe_sector;get_fe_sector_tmp;;final energy consumption by sector and fuel
 fe_sector_raw;get_fe_sector_tmp;;final energy consumption by sector and fuel
@@ -57,8 +57,8 @@ total_revenue;get_total_revenue;;resource production,prices by sector
 regional_emission;get_regional_emission;nonco2_content;resource production
 cf_iea;get_cf_iea_tmp;secondary_energy_clean;
 elec_cf;get_elec_cf_tmp;cf_iea;
-elec_capacity_tot_clean;get_elec_capacity_tot;elec_cf;elec gen by gen tech and cooling tech and vintage
-elec_capacity_add;get_elec_capacity_add_tmp;elec_cf;elec gen by gen tech and cooling tech and vintage
+elec_capacity_tot_clean;get_elec_capacity_tot;elec_cf;elec gen by gen tech and vintage (incl cogen)
+elec_capacity_add;get_elec_capacity_add_tmp;elec_cf;elec gen by gen tech and vintage (incl cogen)
 elec_capacity_add_clean;get_elec_capacity_add;elec_capacity_add;
 elec_capital_clean;get_elec_capital;;
 elec_investment_clean;get_elec_investment;elec_capacity_add;

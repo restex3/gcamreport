@@ -14,8 +14,19 @@ options(summarise.inform = FALSE)
 #' @return The two closest values (one smaller and one bigger) in one vector.
 #' @export
 find_closest_values <- function(values_vector, target_value) {
-  smaller <- max(values_vector[values_vector <= target_value], na.rm = TRUE)
-  larger  <- min(values_vector[values_vector >= target_value], na.rm = TRUE)
+  smaller_candidates <- values_vector[values_vector <= target_value]
+  larger_candidates <- values_vector[values_vector >= target_value]
+
+  smaller <- if (length(smaller_candidates) > 0) {
+    max(smaller_candidates, na.rm = TRUE)
+  } else {
+    NA_real_
+  }
+  larger  <- if (length(larger_candidates) > 0) {
+    min(larger_candidates, na.rm = TRUE)
+  } else {
+    NA_real_
+  }
   return(c(smaller, larger))
 }
 
@@ -37,6 +48,9 @@ interpolateGCAMdata <- function (data, yearcol = 'year', valuecol = 'value',
   for (ya in year_to_appear) {
     if (!ya %in% unique(data[[yearcol]])) {
       years_to_interp <- sort(find_closest_values(unique(data[[yearcol]]), ya))
+      if (length(years_to_interp) < 2 || any(is.na(years_to_interp)) || any(!is.finite(years_to_interp))) {
+        next
+      }
 
       data <- data %>%
         dplyr::group_by(across(setdiff(names(.), c(yearcol, valuecol)))) %>%
@@ -140,7 +154,7 @@ check_inf <- function(dataset, value_var_name = 'value', dataset_name = NULL) {
 #' @return boolean indicating if all the required queries to compute the desired variable are available.
 #' @export
 check_queries <- function(var, GCAM_version = 'v7.1') {
-  var_fun_map <- get(paste('var_fun_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+  var_fun_map <- get_runtime_var_fun_map(GCAM_version)
   queryItems <- var_fun_map[var_fun_map$name == var, "queries"][[1]]
 
   it = 1; allOk = TRUE
@@ -179,6 +193,719 @@ filter_data_regions <- function(data) {
   }
 
   return(data)
+}
+
+#' get_runtime_var_fun_map
+#'
+#' Read the runtime variable-function mapping. For GCAM-China 7.1 we prefer the
+#' mapping file in `inst/extdata` so local query updates are picked up without
+#' rebuilding package data.
+#'
+#' @keywords internal
+#' @export
+get_runtime_var_fun_map <- function(GCAM_version = "v7.1") {
+  if (GCAM_version == "vGCAMChina7.1") {
+    mapping_path <- system.file(
+      "extdata", "mappings", "GCAMChina7.1", "variables_functions_mapping.csv",
+      package = "gcamreport"
+    )
+    var_fun_map <- utils::read.csv(
+      mapping_path,
+      sep = ";",
+      header = TRUE,
+      na.strings = c("", "NA"),
+      stringsAsFactors = FALSE
+    )
+    var_fun_map$dependencies <- as.list(strsplit(var_fun_map$dependencies, ","))
+    var_fun_map$queries <- as.list(strsplit(var_fun_map$queries, ","))
+    return(var_fun_map)
+  }
+
+  get(paste("var_fun_map", GCAM_version, sep = "_"), envir = asNamespace("gcamreport"))
+}
+
+#' normalize_gcam_china_co2_sector
+#'
+#' Normalize GCAM-China sector names before matching them to the official CO2
+#' sector mapping.
+#'
+#' @keywords internal
+#' @export
+normalize_gcam_china_co2_sector <- function(sector) {
+  sector <- sub(" (modern|coal)$", "", sector)
+  sector <- sub(" industry$", "", sector)
+  sector <- sub(" transport$", "", sector)
+  sector <- sub(" h2$", "", sector)
+  sector <- ifelse(sector == "regional sugarbeet for ethanol", "regional sugar for ethanol", sector)
+  sector <- ifelse(grepl("^trn_pass_road_LDV_", sector), "trn_pass_road_LDV", sector)
+  sector
+}
+
+#' get_gcam_china_co2_sector_map
+#'
+#' Load the official GCAM-China CO2 sector map.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_co2_sector_map <- function() {
+  if (exists("co2_sector_map_vGCAMChina7.1", envir = asNamespace("gcamreport"), inherits = FALSE)) {
+    return(get("co2_sector_map_vGCAMChina7.1", envir = asNamespace("gcamreport")))
+  }
+
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "CO2_sector_map.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE
+  ) %>%
+    gather_map()
+}
+
+#' get_gcam_china_co2_resource_map
+#'
+#' Load the GCAM-China CO2 resource production mapping.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_co2_resource_map <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "CO2_resource_map.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE
+  ) %>%
+    gather_map()
+}
+
+#' get_gcam_china_weo_mapping
+#'
+#' Load the official GCAM-China mapping between IAMC electricity variables and
+#' IEA WEO capacity categories.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_weo_mapping <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "gcam_weo_mapping.csv", package = "gcamreport"),
+    check.names = FALSE,
+    stringsAsFactors = FALSE
+  )
+}
+
+#' get_gcam_china_iea_capacity_2023
+#'
+#' Load the official GCAM-China reference IEA WEO 2023 capacity file.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_iea_capacity_2023 <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "IEAWEO2023_Capacity.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE,
+    stringsAsFactors = FALSE
+  )
+}
+
+#' get_gcam_china_cf_tech_mapping
+#'
+#' Load the official GCAM-China mapping between GCAM electricity technologies
+#' and province-specific capacity factor adjustment categories.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_cf_tech_mapping <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "CF_tech_mapping.csv", package = "gcamreport"),
+    check.names = FALSE,
+    stringsAsFactors = FALSE
+  )
+}
+
+#' get_gcam_china_cf_province
+#'
+#' Load the official GCAM-China province-specific renewable capacity factors.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_cf_province <- function() {
+  cf_province <- utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "df_CF_China_province_8_12.csv", package = "gcamreport"),
+    check.names = FALSE,
+    stringsAsFactors = FALSE
+  )
+  keep_cols <- !is.na(names(cf_province)) &
+    nzchar(names(cf_province)) &
+    !vapply(cf_province, function(col) all(is.na(col)), logical(1))
+
+  cf_province[, keep_cols, drop = FALSE] %>%
+    tidyr::pivot_longer(
+      cols = tidyselect::matches("^X?\\d{4}$"),
+      names_to = "year",
+      values_to = "cf"
+    ) %>%
+    dplyr::mutate(
+      year = as.integer(sub("^X", "", year)),
+      cf = as.numeric(cf)
+    ) %>%
+    tidyr::drop_na(region) %>%
+    dplyr::select(technology, year, cf, region) %>%
+    tidyr::drop_na()
+}
+
+#' get_gcam_china_elec_query_name
+#'
+#' Return the preferred GCAM-China electricity generation query name, while
+#' remaining compatible with older saved projects that only contain the legacy
+#' query titles.
+#'
+#' @param vintage Whether to return the technology-and-vintage query title.
+#' @keywords internal
+#' @export
+get_gcam_china_elec_query_name <- function(vintage = FALSE) {
+  preferred <- if (vintage) {
+    "elec gen by gen tech and vintage (incl cogen)"
+  } else {
+    "elec gen by gen tech (incl cogen)"
+  }
+  fallback <- if (vintage) {
+    "elec gen by gen tech and cooling tech and vintage"
+  } else {
+    "elec gen by gen tech"
+  }
+
+  queries <- tryCatch(rgcam::listQueries(prj), error = function(e) character(0))
+  if (preferred %in% queries) preferred else fallback
+}
+
+#' get_runtime_convert
+#'
+#' Return conversion constants, correcting known runtime issues for
+#' `vGCAMChina7.1`.
+#'
+#' @keywords internal
+#' @export
+get_runtime_convert <- function(GCAM_version = "v7.1") {
+  conv <- get(paste("convert", GCAM_version, sep = "_"), envir = asNamespace("gcamreport"))
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    conv[["conv_90USD_10USD"]] <- 1.511373
+    conv[["conv_75USD_10USD"]] <- 3.224173
+    conv[["conv_19USD_75USD"]] <- 0.2672871
+    if (!is.null(conv[["EJ_to_GWh"]]) && is.finite(conv[["EJ_to_GWh"]]) && conv[["EJ_to_GWh"]] < 1) {
+      conv[["EJ_to_GWh"]] <- 277778
+    }
+    if (is.null(conv[["conv_10USD_20USD"]]) || !is.finite(conv[["conv_10USD_20USD"]])) {
+      conv[["conv_10USD_20USD"]] <- 1.175896
+    }
+  }
+
+  conv
+}
+
+#' init_gcam_china_run_notes
+#'
+#' Initialize the GCAM-China run note collector.
+#'
+#' @keywords internal
+#' @export
+init_gcam_china_run_notes <- function() {
+  .myGlobals$gcam_china_run_notes <- character(0)
+}
+
+#' add_gcam_china_run_note
+#'
+#' Append a non-blocking GCAM-China runtime note for end-of-run reporting.
+#'
+#' @param note Note text.
+#' @keywords internal
+#' @export
+add_gcam_china_run_note <- function(note) {
+  if (is.null(.myGlobals$gcam_china_run_notes)) {
+    .myGlobals$gcam_china_run_notes <- character(0)
+  }
+  .myGlobals$gcam_china_run_notes <- unique(c(.myGlobals$gcam_china_run_notes, note))
+  invisible(NULL)
+}
+
+#' print_gcam_china_run_notes
+#'
+#' Print a compact end-of-run summary of non-blocking GCAM-China runtime notes.
+#'
+#' @keywords internal
+#' @export
+print_gcam_china_run_notes <- function() {
+  notes <- .myGlobals$gcam_china_run_notes
+  if (is.null(notes) || length(notes) == 0) {
+    return(invisible(NULL))
+  }
+
+  cat("GCAM-China run notes:\n")
+  for (note in notes) {
+    cat(paste0("  - ", note, "\n"))
+  }
+  invisible(NULL)
+}
+
+#' add_missing_parent_aggregates
+#'
+#' Add missing aggregate parent variables for additive IAMC hierarchies.
+#'
+#' @keywords internal
+#' @export
+add_missing_parent_aggregates <- function(data, template_vars) {
+  scenario <- region <- year <- value <- var <- source_var <- parent_var <- NULL
+
+  if (is.null(data) || nrow(data) == 0) {
+    return(data)
+  }
+
+  aggregate_pattern <- "^(Capacity\\||Capacity Additions\\||Final Energy\\||Secondary Energy\\|)"
+  candidate <- data %>%
+    dplyr::filter(stringr::str_detect(var, aggregate_pattern))
+
+  if (nrow(candidate) == 0) {
+    return(data)
+  }
+
+  existing_vars <- unique(candidate$var)
+  leaf_vars <- existing_vars[vapply(existing_vars, function(v) {
+    !any(startsWith(setdiff(existing_vars, v), paste0(v, "|")))
+  }, logical(1))]
+
+  if (length(leaf_vars) == 0) {
+    return(data)
+  }
+
+  parent_lookup <- dplyr::bind_rows(lapply(leaf_vars, function(v) {
+    parts <- strsplit(v, "\\|", fixed = FALSE)[[1]]
+    if (length(parts) <= 1) {
+      return(NULL)
+    }
+    parents <- vapply(seq_len(length(parts) - 1), function(i) {
+      paste(parts[seq_len(i)], collapse = "|")
+    }, character(1))
+    parents <- parents[parents %in% template_vars]
+    if (length(parents) == 0) {
+      return(NULL)
+    }
+    data.frame(
+      source_var = v,
+      parent_var = parents,
+      stringsAsFactors = FALSE
+    )
+  }))
+
+  if (nrow(parent_lookup) == 0) {
+    return(data)
+  }
+
+  aggregate_rows <- candidate %>%
+    dplyr::filter(var %in% leaf_vars) %>%
+    dplyr::rename(source_var = var) %>%
+    dplyr::inner_join(parent_lookup, by = "source_var") %>%
+    dplyr::transmute(scenario, region, year, var = parent_var, value) %>%
+    dplyr::group_by(scenario, region, year, var) %>%
+    dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+    dplyr::anti_join(
+      data %>% dplyr::select(scenario, region, year, var) %>% dplyr::distinct(),
+      by = c("scenario", "region", "year", "var")
+    )
+
+  if (nrow(aggregate_rows) == 0) {
+    return(data)
+  }
+
+  dplyr::bind_rows(data, aggregate_rows)
+}
+
+#' add_missing_parent_aggregates_report
+#'
+#' Add missing aggregate parent variables directly to the final wide report.
+#'
+#' @keywords internal
+#' @export
+add_missing_parent_aggregates_report <- function(report, template_data) {
+  scenario <- region <- year <- value <- var <- Variable <- Scenario <- Region <- NULL
+
+  if (is.null(report) || nrow(report) == 0) {
+    return(report)
+  }
+
+  year_cols <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols) == 0) {
+    return(report)
+  }
+
+  report_long <- report %>%
+    dplyr::select(Model, Scenario, Region, Variable, Unit, dplyr::all_of(year_cols)) %>%
+    tidyr::pivot_longer(cols = dplyr::all_of(year_cols), names_to = "year", values_to = "value") %>%
+    dplyr::filter(!is.na(value)) %>%
+    dplyr::transmute(
+      scenario = Scenario,
+      region = Region,
+      var = Variable,
+      year = as.integer(year),
+      value = as.numeric(value)
+    )
+
+  report_long_agg <- add_missing_parent_aggregates(report_long, template_data[["Variable"]])
+  report_added <- report_long_agg %>%
+    dplyr::anti_join(
+      report_long %>% dplyr::select(scenario, region, var, year) %>% dplyr::distinct(),
+      by = c("scenario", "region", "var", "year")
+    )
+
+  if (nrow(report_added) == 0) {
+    return(report)
+  }
+
+  report_added <- report_added %>%
+    tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0) %>%
+    dplyr::rename(Scenario = scenario, Region = region, Variable = var) %>%
+    dplyr::left_join(
+      template_data %>%
+        dplyr::select(Variable, Unit, Model) %>%
+        dplyr::distinct(),
+      by = "Variable"
+    )
+
+  missing_cols <- setdiff(names(report), names(report_added))
+  for (col in missing_cols) {
+    report_added[[col]] <- NA
+  }
+  report_added <- report_added %>% dplyr::select(dplyr::all_of(names(report)))
+
+  dplyr::bind_rows(report, report_added) %>%
+    dplyr::distinct()
+}
+
+#' add_gcam_china_co2_report
+#'
+#' For GCAM-China reporting, inject the finalized China CO2 rows directly from
+#' `co2_emissions_clean` so the final report keeps the official national CO2
+#' accounting instead of re-synthesizing it from province rows.
+#'
+#' @keywords internal
+#' @export
+add_gcam_china_co2_report <- function(report) {
+  Scenario <- Region <- Variable <- Unit <- year <- value <- NULL
+
+  if (is.null(report) || nrow(report) == 0) {
+    return(report)
+  }
+
+  if (!exists("co2_emissions_clean", envir = .GlobalEnv, inherits = FALSE)) {
+    return(report)
+  }
+
+  china_co2 <- get("co2_emissions_clean", envir = .GlobalEnv)
+  if (is.null(china_co2) || nrow(china_co2) == 0) {
+    return(report)
+  }
+
+  year_cols <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols) == 0) {
+    return(report)
+  }
+
+  template_data <- get("template_vGCAMChina7.1", envir = asNamespace("gcamreport"))
+  co2_vars <- unique(template_data$Variable[grepl("^Emissions\\|CO2", template_data$Variable)])
+
+  china_co2_report <- china_co2 %>%
+    dplyr::filter(region == "China", var %in% co2_vars, year %in% as.integer(year_cols)) %>%
+    tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0) %>%
+    dplyr::rename(Scenario = scenario, Region = region, Variable = var) %>%
+    dplyr::left_join(
+      template_data %>%
+        dplyr::select(Variable, Unit, Model) %>%
+        dplyr::distinct(),
+      by = "Variable"
+    )
+
+  if (nrow(china_co2_report) == 0) {
+    return(report)
+  }
+
+  missing_cols <- setdiff(names(report), names(china_co2_report))
+  for (col in missing_cols) {
+    china_co2_report[[col]] <- NA
+  }
+  china_co2_report <- china_co2_report %>% dplyr::select(dplyr::all_of(names(report)))
+
+  report %>%
+    dplyr::anti_join(
+      china_co2_report %>% dplyr::select(Model, Scenario, Region, Variable, Unit),
+      by = c("Model", "Scenario", "Region", "Variable", "Unit")
+    ) %>%
+    dplyr::bind_rows(china_co2_report) %>%
+    dplyr::distinct()
+}
+
+#' add_gcam_china_zero_report_vars
+#'
+#' Add selected official GCAM-China zero-valued placeholders to the final report
+#' when they are absent.
+#'
+#' @keywords internal
+#' @export
+add_gcam_china_zero_report_vars <- function(report) {
+  if (is.null(report) || nrow(report) == 0) {
+    return(report)
+  }
+
+  zero_vars <- c(
+    "Capacity|Electricity|Geothermal",
+    "Capacity Additions|Electricity|Geothermal"
+  )
+
+  template_data <- get("template_vGCAMChina7.1", envir = asNamespace("gcamreport")) %>%
+    dplyr::filter(Variable %in% zero_vars)
+  if (nrow(template_data) == 0) {
+    return(report)
+  }
+
+  year_cols <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols) == 0) {
+    return(report)
+  }
+
+  zero_rows <- tidyr::crossing(
+    Model = unique(report$Model),
+    Scenario = unique(report$Scenario),
+    Region = "China",
+    template_data %>% dplyr::select(Variable, Unit) %>% dplyr::distinct()
+  ) %>%
+    dplyr::anti_join(
+      report %>% dplyr::select(Model, Scenario, Region, Variable, Unit) %>% dplyr::distinct(),
+      by = c("Model", "Scenario", "Region", "Variable", "Unit")
+    )
+
+  if (nrow(zero_rows) == 0) {
+    return(report)
+  }
+
+  zero_values <- as.data.frame(matrix(0, nrow = nrow(zero_rows), ncol = length(year_cols)))
+  names(zero_values) <- year_cols
+  zero_rows <- dplyr::bind_cols(zero_rows, zero_values)
+
+  missing_cols <- setdiff(names(report), names(zero_rows))
+  for (col in missing_cols) {
+    zero_rows[[col]] <- NA
+  }
+  zero_rows <- zero_rows %>% dplyr::select(dplyr::all_of(names(report)))
+
+  dplyr::bind_rows(report, zero_rows) %>% dplyr::distinct()
+}
+
+#' add_china_from_provinces_report
+#'
+#' For GCAM-China reporting, synthesize China rows from provincial rows for
+#' additive variables when the China row is missing or empty.
+#'
+#' @keywords internal
+#' @export
+add_china_from_provinces_report <- function(report) {
+  Scenario <- Region <- Variable <- Unit <- year <- value <- NULL
+
+  if (is.null(report) || nrow(report) == 0) {
+    return(report)
+  }
+
+  year_cols <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols) == 0) {
+    return(report)
+  }
+
+  provinces <- c("AH","BJ","CQ","FJ","GD","GS","GX","GZ","HA","HB","HE","HI","HK",
+                 "HL","HN","JL","JS","JX","LN","MC","NM","NX","QH","SC","SD","SH",
+                 "SN","SX","TJ","XJ","XZ","YN","ZJ")
+
+  aggregate_pattern <- "^(Capacity\\||Capacity Additions\\||Final Energy\\||Secondary Energy\\|)"
+
+  report_long <- report %>%
+    dplyr::select(Model, Scenario, Region, Variable, Unit, dplyr::all_of(year_cols)) %>%
+    tidyr::pivot_longer(cols = dplyr::all_of(year_cols), names_to = "year", values_to = "value") %>%
+    dplyr::mutate(year = as.integer(year), value = as.numeric(value))
+
+  china_existing <- report_long %>%
+    dplyr::filter(Region == "China", stringr::str_detect(Variable, aggregate_pattern)) %>%
+    dplyr::group_by(Model, Scenario, Variable, Unit, year) %>%
+    dplyr::summarise(china_value = sum(value, na.rm = TRUE), .groups = "drop")
+
+  china_from_provinces <- report_long %>%
+    dplyr::filter(Region %in% provinces, stringr::str_detect(Variable, aggregate_pattern)) %>%
+    dplyr::group_by(Model, Scenario, Variable, Unit, year) %>%
+    dplyr::summarise(prov_value = sum(value, na.rm = TRUE), .groups = "drop")
+
+  china_fill <- china_from_provinces %>%
+    dplyr::left_join(china_existing, by = c("Model", "Scenario", "Variable", "Unit", "year")) %>%
+    dplyr::filter(
+      !is.na(prov_value),
+      prov_value > 0,
+      is.na(china_value) | abs(china_value) < 1e-12 | abs(prov_value) > abs(china_value) * 1.05
+    ) %>%
+    dplyr::transmute(Model, Scenario, Region = "China", Variable, Unit, year, value = prov_value)
+
+  afolu_china <- report_long %>%
+    dplyr::filter(Region == "China", Variable == "Emissions|CO2|AFOLU") %>%
+    dplyr::group_by(Model, Scenario, year) %>%
+    dplyr::summarise(afolu_value = sum(value, na.rm = TRUE), .groups = "drop")
+
+  china_fill <- china_fill %>%
+    dplyr::left_join(afolu_china, by = c("Model", "Scenario", "year")) %>%
+    dplyr::mutate(
+      value = dplyr::if_else(
+        Variable == "Emissions|CO2",
+        value + dplyr::coalesce(afolu_value, 0),
+        value
+      )
+    ) %>%
+    dplyr::select(-afolu_value)
+
+  if (nrow(china_fill) == 0) {
+    return(report)
+  }
+
+  china_fill_wide <- china_fill %>%
+    tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0)
+
+  missing_cols <- setdiff(names(report), names(china_fill_wide))
+  for (col in missing_cols) {
+    china_fill_wide[[col]] <- NA
+  }
+  china_fill_wide <- china_fill_wide %>% dplyr::select(dplyr::all_of(names(report)))
+
+  report_no_empty_china <- report %>%
+    dplyr::anti_join(
+      china_fill_wide %>% dplyr::select(Model, Scenario, Region, Variable, Unit),
+      by = c("Model", "Scenario", "Region", "Variable", "Unit")
+    )
+
+  dplyr::bind_rows(report_no_empty_china, china_fill_wide) %>%
+    dplyr::distinct()
+}
+
+#' normalize_gcam_china_power_technology
+#'
+#' Normalize GCAM-China segmented power technology names to the standard
+#' technology names used in capacity mappings.
+#'
+#' @keywords internal
+#' @export
+normalize_gcam_china_power_technology <- function(technology) {
+  technology <- ifelse(grepl("^biomass_(base|int)_(conv|IGCC)(_CCS)?$", technology),
+                       sub("^biomass_(base|int)_(conv|IGCC)(_CCS)?$", "biomass (\\2\\3)", technology),
+                       technology)
+  technology <- ifelse(grepl("^coal_(base|int|peak|subpeak)_(conv pul|IGCC)(_CCS)?$", technology),
+                       sub("^coal_(base|int|peak|subpeak)_(conv pul|IGCC)(_CCS)?$", "coal (\\2\\3)", technology),
+                       technology)
+  technology <- ifelse(grepl("^gas_(base|int|peak|subpeak)_(CC|steam/CT)(_CCS)?$", technology),
+                       sub("^gas_(base|int|peak|subpeak)_(CC|steam/CT)(_CCS)?$", "gas (\\2\\3)", technology),
+                       technology)
+  technology <- ifelse(grepl("^refined liquids_(base|int|peak|subpeak)_(CC|steam/CT)(_CCS)?$", technology),
+                       sub("^refined liquids_(base|int|peak|subpeak)_(CC|steam/CT)(_CCS)?$", "refined liquids (\\2\\3)", technology),
+                       technology)
+  technology <- ifelse(grepl("^PV_(base|int|peak|subpeak)$", technology), "PV", technology)
+  technology <- ifelse(grepl("^PV_(base_)?storage$", technology), "PV_storage", technology)
+  technology <- ifelse(grepl("^CSP_(int|peak|subpeak)$", technology), "CSP", technology)
+  technology <- ifelse(grepl("^CSP_(base_)?storage$", technology), "CSP_storage", technology)
+  technology <- ifelse(grepl("^wind_(base|int|subpeak)$", technology), "wind", technology)
+  technology <- ifelse(grepl("^wind_base_offshore$", technology), "wind_offshore", technology)
+  technology <- ifelse(grepl("^wind_(base_)?storage$", technology), "wind_storage", technology)
+  technology <- ifelse(grepl("^hydro_(base|int)$", technology), "hydro", technology)
+  technology <- ifelse(grepl("^nuc_base_Gen III$", technology), "Gen_III", technology)
+  technology <- ifelse(grepl("^nuc_base_Gen II$", technology), "Gen_II_LWR", technology)
+  technology
+}
+
+#' get_gcam_china_elec_gen_map
+#'
+#' Load the official GCAM-China electricity generation map used for
+#' generation, capacity and investment reporting.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_elec_gen_map <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "elec_gen_map_gcamchina.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE
+  ) %>%
+    gather_map()
+}
+
+#' get_gcam_china_provinces
+#'
+#' Return the province regions used by GCAM-China reporting.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_provinces <- function() {
+  c("AH","BJ","CQ","FJ","GD","GS","GX","GZ","HA","HB","HE","HI",
+    "HL","HN","JL","JS","JX","LN","NM","NX","QH","SC","SD","SH",
+    "SN","SX","TJ","XJ","XZ","YN","ZJ")
+}
+
+#' get_gcam_china_final_energy_map
+#'
+#' Load the official GCAM-China final energy mapping.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_final_energy_map <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "final_energy_map_gcamchina.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE
+  ) %>%
+    gather_map()
+}
+
+#' get_gcam_china_transport_final_en_map
+#'
+#' Load the official GCAM-China transport final energy mapping.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_transport_final_en_map <- function() {
+  utils::read.csv(
+    system.file("extdata", "mappings", "GCAMChina7.1", "transport_final_en_map_gcamchina.csv", package = "gcamreport"),
+    skip = 1,
+    na.strings = c("", "NA"),
+    check.names = FALSE
+  ) %>%
+    gather_map()
+}
+
+#' get_gcam_china_capital_gcam
+#'
+#' Load the official GCAM-China electricity capital cost tables.
+#'
+#' @keywords internal
+#' @export
+get_gcam_china_capital_gcam <- function() {
+  dplyr::bind_rows(
+    utils::read.csv(
+      system.file("extdata", "mappings", "GCAMChina7.1", "L2234.GlobalIntTechCapital_elecS_CHINA.csv", package = "gcamreport"),
+      skip = 1,
+      na.strings = c("", "NA"),
+      check.names = FALSE,
+      stringsAsFactors = FALSE
+    ) %>%
+      dplyr::rename(technology = intermittent.technology),
+    utils::read.csv(
+      system.file("extdata", "mappings", "GCAMChina7.1", "L2234.GlobalTechCapital_elecS_CHINA.csv", package = "gcamreport"),
+      skip = 1,
+      na.strings = c("", "NA"),
+      check.names = FALSE,
+      stringsAsFactors = FALSE
+    )
+  ) %>%
+    dplyr::select(sector = supplysector, subsector, technology, year, capital.overnight)
 }
 
 #' compute_reg_sec_weight
@@ -517,6 +1244,25 @@ transform_to_xml <- function(parsed_queries_list) {
   return(xml_doc)
 }
 
+#' suppress_dplyr_join_messages
+#'
+#' Evaluate an expression while suppressing routine dplyr join messages such as
+#' `Joining, by = ...`.
+#'
+#' @keywords internal
+#' @export
+suppress_dplyr_join_messages <- function(expr) {
+  withCallingHandlers(
+    expr,
+    message = function(m) {
+      msg <- conditionMessage(m)
+      if (grepl("^Joining, by =|^Joining with `by =", msg)) {
+        invokeRestart("muffleMessage")
+      }
+    }
+  )
+}
+
 #' start_with_pattern
 #'
 #' Returns elements of a vector that start with a specified pattern.
@@ -592,6 +1338,15 @@ filter_loading_regions <- function(data, desired_regions = "All", variable, GCAM
       avail_reg <- unique(data$region)
       if (!all(desired_regions %in% avail_reg)) {
         not_avail <- setdiff(desired_regions, avail_reg)
+        not_avail <- setdiff(not_avail, "global")
+        if (GCAM_version == "vGCAMChina7.1") {
+          overlap_reg <- intersect(setdiff(desired_regions, "global"), avail_reg)
+          if (length(overlap_reg) > 0) {
+            not_avail <- character(0)
+          } else if (any(get_gcam_china_provinces() %in% avail_reg)) {
+            not_avail <- setdiff(not_avail, "China")
+          }
+        }
         if (length(not_avail) == 1) {
           warning(sprintf(
             "The desired region '%s' is not available in the loaded project. Specifically, it is missing from the query '%s'. Please check the available regions in the project or update the query.",
@@ -620,6 +1375,15 @@ filter_loading_regions <- function(data, desired_regions = "All", variable, GCAM
         avail_reg <- avail_reg[!is.na(avail_reg) & avail_reg != "NA"]
         if (!all(desired_regions %in% avail_reg)) {
           not_avail <- setdiff(desired_regions, avail_reg)
+          not_avail <- setdiff(not_avail, "global")
+          if (GCAM_version == "vGCAMChina7.1") {
+            overlap_reg <- intersect(setdiff(desired_regions, "global"), avail_reg)
+            if (length(overlap_reg) > 0) {
+              not_avail <- character(0)
+            } else if (any(get_gcam_china_provinces() %in% avail_reg)) {
+              not_avail <- setdiff(not_avail, "China")
+            }
+          }
           if (length(not_avail) == 1) {
             warning(sprintf(
               "The desired region '%s' is not available in the loaded project. Specifically, it is missing from the query '%s'. Please check the available regions in the project or update the query.",
@@ -728,10 +1492,14 @@ conv_ghg_co2e <- function(data, GCAM_version = 'v7.1', GWP_version = 'AR5') {
 #' @keywords internal conversion
 #' @export
 conv_EJ_GW <- function(data, cf, EJ, GCAM_version = "v7.1") {
-  data %>%
-    dplyr::mutate(gw = EJ / (cf *
-                               get(paste('convert',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['hr_per_yr']] *
-                               get(paste('convert',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['EJ_to_GWh']]))
+  conv <- get_runtime_convert(GCAM_version)
+  if (conv[['EJ_to_GWh']] > 1) {
+    data %>%
+      dplyr::mutate(gw = EJ * conv[['EJ_to_GWh']] / (cf * conv[['hr_per_yr']]))
+  } else {
+    data %>%
+      dplyr::mutate(gw = EJ / (cf * conv[['hr_per_yr']] * conv[['EJ_to_GWh']]))
+  }
 }
 
 #' approx_fun
@@ -746,9 +1514,16 @@ conv_EJ_GW <- function(data, cf, EJ, GCAM_version = "v7.1") {
 #' @export
 approx_fun <- function(year, value, rule = 1) {
   if (rule == 1 | rule == 2) {
+    valid <- !is.na(value)
+    if (sum(valid) == 0) {
+      return(rep(NA_real_, length(year)))
+    }
+    if (sum(valid) == 1) {
+      return(rep(as.numeric(value[valid][1]), length(year)))
+    }
     res <- tryCatch(
       {
-        stats::approx(as.vector(year), value, rule = rule, xout = year)$y
+        stats::approx(as.vector(year[valid]), as.numeric(value[valid]), rule = rule, xout = year)$y
       },
       error = function(e) {
         message("An error occured: ", conditionMessage(e))
@@ -1891,51 +2666,123 @@ get_co2_emiss <- function(GCAM_version = "v7.1") {
 
   check_queries("co2_emiss", GCAM_version)
 
-  var_fun_map <- get(paste('var_fun_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+  var_fun_map <- get_runtime_var_fun_map(GCAM_version)
   queryItem1 <- var_fun_map[var_fun_map$name == "co2_emiss", "queries"][[1]][1]
   queryItem2 <- var_fun_map[var_fun_map$name == "co2_emiss", "queries"][[1]][2]
   queryItem3 <- var_fun_map[var_fun_map$name == "co2_emiss", "queries"][[1]][3] # to do the check
 
-  tmp <-
-    check_inf(rgcam::getQuery(prj, queryItem1), dataset_name = queryItem1) %>%
-    dplyr::mutate(ghg = 'CO2')
+  if (GCAM_version == "vGCAMChina7.1") {
+    # GCAM-China official reporting relies on the sector query for CO2 accounting.
+    sector_query <- if ("CO2 emissions by sector" %in% rgcam::listQueries(prj)) {
+      "CO2 emissions by sector"
+    } else {
+      "CO2 emissions by sector (excluding resource production)"
+    }
+    tmp <- check_inf(
+      rgcam::getQuery(prj, sector_query),
+      dataset_name = sector_query
+    ) %>%
+      dplyr::mutate(ghg = "CO2")
 
-  # gather deciles if necessary
-  if(GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport"))) {
+    if (GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport"))) {
+      tmp <- tmp %>%
+        tidyr::separate(sector, into = c("sector", "decile"), sep = "_d", extra = "merge", fill = "right") %>%
+        dplyr::group_by(Units, scenario, region, sector, year, ghg) %>%
+        dplyr::summarise(value = sum(value), .groups = "drop")
+    }
+
     tmp <- tmp %>%
-      tidyr::separate(sector, into = c("sector", "decile"), sep = "_d", extra = "merge", fill = "right") %>%
-      dplyr::group_by(Units, scenario, region, sector, subsector, technology, year, ghg) %>%
-      dplyr::summarise(value = sum(value)) %>%
-      dplyr::ungroup()
-  }
+      dplyr::mutate(sector = normalize_gcam_china_co2_sector(sector))
 
-  # CO2 emissions by technology
-  co2_emiss_tech <-
-    tmp %>%
-    {
-      co2_tech_map <- get(paste('co2_tech_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
-      if (GCAM_version == "vGCAMChina7.1") {
-        co2_tech_map_fallback <- get("co2_tech_map_v7.1", envir = asNamespace("gcamreport"))
-        tmp_join <- dplyr::left_join(., co2_tech_map, by = c("sector", "subsector", "technology")) %>%
-          dplyr::left_join(co2_tech_map_fallback,
-                           by = c("sector", "subsector", "technology"),
-                           suffix = c("", ".fb")) %>%
-          dplyr::mutate(
-            var = dplyr::coalesce(var, var.fb, "NoReported"),
-            unit_conv = dplyr::coalesce(as.numeric(unit_conv), as.numeric(unit_conv.fb), 1)
-          ) %>%
-          dplyr::select(-dplyr::any_of(c("var.fb", "unit_conv.fb")))
-        record_mapping_fallback(
-          "co2_tech_map_vGCAMChina7.1",
-          tmp_join %>%
-            dplyr::filter(var == "NoReported") %>%
-            dplyr::distinct(sector, subsector, technology)
-        )
-        tmp_join
-      } else {
-        left_join_strict(., co2_tech_map,
+    co2_sector_map <- get_gcam_china_co2_sector_map()
+
+    tmp_join <- dplyr::left_join(tmp, co2_sector_map, by = "sector", multiple = "all")
+    record_mapping_fallback(
+      "co2_sector_map_vGCAMChina7.1",
+      tmp_join %>%
+        dplyr::filter(is.na(var) | var == "NoReported") %>%
+        dplyr::distinct(sector)
+    )
+
+    co2_emiss_tech <- tmp_join %>%
+      dplyr::mutate(unit_conv = dplyr::coalesce(as.numeric(unit_conv), 1)) %>%
+      dplyr::filter(var != "NoReported", !is.na(var)) %>%
+      filter_variables(extra = c("Emissions|CO2|Energy and Industrial Processes",
+                                 "Emissions|CO2|Energy|Demand|Industry",
+                                 "Emissions|CO2|Energy|Demand|Transportation",
+                                 "Emissions|CO2|Energy|Demand|Residential and Commercial",
+                                 "Emissions|CO2|Energy|Supply",
+                                 "Emissions|CO2_ETS|Energy and Industrial Processes",
+                                 "Emissions|CO2_ETS|Energy|Demand|Industry",
+                                 "Emissions|CO2_ETS|Energy|Demand|Transportation",
+                                 "Emissions|CO2_ETS|Energy|Demand|Residential and Commercial",
+                                 "Emissions|CO2_ETS|Energy|Supply",
+                                 available_variables(F, GCAM_version)[grepl("^Gross Emissions", available_variables(F, GCAM_version))]
+      )) %>%
+      dplyr::mutate(value = value * unit_conv) %>%
+      dplyr::group_by(scenario, region, year, var) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::select(dplyr::all_of(gcamreport::long_columns))
+  } else {
+    tmp <-
+      check_inf(rgcam::getQuery(prj, queryItem1), dataset_name = queryItem1) %>%
+      dplyr::mutate(ghg = 'CO2')
+
+    # gather deciles if necessary
+    if(GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport"))) {
+      tmp <- tmp %>%
+        tidyr::separate(sector, into = c("sector", "decile"), sep = "_d", extra = "merge", fill = "right") %>%
+        dplyr::group_by(Units, scenario, region, sector, subsector, technology, year, ghg) %>%
+        dplyr::summarise(value = sum(value)) %>%
+        dplyr::ungroup()
+    }
+
+    # CO2 emissions by technology
+    co2_emiss_tech <-
+      tmp %>%
+      {
+        co2_tech_map <- get(paste('co2_tech_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+        left_join_strict(.,
+                         co2_tech_map,
                          by = c("sector", "subsector", "technology"),
                          mapping = paste('co2_tech_map',GCAM_version,sep='_'), multiple = "all")
+      } %>%
+      dplyr::filter(var != 'NoReported', !is.na(var)) %>%
+      filter_variables(extra = c("Emissions|CO2|Energy and Industrial Processes",
+                                 "Emissions|CO2|Energy|Demand|Industry",
+                                 "Emissions|CO2|Energy|Demand|Transportation",
+                                 "Emissions|CO2|Energy|Demand|Residential and Commercial",
+                                 "Emissions|CO2|Energy|Supply",
+                                 "Emissions|CO2_ETS|Energy and Industrial Processes",
+                                 "Emissions|CO2_ETS|Energy|Demand|Industry",
+                                 "Emissions|CO2_ETS|Energy|Demand|Transportation",
+                                 "Emissions|CO2_ETS|Energy|Demand|Residential and Commercial",
+                                 "Emissions|CO2_ETS|Energy|Supply",
+                                 available_variables(F, GCAM_version)[grepl("^Gross Emissions", available_variables(F, GCAM_version))]
+      )) %>%
+      dplyr::mutate(value = value * unit_conv) %>%
+      dplyr::group_by(scenario, region, year, var) %>%
+      dplyr::summarise(value = sum(value, na.rm = T)) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(dplyr::all_of(gcamreport::long_columns))
+  }
+
+  # CO2 emissions by resource production
+  co2_emiss_resource <-
+    check_inf(rgcam::getQuery(prj, queryItem2), dataset_name = queryItem2) %>%
+    {
+      if (GCAM_version == "vGCAMChina7.1") {
+        co2_resource_map <- get_gcam_china_co2_resource_map()
+        record_mapping_fallback(
+          "co2_resource_map_vGCAMChina7.1",
+          dplyr::anti_join(., co2_resource_map, by = c("resource", "subresource", "ghg")) %>%
+            dplyr::distinct(resource, subresource, ghg)
+        )
+        dplyr::left_join(., co2_resource_map, by = c("resource", "subresource", "ghg"), multiple = "all")
+      } else {
+        left_join_strict(., get(paste('co2_resource_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
+                         by = c("resource", "subresource", "ghg"),
+                         mapping = paste('co2_resource_map',GCAM_version,sep='_'), multiple = "all")
       }
     } %>%
     dplyr::filter(var != 'NoReported', !is.na(var)) %>%
@@ -1944,31 +2791,9 @@ get_co2_emiss <- function(GCAM_version = "v7.1") {
                                "Emissions|CO2|Energy|Demand|Transportation",
                                "Emissions|CO2|Energy|Demand|Residential and Commercial",
                                "Emissions|CO2|Energy|Supply",
-                               "Emissions|CO2_ETS|Energy and Industrial Processes",
-                               "Emissions|CO2_ETS|Energy|Demand|Industry",
-                               "Emissions|CO2_ETS|Energy|Demand|Transportation",
-                               "Emissions|CO2_ETS|Energy|Demand|Residential and Commercial",
-                               "Emissions|CO2_ETS|Energy|Supply",
-                               available_variables(F, GCAM_version)[grepl("^Gross Emissions", available_variables(F, GCAM_version))]
-    )) %>%
-    dplyr::mutate(value = value * unit_conv) %>%
-    dplyr::group_by(scenario, region, year, var) %>%
-    dplyr::summarise(value = sum(value, na.rm = T)) %>%
-    dplyr::ungroup() %>%
-    dplyr::select(dplyr::all_of(gcamreport::long_columns))
-
-  # CO2 emissions by resource production
-  co2_emiss_resource <-
-    check_inf(rgcam::getQuery(prj, queryItem2), dataset_name = queryItem2) %>%
-    left_join_strict(get(paste('co2_resource_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
-                     by = c("resource", "subresource", "ghg"),
-                     mapping = paste('co2_resource_map',GCAM_version,sep='_'), multiple = "all") %>%
-    dplyr::filter(var != 'NoReported', !is.na(var)) %>%
-    filter_variables(extra = c("Emissions|CO2|Energy and Industrial Processes",
-                               "Emissions|CO2|Energy|Demand|Industry",
-                               "Emissions|CO2|Energy|Demand|Transportation",
-                               "Emissions|CO2|Energy|Demand|Residential and Commercial",
-                               "Emissions|CO2|Energy|Supply",
+                               "Emissions|CO2|Energy|Supply|Gases",
+                               "Emissions|CO2|Energy|Supply|Liquids",
+                               "Emissions|CO2|Energy|Supply|Solids",
                                "Emissions|CO2_ETS|Energy and Industrial Processes",
                                "Emissions|CO2_ETS|Energy|Demand|Industry",
                                "Emissions|CO2_ETS|Energy|Demand|Transportation",
@@ -1991,6 +2816,23 @@ get_co2_emiss <- function(GCAM_version = "v7.1") {
     dplyr::summarise(value = sum(value, na.rm = T)) %>%
     dplyr::ungroup() %>%
     dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    co2_emiss <- co2_emiss %>%
+      dplyr::mutate(region = dplyr::if_else(region == "China", "China_aggregated_sector", region))
+
+    co2_emiss <- dplyr::bind_rows(
+      co2_emiss,
+      co2_emiss %>%
+        dplyr::mutate(region = "China") %>%
+        dplyr::group_by(scenario, region, year, var) %>%
+        dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop")
+    ) %>%
+      dplyr::filter(region != "China_aggregated_sector") %>%
+      dplyr::group_by(scenario, region, year, var) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::select(dplyr::all_of(gcamreport::long_columns))
+  }
 
   # Check Total Emissions|CO2 matches the output of CO2 emissions by region query
   avail_variables <- available_variables(print = F, GCAM_version = GCAM_version)
@@ -2179,8 +3021,23 @@ get_co2_emissions <- function(GCAM_version = 'v7.1') {
   co2_emissions_clean <-
     dplyr::bind_rows(co2_emiss, LUC_emiss) %>%
     dplyr::group_by(scenario, region, year, var) %>%
-    dplyr::summarise(value = sum(value, na.rm = T)) %>%
-    dplyr::ungroup() %>%
+    dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop")
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    co2_total_clean <- co2_emissions_clean %>%
+      dplyr::filter(var %in% c("Emissions|CO2|Energy and Industrial Processes", "Emissions|CO2|AFOLU")) %>%
+      dplyr::group_by(scenario, region, year) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::mutate(var = "Emissions|CO2")
+
+    co2_emissions_clean <- co2_emissions_clean %>%
+      dplyr::filter(var != "Emissions|CO2") %>%
+      dplyr::bind_rows(co2_total_clean) %>%
+      dplyr::group_by(scenario, region, year, var) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop")
+  }
+
+  co2_emissions_clean <- co2_emissions_clean %>%
     dplyr::select(dplyr::all_of(gcamreport::long_columns))
 
   co2_emissions_clean <<- co2_emissions_clean
@@ -2739,7 +3596,7 @@ get_water_withdrawals <- function(GCAM_version = "v7.1") {
 
   if (GCAM_version == "vGCAMChina7.1") {
     if (!"water withdrawals by subsector" %in% rgcam::listQueries(prj)) {
-      warning("water withdrawals by subsector query is unavailable; skipping water_withdrawals_clean.")
+      add_gcam_china_run_note("`water withdrawals by subsector` is unavailable; skipped `water_withdrawals_clean`.")
       water_withdrawals_clean <<- data.frame(
         scenario = character(0),
         region = character(0),
@@ -2758,7 +3615,7 @@ get_water_withdrawals <- function(GCAM_version = "v7.1") {
               dataset_name = "water withdrawals by subsector") %>%
     {
       if (GCAM_version == "vGCAMChina7.1" && nrow(.) == 0) {
-        warning("water withdrawals by subsector query is empty; skipping water_withdrawals_clean.")
+        add_gcam_china_run_note("`water withdrawals by subsector` is empty; skipped `water_withdrawals_clean`.")
         return(data.frame(
           scenario = character(0),
           region = character(0),
@@ -2802,7 +3659,7 @@ get_water_consumption <- function(GCAM_version = "v7.1") {
 
   if (GCAM_version == "vGCAMChina7.1") {
     if (!"water consumption by subsector" %in% rgcam::listQueries(prj)) {
-      warning("water consumption by subsector query is unavailable; skipping water_consumption_clean.")
+      add_gcam_china_run_note("`water consumption by subsector` is unavailable; skipped `water_consumption_clean`.")
       water_consumption_clean <<- data.frame(
         scenario = character(0),
         region = character(0),
@@ -2821,7 +3678,7 @@ get_water_consumption <- function(GCAM_version = "v7.1") {
               dataset_name = "water consumption by subsector") %>%
     {
       if (GCAM_version == "vGCAMChina7.1" && nrow(.) == 0) {
-        warning("water consumption by subsector query is empty; skipping water_consumption_clean.")
+        add_gcam_china_run_note("`water consumption by subsector` is empty; skipped `water_consumption_clean`.")
         return(data.frame(
           scenario = character(0),
           region = character(0),
@@ -3355,9 +4212,9 @@ get_primary_energy <- function(GCAM_version = "v7.1") {
     if (!query_name %in% queries_available) {
       if ("primary energy consumption by region (direct equivalent)" %in% queries_available) {
         query_name <- "primary energy consumption by region (direct equivalent)"
-        warning("CCS primary energy query unavailable; using non-CCS primary energy query for primary_energy_clean.")
+        add_gcam_china_run_note("CCS primary energy query unavailable; used non-CCS primary energy query for `primary_energy_clean`.")
       } else {
-        warning("primary energy consumption queries are unavailable; skipping primary_energy_clean.")
+        add_gcam_china_run_note("Primary energy consumption queries are unavailable; skipped `primary_energy_clean`.")
         primary_energy_clean <<- data.frame(
           scenario = character(0),
           region = character(0),
@@ -3377,7 +4234,7 @@ get_primary_energy <- function(GCAM_version = "v7.1") {
               dataset_name = query_name) %>%
     {
       if (GCAM_version == "vGCAMChina7.1" && nrow(.) == 0) {
-        warning(paste0(query_name, " query is empty; skipping primary_energy_clean."))
+        add_gcam_china_run_note(paste0("`", query_name, "` is empty; skipped `primary_energy_clean`."))
         return(data.frame(
           scenario = character(0),
           region = character(0),
@@ -3625,10 +4482,36 @@ get_elec_gen_tech <- function(GCAM_version = "v7.1") {
   check_queries("secondary_energy_clean", GCAM_version)
   check_queries("secondary_energy_raw", GCAM_version)
 
-  secondary_energy_raw1 <- rbind(
-    check_inf(rgcam::getQuery(prj, "elec gen by gen tech"),
-              dataset_name = "elec gen by gen tech"),
-    dplyr::bind_rows(
+  elec_gen_query <- if (GCAM_version == "vGCAMChina7.1") {
+    get_gcam_china_elec_query_name(vintage = FALSE)
+  } else {
+    "elec gen by gen tech"
+  }
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    secondary_energy_elec <- check_inf(
+      rgcam::getQuery(prj, elec_gen_query),
+      dataset_name = elec_gen_query
+    ) %>%
+      dplyr::left_join(
+        get_gcam_china_elec_gen_map(),
+        by = c("sector", "subsector", "technology"),
+        multiple = "all"
+      ) %>%
+      dplyr::filter(var != "NoReported", !is.na(var)) %>%
+      dplyr::mutate(
+        unit_conv = dplyr::coalesce(as.numeric(unit_conv), 1),
+        value = value * unit_conv
+      )
+
+    record_mapping_fallback(
+      "elec_gen_map_gcamchina_vGCAMChina7.1",
+      check_inf(rgcam::getQuery(prj, elec_gen_query), dataset_name = elec_gen_query) %>%
+        dplyr::anti_join(get_gcam_china_elec_gen_map(), by = c("sector", "subsector", "technology")) %>%
+        dplyr::distinct(sector, subsector, technology)
+    )
+
+    secondary_energy_other <- dplyr::bind_rows(
       check_inf(rgcam::getQuery(prj, "gas production by tech"),
                 dataset_name = "gas production by tech"),
       check_inf(rgcam::getQuery(prj, "hydrogen production by tech"),
@@ -3641,12 +4524,10 @@ get_elec_gen_tech <- function(GCAM_version = "v7.1") {
                 dataset_name = "refined liquids production by tech") %>%
         dplyr::select(-dplyr::any_of("output"))
     ) %>%
-      dplyr::rename(output = sector)
-  ) %>%
-    {
-      secondary_energy_map <- get(paste('secondary_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
-      secondary_energy_map_fallback <- get("secondary_energy_map_v7.1", envir = asNamespace("gcamreport"))
-      if (GCAM_version == "vGCAMChina7.1") {
+      dplyr::rename(output = sector) %>%
+      {
+        secondary_energy_map <- get(paste('secondary_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+        secondary_energy_map_fallback <- get("secondary_energy_map_v7.1", envir = asNamespace("gcamreport"))
         record_mapping_fallback(
           "secondary_energy_map_vGCAMChina7.1",
           dplyr::anti_join(., secondary_energy_map, by = c("output", "subsector", "technology")) %>%
@@ -3668,14 +4549,41 @@ get_elec_gen_tech <- function(GCAM_version = "v7.1") {
             dplyr::distinct(output, subsector, technology)
         )
         tmp_join
-      } else {
-        left_join_strict(., secondary_energy_map,
+      } %>%
+      dplyr::filter(var != 'NoReported', !is.na(var)) %>%
+      dplyr::mutate(value = value * unit_conv)
+
+    secondary_energy_raw1 <- dplyr::bind_rows(secondary_energy_elec, secondary_energy_other)
+  } else {
+    secondary_energy_raw1 <- rbind(
+      check_inf(rgcam::getQuery(prj, elec_gen_query),
+                dataset_name = elec_gen_query),
+      dplyr::bind_rows(
+        check_inf(rgcam::getQuery(prj, "gas production by tech"),
+                  dataset_name = "gas production by tech"),
+        check_inf(rgcam::getQuery(prj, "hydrogen production by tech"),
+                  dataset_name = "hydrogen production by tech"),
+        check_inf(rgcam::getQuery(prj, "district heat production by subsector (fuel)"),
+                  dataset_name = "district heat production by subsector (fuel)") %>%
+          dplyr::mutate(technology = subsector) %>%
+          dplyr::select(-dplyr::any_of("output")),
+        check_inf(rgcam::getQuery(prj, "refined liquids production by tech"),
+                  dataset_name = "refined liquids production by tech") %>%
+          dplyr::select(-dplyr::any_of("output"))
+      ) %>%
+        dplyr::rename(output = sector)
+    ) %>%
+      {
+        secondary_energy_map <- get(paste('secondary_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+        secondary_energy_map_fallback <- get("secondary_energy_map_v7.1", envir = asNamespace("gcamreport"))
+        left_join_strict(.,
+                         secondary_energy_map,
                          by = c("output", "subsector", "technology"),
                          mapping = paste('secondary_energy_map',GCAM_version,sep='_'), multiple = "all")
-      }
-    } %>%
-    dplyr::filter(var != 'NoReported', !is.na(var)) %>%
-    dplyr::mutate(value = value * unit_conv)
+      } %>%
+      dplyr::filter(var != 'NoReported', !is.na(var)) %>%
+      dplyr::mutate(value = value * unit_conv)
+  }
 
   if (!any(grepl('Trade|Investment|Capacity|All',desired_variables.global))) {
     secondary_energy_raw <- secondary_energy_raw1 %>%
@@ -3823,9 +4731,12 @@ get_fe_sector_tmp <- function(GCAM_version = "v7.1") {
 
   # gather deciles if necessary
   tmp <- check_inf(rgcam::getQuery(prj, "final energy consumption by sector and fuel"),
-                   dataset_name = "final energy consumption by sector and fuel") %>%
-    dplyr::filter(!stringr::str_starts(sector, 'trn'))
-  if(GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport"))) {
+                   dataset_name = "final energy consumption by sector and fuel")
+  if (GCAM_version != "vGCAMChina7.1") {
+    tmp <- tmp %>% dplyr::filter(!stringr::str_starts(sector, 'trn'))
+  }
+  if(GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport")) &&
+     GCAM_version != "vGCAMChina7.1") {
     tmp <- tmp %>%
       tidyr::separate(sector, into = c("sector", "decile"), sep = "_d", extra = "merge", fill = "right") %>%
       dplyr::group_by(Units, scenario, region, sector, input, year) %>%
@@ -3836,29 +4747,16 @@ get_fe_sector_tmp <- function(GCAM_version = "v7.1") {
   fe_sector_raw <-
     tmp %>%
     {
-      final_energy_map <- get(paste('final_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
-      final_energy_map_fallback <- get("final_energy_map_v7.1", envir = asNamespace("gcamreport"))
       if (GCAM_version == "vGCAMChina7.1") {
+        final_energy_map <- get_gcam_china_final_energy_map()
         record_mapping_fallback(
-          "final_energy_map_vGCAMChina7.1",
+          "final_energy_map_gcamchina_vGCAMChina7.1",
           dplyr::anti_join(., final_energy_map, by = c("sector", "input")) %>%
             dplyr::distinct(sector, input)
         )
-        tmp_join <- dplyr::left_join(., final_energy_map, by = c("sector", "input")) %>%
-          dplyr::left_join(final_energy_map_fallback, by = c("sector", "input"), suffix = c("", ".fb")) %>%
-          dplyr::mutate(
-            var = dplyr::coalesce(var, var.fb, "NoReported"),
-            unit_conv = dplyr::coalesce(as.numeric(unit_conv), as.numeric(unit_conv.fb), 1)
-          ) %>%
-          dplyr::select(-dplyr::any_of(c("var.fb", "unit_conv.fb")))
-        record_mapping_fallback(
-          "final_energy_map_vGCAMChina7.1",
-          tmp_join %>%
-            dplyr::filter(var == "NoReported") %>%
-            dplyr::distinct(sector, input)
-        )
-        tmp_join
+        dplyr::left_join(., final_energy_map, by = c("sector", "input"), multiple = "all")
       } else {
+        final_energy_map <- get(paste('final_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
         left_join_strict(., final_energy_map,
                          by = c("sector", "input"),
                          mapping = paste('final_energy_map',GCAM_version,sep='_'),
@@ -3902,8 +4800,20 @@ get_fe_transportation_tmp <- function(GCAM_version = "v7.1") {
   fe_transportation_raw <-
     check_inf(rgcam::getQuery(prj, "transport final energy by mode and fuel"),
               dataset_name = "transport final energy by mode and fuel") %>%
-    left_join_strict(get(paste('transport_final_en_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
-                     by = c("sector", "input", "mode"), mapping = paste('transport_final_en_map',GCAM_version,sep='_'), multiple = "all") %>%
+    {
+      if (GCAM_version == "vGCAMChina7.1") {
+        transport_final_en_map <- get_gcam_china_transport_final_en_map()
+        record_mapping_fallback(
+          "transport_final_en_map_gcamchina_vGCAMChina7.1",
+          dplyr::anti_join(., transport_final_en_map, by = c("sector", "input", "mode")) %>%
+            dplyr::distinct(sector, input, mode)
+        )
+        dplyr::left_join(., transport_final_en_map, by = c("sector", "input", "mode"), multiple = "all")
+      } else {
+        left_join_strict(., get(paste('transport_final_en_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
+                         by = c("sector", "input", "mode"), mapping = paste('transport_final_en_map',GCAM_version,sep='_'), multiple = "all")
+      }
+    } %>%
     dplyr::filter(var != 'NoReported', !is.na(var)) %>%
     filter_variables() %>%
     dplyr::mutate(value = value * unit_conv)
@@ -3942,11 +4852,25 @@ get_fe_sector <- function(GCAM_version = 'v7.1') {
 
   check_queries("fe_sector_clean", GCAM_version)
 
-  fe_sector_clean <-
-    dplyr::bind_rows(fe_sector, fe_transportation) %>%
+  fe_sector_clean <- dplyr::bind_rows(fe_sector, fe_transportation) %>%
     dplyr::group_by(scenario, region, var, year) %>%
-    dplyr::summarise(value = sum(value)) %>%
-    dplyr::ungroup()
+    dplyr::summarise(value = sum(value), .groups = "drop")
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    provinces <- get_gcam_china_provinces()
+    fe_sector_china <- fe_sector_clean %>%
+      dplyr::filter(region %in% provinces) %>%
+      dplyr::group_by(scenario, var, year) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::mutate(region = "China")
+
+    fe_sector_clean <- dplyr::bind_rows(
+      fe_sector_clean %>% dplyr::filter(region != "China"),
+      fe_sector_china
+    ) %>%
+      dplyr::group_by(scenario, region, var, year) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop")
+  }
 
   fe_sector_clean <<- fe_sector_clean
 }
@@ -4740,14 +5664,24 @@ get_co2_price <- function(GCAM_version = "v7.1") {
       tidyr::complete(tidyr::nesting(region, var, sector, year), scenario = unique(co2_emiss$scenario), fill = list(value = 0))
 
     # compute Global value using the emission weights
-    co2_price_world <- co2_price_regional %>%
-      left_join_strict(co2_price_share_bysec %>%
-                         left_join_strict(get(paste('co2_market_frag_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
-                                          by = "sector", mapping = paste('co2_market_frag_map',GCAM_version,sep='_'), multiple = "all") %>%
-                         dplyr::filter(var != 'NoReported', !is.na(var)) %>%
-                         filter_variables() %>%
-                         dplyr::select(-market,-year),
-                       by = c('region','scenario','var','sector')) %>%
+    co2_price_weight_map <- co2_price_share_bysec %>%
+      left_join_strict(get(paste('co2_market_frag_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
+                       by = "sector", mapping = paste('co2_market_frag_map',GCAM_version,sep='_'), multiple = "all") %>%
+      dplyr::filter(var != 'NoReported', !is.na(var)) %>%
+      filter_variables() %>%
+      dplyr::select(-market,-year)
+
+    if (GCAM_version == "vGCAMChina7.1") {
+      co2_price_world <- co2_price_regional %>%
+        dplyr::left_join(co2_price_weight_map, by = c('region','scenario','var','sector')) %>%
+        dplyr::mutate(share_CO2_world = tidyr::replace_na(share_CO2_world, 0))
+    } else {
+      co2_price_world <- co2_price_regional %>%
+        left_join_strict(co2_price_weight_map,
+                         by = c('region','scenario','var','sector'))
+    }
+
+    co2_price_world <- co2_price_world %>%
       dplyr::filter(var != 'NoReported', !is.na(var)) %>%
       filter_variables() %>%
       dplyr::mutate(weighted_value = value * share_CO2_world) %>%
@@ -5310,18 +6244,45 @@ get_resource_extraction <- function(GCAM_version = "v7.1") {
 get_production_price <- function(GCAM_version = "v7.1") {
   production_price_clean <- NULL
 
-  check_queries("production_price_clean", GCAM_version)
+  query_names <- c(
+    "iron and steel prices",
+    "chemical prices",
+    "ammonia and N fertilizer prices",
+    "aluminum prices"
+  )
+  available_queries <- query_names[query_names %in% rgcam::listQueries(prj)]
 
-  production_price_clean <- rbind(
-    check_inf(rgcam::getQuery(prj, "iron and steel prices"),
-              dataset_name = "iron and steel prices"),
-    check_inf(rgcam::getQuery(prj, "chemical prices"),
-              dataset_name = "chemical prices"),
-    check_inf(rgcam::getQuery(prj, "ammonia and N fertilizer prices"),
-              dataset_name = "ammonia and N fertilizer prices"),
-    check_inf(rgcam::getQuery(prj, "aluminum prices"),
-              dataset_name = "aluminum prices")
-  ) %>%
+  if (length(available_queries) == 0) {
+    if (GCAM_version == "vGCAMChina7.1") {
+      add_gcam_china_run_note("No production price queries are available; skipped `production_price_clean`.")
+    } else {
+      warning("No production price queries are available; skipping production_price_clean.")
+    }
+    production_price_clean <<- data.frame(
+      scenario = character(0),
+      region = character(0),
+      var = character(0),
+      year = numeric(0),
+      value = numeric(0)
+    )
+    return(invisible(NULL))
+  }
+
+  if (length(setdiff(query_names, available_queries)) > 0) {
+    msg <- sprintf(
+      "Skipping unavailable production price queries: %s",
+      paste(setdiff(query_names, available_queries), collapse = ", ")
+    )
+    if (GCAM_version == "vGCAMChina7.1") {
+      add_gcam_china_run_note(msg)
+    } else {
+      warning(msg)
+    }
+  }
+
+  production_price_clean <- dplyr::bind_rows(lapply(available_queries, function(qn) {
+    check_inf(rgcam::getQuery(prj, qn), dataset_name = qn)
+  })) %>%
     left_join_strict(get(paste('production_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
                      by = 'sector') %>%
     dplyr::filter(var != 'NoReported', !is.na(var)) %>%
@@ -5363,6 +6324,7 @@ get_cf_iea_tmp <- function(GCAM_version = "v7.1") {
     cf_iea <- technology <- NULL
 
   check_queries("cf_iea", GCAM_version)
+  conv <- get_runtime_convert(GCAM_version)
 
   cf_rgn_filteredReg <- filter_data_regions(get(paste('cf_rgn',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))) %>%
     interpolateGCAMdata(valuecol = 'capacity.factor')
@@ -5370,6 +6332,66 @@ get_cf_iea_tmp <- function(GCAM_version = "v7.1") {
   if (length(ya) == 0) ya = 2020
   iea_capacity <- get(paste('iea_capacity',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
     interpolateGCAMdata(yearcol = 'period', year_to_appear = ya)
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    gcam_weo_mapping <- get_gcam_china_weo_mapping()
+    iea_capacity <- get_gcam_china_iea_capacity_2023()
+    elec_gen_query <- get_gcam_china_elec_query_name(vintage = FALSE)
+
+    tmp1 <- check_inf(
+      rgcam::getQuery(prj, elec_gen_query),
+      dataset_name = elec_gen_query
+    ) %>%
+      dplyr::filter(year == base_year_p, region != "China") %>%
+      dplyr::left_join(
+        get_gcam_china_elec_gen_map(),
+        by = c("sector", "subsector", "technology"),
+        multiple = "all"
+      ) %>%
+      dplyr::filter(!is.na(var), var != "NoReported") %>%
+      dplyr::mutate(
+        unit_conv = dplyr::coalesce(as.numeric(unit_conv), 1),
+        value = value * unit_conv
+      ) %>%
+      dplyr::group_by(var) %>%
+      dplyr::summarise(EJ = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::left_join(gcam_weo_mapping, by = "var") %>%
+      dplyr::filter(!is.na(weo_tech), weo_tech != "Total capacity")
+
+    tmp2 <- iea_capacity %>%
+      dplyr::select(weo_tech = capacity, value = `2020`)
+
+    if (sum(unique(tmp1$weo_tech) %in% unique(tmp2$weo_tech)) < 4) {
+      handle_warning(mapping_name1 = 'gcam_weo_mapping', query_name = 'elec gen by gen tech')
+    }
+
+    cf_iea1 <- tmp1 %>%
+      dplyr::left_join(tmp2, by = "weo_tech") %>%
+      dplyr::mutate(
+        cf = (EJ * conv[['EJ_to_GWh']]) /
+          (value * conv[['hr_per_yr']]),
+        cf = replace(cf, cf > 1, 0.99)
+      ) %>%
+      dplyr::left_join(get_gcam_china_elec_gen_map(), by = "var", multiple = "all") %>%
+      dplyr::filter(!is.na(technology)) %>%
+      dplyr::select(technology, cf) %>%
+      dplyr::distinct()
+
+    if (!any(grepl('Trade|Investment|Capacity|All',desired_variables.global))) {
+      cf_iea1 <- cf_iea1 %>% filter_variables()
+    }
+
+    cf_iea <- cf_iea1 %>%
+      dplyr::mutate(region = "China", vintage = base_year_p) %>%
+      tidyr::complete(
+        tidyr::nesting(technology, cf),
+        vintage = years_in_prj[years_in_prj >= 1990],
+        region = unique(cf_rgn_filteredReg$region)
+      )
+
+    cf_iea <<- cf_iea
+    return(invisible(NULL))
+  }
 
   # check if the mapping files have a mismatch
   tmp1 <- secondary_energy_clean %>%
@@ -5401,13 +6423,20 @@ get_cf_iea_tmp <- function(GCAM_version = "v7.1") {
     ) %>%
     dplyr::mutate(
       cf = EJ / (value *
-                   get(paste('convert',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['hr_per_yr']] *
-                   get(paste('convert',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['EJ_to_GWh']]),
+                   conv[['hr_per_yr']] *
+                   conv[['EJ_to_GWh']]),
       cf = replace(cf, cf > 1, 0.99)
     ) %>%
     dplyr::filter(!is.na(cf), !var %in% c("Secondary Energy|Electricity", "Secondary Energy|Electricity|Non-Biomass Renewables")) %>%
-    left_join_strict(get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
-                     by = "var", mapping = paste('capacity_map',GCAM_version,sep='_'), multiple = "all") %>%
+    {
+      if (GCAM_version == "vGCAMChina7.1") {
+        left_join_strict(., get_gcam_china_elec_gen_map(),
+                         by = "var", mapping = "elec_gen_map_gcamchina_vGCAMChina7.1", multiple = "all")
+      } else {
+        left_join_strict(., get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
+                         by = "var", mapping = paste('capacity_map',GCAM_version,sep='_'), multiple = "all")
+      }
+    } %>%
     dplyr::filter(var != 'NoReported', !is.na(var))
 
   if (!any(grepl('Trade|Investment|Capacity|All',desired_variables.global))) {
@@ -5445,6 +6474,46 @@ get_elec_cf_tmp <- function(GCAM_version = "v7.1") {
     interpolateGCAMdata(valuecol = 'capacity.factor')
   cf_iea_filteredReg <- filter_data_regions(cf_iea) %>%
     interpolateGCAMdata(valuecol = 'cf', yearcol = 'vintage')
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    cf_tech_mapping <- get_gcam_china_cf_tech_mapping()
+    cf_province <- get_gcam_china_cf_province()
+
+    elec_cf <- cf_iea_filteredReg %>%
+      dplyr::filter(region != "China") %>%
+      tidyr::complete(tidyr::nesting(technology, region), vintage = sort(years_in_prj[years_in_prj >= 1990])) %>%
+      dplyr::group_by(technology, region) %>%
+      dplyr::mutate(cf = approx_fun(vintage, cf, rule = 2)) %>%
+      dplyr::ungroup() %>%
+      dplyr::filter(!technology %in% c("battery"))
+
+    elec_cf_adj <- elec_cf %>%
+      dplyr::filter(technology %in% cf_tech_mapping$technology_gcam) %>%
+      dplyr::left_join(cf_tech_mapping, by = c("technology" = "technology_gcam")) %>%
+      dplyr::left_join(
+        cf_province %>% dplyr::rename(technology_adjust = technology),
+        by = c("region", "vintage" = "year", "technology_adjust")
+      ) %>%
+      dplyr::mutate(
+        cf = dplyr::if_else(
+          technology_adjust == "wind" & !is.na(cf.y) & vintage != 2020,
+          cf.y,
+          cf.x
+        )
+      ) %>%
+      dplyr::select(dplyr::all_of(names(elec_cf)))
+
+    elec_cf <- elec_cf %>%
+      dplyr::filter(!technology %in% cf_tech_mapping$technology_gcam) %>%
+      dplyr::bind_rows(elec_cf_adj) %>%
+      dplyr::distinct() %>%
+      dplyr::group_by(technology, region, vintage) %>%
+      dplyr::summarise(cf = mean(cf, na.rm = TRUE), .groups = "drop")
+
+    elec_cf <- filter_data_regions(elec_cf)
+    elec_cf <<- elec_cf
+    return(invisible(NULL))
+  }
 
   tmp1 <- get(paste('cf_gcam',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
     dplyr::select(technology, cf = `2100`) %>%
@@ -5497,28 +6566,104 @@ get_elec_capacity_tot <- function(GCAM_version = "v7.1") {
 
   check_queries("elec_capacity_tot_clean", GCAM_version)
 
-  elec_capacity_tot_clean1 <- suppressWarnings(
-    check_inf(rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
-              dataset_name = "elec gen by gen tech and cooling tech and vintage") %>%
-      dplyr::filter(!output %in% c("electricity", "elect_td_bld")) %>%
-      tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+  if (GCAM_version == "vGCAMChina7.1") {
+    elec_vintage_query <- get_gcam_china_elec_query_name(vintage = TRUE)
+    raw_elec_vintage <- check_inf(
+      rgcam::getQuery(prj, elec_vintage_query),
+      dataset_name = elec_vintage_query
+    )
+
+    elec_capacity_tot_clean1 <- suppressWarnings(
+      raw_elec_vintage %>%
+        tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+        dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+        dplyr::group_by(scenario, region, technology, vintage, year) %>%
+        dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+        dplyr::filter(technology != "battery") %>%
+        {
+          elec_cf_join <- elec_cf %>% dplyr::select(-dplyr::any_of("cf.rgn"))
+          record_mapping_fallback(
+            "elec_cf_vGCAMChina7.1",
+            dplyr::anti_join(., elec_cf_join, by = c("region", "technology", "vintage")) %>%
+              dplyr::distinct(region, technology, vintage)
+          )
+          dplyr::left_join(., elec_cf_join, by = c("region", "technology", "vintage"))
+        } %>%
+        dplyr::mutate(EJ = value) %>%
+        conv_EJ_GW(GCAM_version = GCAM_version) %>%
+        dplyr::group_by(scenario, region, technology, year) %>%
+        dplyr::summarise(value = sum(gw, na.rm = TRUE), .groups = "drop") %>%
+        {
+          capacity_map <- get_gcam_china_elec_gen_map()
+          record_mapping_fallback(
+            "capacity_map_vGCAMChina7.1",
+            dplyr::anti_join(., capacity_map, by = c("technology")) %>%
+              dplyr::distinct(technology)
+          )
+          dplyr::left_join(., capacity_map, by = c("technology"), multiple = "all")
+        } %>%
+        dplyr::filter(var != "NoReported", !is.na(var))
+    )
+
+    if (!any(grepl('Trade|Investment|Capacity|All', desired_variables.global))) {
+      elec_capacity_tot_clean2 <- elec_capacity_tot_clean1 %>% filter_variables()
+    } else {
+      elec_capacity_tot_clean2 <- elec_capacity_tot_clean1
+    }
+
+    elec_capacity_tot_clean <- elec_capacity_tot_clean2 %>%
       dplyr::mutate(
-        vintage = as.integer(sub("year=", "", vintage)),
-        output = gsub("elec_", "", output)
+        value = value * unit_conv,
+        var = sub("Secondary Energy", "Capacity", var)
       ) %>%
-      dplyr::group_by(scenario, region, technology = output, vintage, year) %>%
-      dplyr::summarise(value = sum(value, na.rm = T)) %>%
-      dplyr::ungroup() %>%
-      dplyr::bind_rows(check_inf(rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
-                                 dataset_name = "elec gen by gen tech and cooling tech and vintage") %>%
-                         dplyr::filter(output %in% c("electricity", "elect_td_bld")) %>%
-                         tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
-                         dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
-                         dplyr::group_by(scenario, region, technology, vintage, year) %>%
-                         dplyr::summarise(value = sum(value, na.rm = T)) %>%
-                         dplyr::ungroup()) %>%
+      dplyr::group_by(scenario, region, var, year) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      tidyr::complete(
+        tidyr::nesting(scenario, region, year),
+        var = unique(var),
+        fill = list(value = 0)
+      ) %>%
+      dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+    elec_capacity_tot_clean <<- elec_capacity_tot_clean
+    return(invisible(NULL))
+  }
+
+  raw_elec_vintage <- check_inf(
+    rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
+    dataset_name = "elec gen by gen tech and cooling tech and vintage"
+  )
+
+  elec_capacity_tot_clean1 <- suppressWarnings(
+    {
+      if ("output" %in% names(raw_elec_vintage)) {
+        raw_elec_vintage %>%
+          dplyr::filter(!output %in% c("electricity", "elect_td_bld")) %>%
+          tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+          dplyr::mutate(
+            vintage = as.integer(sub("year=", "", vintage)),
+            output = gsub("elec_", "", output)
+          ) %>%
+          dplyr::group_by(scenario, region, technology = output, vintage, year) %>%
+          dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop") %>%
+          dplyr::bind_rows(
+            raw_elec_vintage %>%
+              dplyr::filter(output %in% c("electricity", "elect_td_bld")) %>%
+              tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+              dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+              dplyr::group_by(scenario, region, technology, vintage, year) %>%
+              dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop")
+          )
+      } else {
+        raw_elec_vintage %>%
+          tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+          dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+          dplyr::group_by(scenario, region, technology, vintage, year) %>%
+          dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop")
+      }
+    } %>%
       {
-        elec_cf_join <- elec_cf %>% dplyr::select(-cf.rgn)
+        elec_cf_join <- elec_cf %>% dplyr::select(-dplyr::any_of("cf.rgn"))
         if (GCAM_version == "vGCAMChina7.1") {
           record_mapping_fallback(
             "elec_cf_vGCAMChina7.1",
@@ -5538,13 +6683,17 @@ get_elec_capacity_tot <- function(GCAM_version = "v7.1") {
         }
       } %>%
       dplyr::mutate(EJ = value) %>%
-      conv_EJ_GW() %>%
+      conv_EJ_GW(GCAM_version = GCAM_version) %>%
       dplyr::group_by(scenario, region, technology, year) %>%
       dplyr::summarise(value = sum(gw, na.rm = T)) %>%
       dplyr::ungroup() %>%
       {
-        capacity_map <- get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
-          dplyr::select(-output)
+        capacity_map <- if (GCAM_version == "vGCAMChina7.1") {
+          get_gcam_china_elec_gen_map()
+        } else {
+          get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
+            dplyr::select(-output)
+        }
         capacity_map_fallback <- get("capacity_map_v7.1", envir = asNamespace("gcamreport")) %>%
           dplyr::select(-output)
         if (GCAM_version == "vGCAMChina7.1") {
@@ -5553,7 +6702,7 @@ get_elec_capacity_tot <- function(GCAM_version = "v7.1") {
             dplyr::anti_join(., capacity_map, by = c("technology")) %>%
               dplyr::distinct(technology)
           )
-          dplyr::left_join(., capacity_map, by = c("technology")) %>%
+          dplyr::left_join(., capacity_map, by = c("technology"), multiple = "all") %>%
             dplyr::left_join(capacity_map_fallback, by = c("technology"), suffix = c("", ".fb")) %>%
             dplyr::mutate(
               var = dplyr::coalesce(var, var.fb, "NoReported"),
@@ -5607,26 +6756,97 @@ get_elec_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
 
   check_queries("elec_capacity_add", GCAM_version)
 
-  elec_capacity_add <- suppressWarnings(
-    check_inf(rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
-              dataset_name = "elec gen by gen tech and cooling tech and vintage") %>%
-      dplyr::filter(!output %in% c("electricity", "elect_td_bld")) %>%
+  if (GCAM_version == "vGCAMChina7.1") {
+    elec_vintage_query <- get_gcam_china_elec_query_name(vintage = TRUE)
+    raw_elec_vintage <- check_inf(
+      rgcam::getQuery(prj, elec_vintage_query),
+      dataset_name = elec_vintage_query
+    )
+    pseudo_years <- sort(unique(years_in_prj[years_in_prj >= 2015]))
+
+    pseudo_vintage_techs <- raw_elec_vintage %>%
       tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
-      dplyr::mutate(
-        vintage = as.integer(sub("year=", "", vintage)),
-        output = gsub("elec_", "", output)
-      ) %>%
-      dplyr::group_by(scenario, region, technology = output, vintage, year) %>%
-      dplyr::summarise(value = sum(value, na.rm = T)) %>%
+      dplyr::filter(technology %in% c("rooftop_pv", "hydro_base")) %>%
+      dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+      dplyr::filter(year == vintage) %>%
+      dplyr::group_by(scenario, region, technology) %>%
+      dplyr::mutate(value = value - dplyr::lag(value, default = 0, order_by = year)) %>%
       dplyr::ungroup() %>%
-      dplyr::bind_rows(check_inf(rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
-                                 dataset_name = "elec gen by gen tech and cooling tech and vintage") %>%
-                         dplyr::filter(output %in% c("electricity", "elect_td_bld")) %>%
-                         tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
-                         dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
-                         dplyr::group_by(scenario, region, technology, vintage, year) %>%
-                         dplyr::summarise(value = sum(value, na.rm = T)) %>%
-                         dplyr::ungroup()) %>%
+      dplyr::mutate(value = ifelse(value <= 0, 0, value)) %>%
+      tidyr::complete(
+        tidyr::nesting(scenario, region, sector, subsector, technology, Units, year),
+        vintage = pseudo_years
+      ) %>%
+      dplyr::filter(vintage <= year) %>%
+      dplyr::group_by(dplyr::across(c(-year, -value))) %>%
+      dplyr::mutate(value = sum(value, na.rm = TRUE)) %>%
+      dplyr::ungroup()
+
+    elec_capacity_add <- suppressWarnings(
+      raw_elec_vintage %>%
+        tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+        dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+        dplyr::filter(!(technology %in% c("rooftop_pv", "hydro_base", "battery"))) %>%
+        dplyr::bind_rows(pseudo_vintage_techs) %>%
+        dplyr::group_by(scenario, region, technology, vintage, year) %>%
+        dplyr::ungroup() %>%
+        dplyr::filter(year == vintage, year > 2015) %>%
+        dplyr::group_by(scenario, region, technology, year) %>%
+        dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+        dplyr::left_join(
+          elec_cf %>%
+            dplyr::filter(!technology %in% c("coal_base_conv pul")) %>%
+            dplyr::group_by(region, technology) %>%
+            dplyr::mutate(cf = replace(cf, vintage < 2025, cf[vintage == 2025])) %>%
+            dplyr::ungroup() %>%
+            dplyr::bind_rows(
+              elec_cf %>% dplyr::filter(technology %in% c("coal_base_conv pul"))
+            ),
+          by = c("region", "technology", "year" = "vintage")
+        ) %>%
+        dplyr::mutate(EJ = value / 5) %>%
+        conv_EJ_GW(GCAM_version = GCAM_version) %>%
+        dplyr::group_by(scenario, region, technology, year) %>%
+        dplyr::summarise(GW = sum(gw, na.rm = TRUE), EJ = sum(EJ, na.rm = TRUE), .groups = "drop")
+    )
+
+    elec_capacity_add <<- elec_capacity_add
+    return(invisible(NULL))
+  }
+
+  raw_elec_vintage <- check_inf(
+    rgcam::getQuery(prj, "elec gen by gen tech and cooling tech and vintage"),
+    dataset_name = "elec gen by gen tech and cooling tech and vintage"
+  )
+
+  elec_capacity_add <- suppressWarnings(
+    {
+      if ("output" %in% names(raw_elec_vintage)) {
+        raw_elec_vintage %>%
+          dplyr::filter(!output %in% c("electricity", "elect_td_bld")) %>%
+          tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+          dplyr::mutate(
+            vintage = as.integer(sub("year=", "", vintage)),
+            output = gsub("elec_", "", output)
+          ) %>%
+          dplyr::group_by(scenario, region, technology = output, vintage, year) %>%
+          dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop") %>%
+          dplyr::bind_rows(
+            raw_elec_vintage %>%
+              dplyr::filter(output %in% c("electricity", "elect_td_bld")) %>%
+              tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+              dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+              dplyr::group_by(scenario, region, technology, vintage, year) %>%
+              dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop")
+          )
+      } else {
+        raw_elec_vintage %>%
+          tidyr::separate(technology, into = c("technology", "vintage"), sep = ",") %>%
+          dplyr::mutate(vintage = as.integer(sub("year=", "", vintage))) %>%
+          dplyr::group_by(scenario, region, technology, vintage, year) %>%
+          dplyr::summarise(value = sum(value, na.rm = T), .groups = "drop")
+      }
+    } %>%
       dplyr::filter(year == vintage, year > 2015) %>%
       dplyr::group_by(scenario, region, technology, year) %>%
       dplyr::summarise(value = sum(value, na.rm = T)) %>%
@@ -5634,7 +6854,7 @@ get_elec_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       # use GCAM cf for capacity additions
       {
         elec_cf_join <- elec_cf %>%
-          dplyr::select(-'cf.rgn') %>%
+          dplyr::select(-dplyr::any_of("cf.rgn")) %>%
           dplyr::rename(year = vintage)
         if (GCAM_version == "vGCAMChina7.1") {
           record_mapping_fallback(
@@ -5657,7 +6877,7 @@ get_elec_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       dplyr::distinct() %>%
       # use average annual additions
       dplyr::mutate(EJ = value / 5) %>%
-      conv_EJ_GW() %>%
+      conv_EJ_GW(GCAM_version = GCAM_version) %>%
       dplyr::group_by(scenario, region, technology, year) %>% #
       dplyr::summarise(GW = sum(gw, na.rm = T), EJ = sum(EJ, na.rm = T)) %>%
       dplyr::ungroup()
@@ -5708,7 +6928,7 @@ get_refliq_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       dplyr::ungroup() %>%
       # use GCAM cf for capacity additions
       left_join_strict(elec_cf %>% #TODO - refliq_cf
-                         dplyr::select(-'cf.rgn') %>%
+                         dplyr::select(-dplyr::any_of("cf.rgn")) %>%
                          dplyr::rename(year = vintage),
                        by = c("region", "technology", "year"),
                        by_message = 'technology') %>%
@@ -5716,7 +6936,7 @@ get_refliq_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       filter_variables() %>%
       # use average annual additions
       dplyr::mutate(EJ = value / 5) %>%
-      conv_EJ_GW() %>%
+      conv_EJ_GW(GCAM_version = GCAM_version) %>%
       dplyr::group_by(scenario, region, technology, year) %>% #
       dplyr::summarise(GW = sum(gw, na.rm = T), EJ = sum(EJ, na.rm = T)) %>%
       dplyr::ungroup()
@@ -5767,7 +6987,7 @@ get_hydrogen_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       dplyr::ungroup() %>%
       # use GCAM cf for capacity additions
       left_join_strict(elec_cf %>% # TODO - hydrogen_cf
-                         dplyr::select(-'cf.rgn') %>%
+                         dplyr::select(-dplyr::any_of("cf.rgn")) %>%
                          dplyr::rename(year = vintage),
                        by = c("region", "technology", "year"),
                        by_message = 'technology') %>%
@@ -5775,7 +6995,7 @@ get_hydrogen_capacity_add_tmp <- function(GCAM_version = 'v7.1') {
       filter_variables() %>%
       # use average annual additions
       dplyr::mutate(EJ = value / 5) %>%
-      conv_EJ_GW() %>%
+      conv_EJ_GW(GCAM_version = GCAM_version) %>%
       dplyr::group_by(scenario, region, technology, year) %>% #
       dplyr::summarise(GW = sum(gw, na.rm = T), EJ = sum(EJ, na.rm = T)) %>%
       dplyr::ungroup()
@@ -5803,34 +7023,36 @@ get_elec_capacity_add <- function(GCAM_version = "v7.1") {
   elec_capacity_add_clean <-
     elec_capacity_add %>%
     {
-      capacity_map <- get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
-        dplyr::select(-output)
-      capacity_map_fallback <- get("capacity_map_v7.1", envir = asNamespace("gcamreport")) %>%
-        dplyr::select(-output)
+      capacity_map <- if (GCAM_version == "vGCAMChina7.1") {
+        get_gcam_china_elec_gen_map()
+      } else {
+        get(paste('capacity_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
+          dplyr::select(-output)
+      }
       if (GCAM_version == "vGCAMChina7.1") {
         record_mapping_fallback(
           "capacity_map_vGCAMChina7.1",
           dplyr::anti_join(., capacity_map, by = c("technology")) %>%
             dplyr::distinct(technology)
         )
-        dplyr::left_join(., capacity_map, by = c("technology")) %>%
-          dplyr::left_join(capacity_map_fallback, by = c("technology"), suffix = c("", ".fb")) %>%
-          dplyr::mutate(
-            var = dplyr::coalesce(var, var.fb, "NoReported"),
-            unit_conv = dplyr::coalesce(as.numeric(unit_conv), as.numeric(unit_conv.fb), 1)
-          ) %>%
-          dplyr::select(-dplyr::any_of(c("var.fb", "unit_conv.fb")))
+        dplyr::left_join(., capacity_map, by = c("technology"), multiple = "all")
       } else {
         left_join_strict(., capacity_map,
                          by = c("technology"), mapping = paste('capacity_map',GCAM_version,sep='_'), multiple = "all")
       }
     } %>%
     dplyr::filter(var != 'NoReported', !is.na(var)) %>%
-    filter_variables() %>%
     dplyr::mutate(
       value = GW * unit_conv,
       var = sub("Secondary Energy", "Capacity Additions", var)
     ) %>%
+    {
+      if (!any(grepl('Trade|Investment|Capacity|All', desired_variables.global))) {
+        filter_variables(.)
+      } else {
+        .
+      }
+    } %>%
     dplyr::mutate(value = dplyr::if_else(var == "Capacity Additions|Electricity|Storage Capacity",
                                          GW * 8760, # multiply by # of hours in a year
                                          value)) %>%
@@ -5866,6 +7088,42 @@ get_elec_capital <- function(GCAM_version = "v7.1") {
 
   check_queries("elec_capital_clean", GCAM_version)
   cf_rgn_filteredReg <- filter_data_regions(get(paste('cf_rgn',GCAM_version,sep='_'), envir = asNamespace("gcamreport")))
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    provinces <- unique(c(get_gcam_china_provinces(), "China"))
+    conv <- get_runtime_convert(GCAM_version)
+
+    elec_capital_tmp <- get_gcam_china_capital_gcam() %>%
+      dplyr::mutate(region = "China", scenario = "current") %>%
+      dplyr::select(-sector) %>%
+      tidyr::complete(
+        tidyr::nesting(subsector, technology, year, capital.overnight),
+        region = provinces,
+        scenario = scenarios.global
+      ) %>%
+      dplyr::mutate(value = capital.overnight * conv[['conv_75USD_10USD']] * conv[['conv_10USD_20USD']]) %>%
+      dplyr::left_join(get_gcam_china_elec_gen_map(), by = c("subsector", "technology"), multiple = "all") %>%
+      dplyr::filter(!is.na(var), var != "Secondary Energy|Electricity|Electricity Storage") %>%
+      filter_variables() %>%
+      dplyr::mutate(
+        value = value * unit_conv,
+        var = sub("Secondary Energy", "Capital Cost", var)
+      ) %>%
+      dplyr::group_by(scenario, region, var, year) %>%
+      dplyr::summarise(value = mean(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+    elec_capital_clean <- rbind(
+      elec_capital_tmp,
+      elec_capital_tmp %>%
+        dplyr::group_by(scenario, var, year) %>%
+        dplyr::summarise(value = mean(value, na.rm = TRUE), .groups = "drop") %>%
+        dplyr::mutate(region = "World")
+    )
+
+    elec_capital_clean <<- elec_capital_clean
+    return(invisible(NULL))
+  }
 
 
   # Capital costs from GCAM in $1975/kw -> convert to $2010/kw
@@ -6554,6 +7812,9 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
   region <- var <- scenario <- year <- value <- . <- na.omit <- Region <- Variable <- NULL
 
   vars <- .myGlobals$variables.global[.myGlobals$variables.global$required == TRUE, "name"]
+  if (GCAM_version == "vGCAMChina7.1") {
+    vars <- setdiff(vars, c("co2_emiss", "LUC_emiss"))
+  }
   GCAM_DATA <-
     dplyr::bind_rows(lapply(vars, function(x) get(x))) %>%
     dplyr::mutate(
@@ -6564,6 +7825,10 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
     filter_data_regions() %>%
     rbind(GCAM_DATA %>%
             dplyr::filter(region == 'World'))
+  GCAM_DATA <- add_missing_parent_aggregates(
+    GCAM_DATA,
+    get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['Variable']]
+  )
 
   # Calculate global total
   GCAM_DATA_WORLD <-
@@ -6607,8 +7872,13 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
     dplyr::count(scenario, region, var, year) %>%
     dplyr::filter(n > 1)
   if (nrow(dup_counts) > 0) {
-    warning(paste0("Duplicate values detected for ", nrow(dup_counts),
-                   " scenario/region/variable/year groups; aggregating duplicates before pivoting."))
+    msg <- paste0("Duplicate values detected for ", nrow(dup_counts),
+                  " scenario/region/variable/year groups; aggregating duplicates before pivoting.")
+    if (GCAM_version == "vGCAMChina7.1") {
+      add_gcam_china_run_note(msg)
+    } else {
+      warning(msg)
+    }
   }
   report_pre <-
     get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
@@ -6626,6 +7896,47 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
     dplyr::rename(Region = region) %>%
     dplyr::rename(Scenario = scenario)
 
+  year_cols_present <- names(report_pre)[grepl("^\\d{4}$", names(report_pre))]
+  if (length(year_cols_present) > 0) {
+    report_pre_long <- report_pre %>%
+      dplyr::select(Model, Scenario, Region, Variable, Unit, dplyr::all_of(year_cols_present)) %>%
+      tidyr::pivot_longer(cols = dplyr::all_of(year_cols_present), names_to = "year", values_to = "value") %>%
+      dplyr::filter(!is.na(value)) %>%
+      dplyr::transmute(
+        scenario = Scenario,
+        region = Region,
+        var = Variable,
+        year = as.integer(year),
+        value = as.numeric(value)
+      )
+
+    report_pre_long_agg <- add_missing_parent_aggregates(
+      report_pre_long,
+      get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['Variable']]
+    )
+
+    report_pre_added <- report_pre_long_agg %>%
+      dplyr::anti_join(
+        report_pre_long %>% dplyr::select(scenario, region, var, year) %>% dplyr::distinct(),
+        by = c("scenario", "region", "var", "year")
+      )
+
+    if (nrow(report_pre_added) > 0) {
+      report_pre_added <- report_pre_added %>%
+        tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0) %>%
+        dplyr::rename(Scenario = scenario, Region = region, Variable = var) %>%
+        dplyr::left_join(
+          get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
+            dplyr::select(Variable, Unit, Model) %>%
+            dplyr::distinct(),
+          by = "Variable"
+        )
+
+      report_pre <- dplyr::bind_rows(report_pre, report_pre_added) %>%
+        dplyr::distinct()
+    }
+  }
+
   # Add year columns if not present
   missing_cols <- setdiff(reporting_columns.global, colnames(report_pre))
   for (col in missing_cols) {
@@ -6637,6 +7948,26 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
     # Drop variables we don't report
     dplyr::filter(!is.na(Region)) %>%
     dplyr::filter(Variable %in% unique(get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))[['Variable']]))
+
+  year_cols_report <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols_report) > 0) {
+    report <- report %>%
+      dplyr::group_by(Model, Scenario, Region, Variable, Unit) %>%
+      dplyr::summarise(
+        dplyr::across(
+          dplyr::all_of(year_cols_report),
+          ~{
+            xx <- .x[!is.na(.x)]
+            if (length(xx) == 0) {
+              NA_real_
+            } else {
+              xx[which.max(abs(xx))]
+            }
+          }
+        ),
+        .groups = "drop"
+      )
+  }
 
   # Add "Other" category when variables present as reportable (Internal_variable column not empty in the template)
   missing_var <- get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport")) %>%
@@ -6711,6 +8042,37 @@ do_bind_results <- function(GCAM_version = "v7.1", all_tier1 = F) {
       report <- report_complete
 
     }
+  }
+
+  report <- add_missing_parent_aggregates_report(
+    report,
+    get(paste('template',GCAM_version,sep='_'), envir = asNamespace("gcamreport"))
+  )
+
+  if (GCAM_version == "vGCAMChina7.1") {
+    report <- add_gcam_china_co2_report(report)
+    report <- add_gcam_china_zero_report_vars(report)
+    report <- add_china_from_provinces_report(report)
+  }
+
+  year_cols_report <- names(report)[grepl("^\\d{4}$", names(report))]
+  if (length(year_cols_report) > 0) {
+    report <- report %>%
+      dplyr::group_by(Model, Scenario, Region, Variable, Unit) %>%
+      dplyr::summarise(
+        dplyr::across(
+          dplyr::all_of(year_cols_report),
+          ~{
+            xx <- .x[!is.na(.x)]
+            if (length(xx) == 0) {
+              NA_real_
+            } else {
+              xx[which.max(abs(xx))]
+            }
+          }
+        ),
+        .groups = "drop"
+      )
   }
 
 
