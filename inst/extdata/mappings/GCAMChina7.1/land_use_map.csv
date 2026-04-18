@@ -10,7 +10,7 @@ FodderHerb,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land
 FodderHerb,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Rainfed,,,,0.1
 FodderHerbC4,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Irrigated,,,,0.1
 FodderHerbC4,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Rainfed,,,,0.1
-Forest,NA,Land Cover,Land Cover|Forest,,,,,,,0.1
+Forest,NA,Land Cover,Land Cover|Forest,Land Cover|Forest|Managed,,,,,,0.1
 Fruits,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Irrigated,,,,0.1
 Fruits,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Rainfed,,,,0.1
 FruitsTree,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Other Crops,Land Cover|Cropland|Other Crops|Irrigated,,,,0.1
@@ -33,12 +33,12 @@ OilCropTree,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Lan
 OilCropTree,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Oil Crops,Land Cover|Cropland|Oil Crops|Rainfed,,,,0.1
 OilPalmTree,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Oil Crops,Land Cover|Cropland|Oil Crops|Irrigated,,,,0.1
 OilPalmTree,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Oil Crops,Land Cover|Cropland|Oil Crops|Rainfed,,,,0.1
-OtherArableLand,NA,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,,,,,,0.1
+OtherArableLand,NA,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Otherarable,,,,,,0.1
 OtherGrain,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Cereals,Land Cover|Cropland|Cereals|Irrigated,,,,0.1
 OtherGrain,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Cereals,Land Cover|Cropland|Cereals|Rainfed,,,,0.1
 OtherGrainC4,IRR,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Irrigated,Land Cover|Cropland|Cereals,Land Cover|Cropland|Cereals|Irrigated,,,,0.1
 OtherGrainC4,RFD,Land Cover,Land Cover|Cropland,Land Cover|Cropland|Rainfed,Land Cover|Cropland|Cereals,Land Cover|Cropland|Cereals|Rainfed,,,,0.1
-Pasture,NA,Land Cover,Land Cover|Pasture,,,,,,,0.1
+Pasture,NA,Land Cover,Land Cover|Pasture,Land Cover|Pasture|Grazed,,,,,,0.1
 ProtectedGrassland,NA,Land Cover,Land Cover|Other Natural,,,,,,,0.1
 ProtectedShrubland,NA,Land Cover,Land Cover|Forest,,,,,,,0.1
 ProtectedUnmanagedForest,NA,Land Cover,Land Cover|Forest,,,,,,,0.1

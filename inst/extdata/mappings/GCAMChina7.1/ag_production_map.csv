@@ -19,8 +19,8 @@ Soybean,Agricultural Production,Agricultural Production|Crops,Agricultural Produ
 SugarCrop,Agricultural Production,Agricultural Production|Crops,Agricultural Production|Crops|Sugar Crops,,,1
 Vegetables,Agricultural Production,Agricultural Production|Crops,Agricultural Production|Crops|Other Crops,,,1
 Wheat,Agricultural Production,Agricultural Production|Crops,Agricultural Production|Crops|Cereals,,,1
-Beef,Agricultural Production,Agricultural Production|Livestock,Agricultural Production|Livestock|Ruminant,Agricultural Production|Livestock|Ruminant|Meat,,1
-Dairy,Agricultural Production,Agricultural Production|Livestock,Agricultural Production|Livestock|Dairy,Agricultural Production|Livestock|Ruminant|Dairy,,1
-Pork,Agricultural Production,Agricultural Production|Livestock,Agricultural Production|Livestock|Non-Ruminant,Agricultural Production|Livestock|Non-Ruminant|Meat,Agricultural Production|Livestock|Non-Ruminant|Meat|Pig,1
-Poultry,Agricultural Production,Agricultural Production|Livestock,Agricultural Production|Livestock|Non-Ruminant,Agricultural Production|Livestock|Non-Ruminant|Meat,Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry,1
-SheepGoat,Agricultural Production,Agricultural Production|Livestock,Agricultural Production|Livestock|Ruminant,Agricultural Production|Livestock|Ruminant|Meat,,1
+Beef,Agricultural Production,Agricultural Production|Non-Energy,Agricultural Production|Non-Energy|Livestock,Agricultural Production|Non-Energy|Livestock|Beef,,1
+Dairy,Agricultural Production,Agricultural Production|Non-Energy,Agricultural Production|Non-Energy|Livestock,Agricultural Production|Non-Energy|Livestock|Dairy,,1
+Pork,Agricultural Production,Agricultural Production|Non-Energy,Agricultural Production|Non-Energy|Livestock,Agricultural Production|Non-Energy|Livestock|Pork,,1
+Poultry,Agricultural Production,Agricultural Production|Non-Energy,Agricultural Production|Non-Energy|Livestock,Agricultural Production|Non-Energy|Livestock|Poultry,,1
+SheepGoat,Agricultural Production,Agricultural Production|Non-Energy,Agricultural Production|Non-Energy|Livestock,Agricultural Production|Non-Energy|Livestock|SheepGoat,,1

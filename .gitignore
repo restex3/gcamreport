@@ -41,8 +41,10 @@ vignettes/*.pdf
 # Temporal files
 lib/*
 
-# Docs
-docs/*
+# Docs (pkgdown generated)
+docs/_site/
+docs/reference/
+docs/articles/
 
 # Attempt files
 prova*
