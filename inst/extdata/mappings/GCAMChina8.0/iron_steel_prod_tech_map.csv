@@ -1,0 +1,43 @@
+# Iron and steel production by technology mapping,,,,,,
+sector,subsector,technology,var1,var2,var3,unit_conv
+iron and steel,BLASTFUR,BLASTFUR,Production|Steel,Production|Steel|Blast Furnace,Production|Steel|Blast Furnace|BLASTFUR,1
+iron and steel,BLASTFUR,BLASTFUR CCS,Production|Steel,Production|Steel|Blast Furnace,Production|Steel|Blast Furnace|BLASTFUR CCS,1
+iron and steel,BLASTFUR,BLASTFUR with hydrogen,Production|Steel,Production|Steel|Blast Furnace,Production|Steel|Blast Furnace|BLASTFUR with hydrogen,1
+iron and steel,BLASTFUR,Biomass-based,Production|Steel,Production|Steel|Blast Furnace,Production|Steel|Blast Furnace|Biomass-based,1
+iron and steel,EAF with scrap,EAF with scrap,Production|Steel,Production|Steel|EAF-scrap,Production|Steel|EAF-scrap|EAF with scrap,1
+iron and steel,EAF with DRI,EAF with DRI,Production|Steel,Production|Steel|EAF-DRI,Production|Steel|EAF-DRI|EAF with DRI,1
+iron and steel,EAF with DRI,EAF with DRI CCS,Production|Steel,Production|Steel|EAF-DRI,Production|Steel|EAF-DRI|EAF with DRI CCS,1
+iron and steel,EAF with DRI,Hydrogen-based DRI,Production|Steel,Production|Steel|Hydrogen-DRI,Production|Steel|Hydrogen-DRI|Hydrogen-based DRI,1
+iron and steel,AH iron and steel,AH iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,BJ iron and steel,BJ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,CQ iron and steel,CQ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,FJ iron and steel,FJ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,GD iron and steel,GD iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,GS iron and steel,GS iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,GX iron and steel,GX iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,GZ iron and steel,GZ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HA iron and steel,HA iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HB iron and steel,HB iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HE iron and steel,HE iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HI iron and steel,HI iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HK iron and steel,HK iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HL iron and steel,HL iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,HN iron and steel,HN iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,JL iron and steel,JL iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,JS iron and steel,JS iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,JX iron and steel,JX iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,LN iron and steel,LN iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,MC iron and steel,MC iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,NM iron and steel,NM iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,NX iron and steel,NX iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,QH iron and steel,QH iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,SC iron and steel,SC iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,SD iron and steel,SD iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,SH iron and steel,SH iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,SN iron and steel,SN iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,SX iron and steel,SX iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,TJ iron and steel,TJ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,XJ iron and steel,XJ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,XZ iron and steel,XZ iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,YN iron and steel,YN iron and steel,NoReported,NoReported,NoReported,1
+iron and steel,ZJ iron and steel,ZJ iron and steel,NoReported,NoReported,NoReported,1

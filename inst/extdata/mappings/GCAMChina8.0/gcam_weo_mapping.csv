@@ -1,0 +1,28 @@
+var,weo_tech
+Secondary Energy|Electricity,Total capacity
+Secondary Energy|Electricity|Biomass,Bioenergy
+Secondary Energy|Electricity|Coal,Unabated coal
+Secondary Energy|Electricity|Gas,Unabated natural gas
+Secondary Energy|Electricity|Geothermal,
+Secondary Energy|Electricity|Hydro,Hydro
+Secondary Energy|Electricity|Nuclear,Nuclear
+Secondary Energy|Electricity|Oil,Oil
+Secondary Energy|Electricity|Solar,Solar PV
+Secondary Energy|Electricity|Wind,Wind
+Secondary Energy|Electricity|Biomass|w/ CCS,
+Secondary Energy|Electricity|Biomass|w/o CCS,
+Secondary Energy|Electricity|Coal|w/ CCS,
+Secondary Energy|Electricity|Coal|w/o CCS,
+Secondary Energy|Electricity|Gas|w/ CCS,
+Secondary Energy|Electricity|Gas|w/o CCS,
+Secondary Energy|Electricity|Oil|w/o CCS,
+Secondary Energy|Electricity|Solar|CSP,
+Secondary Energy|Electricity|Solar|PV,
+Secondary Energy|Electricity|Wind|Offshore,
+Secondary Energy|Electricity|Wind|Onshore,
+Secondary Energy|Electricity|Gas|CC,
+Secondary Energy|Electricity|Gas|ST,
+Secondary Energy|Electricity|Non-Biomass Renewables,
+Secondary Energy|Electricity|Gas|CC|w/ CCS,
+Secondary Energy|Electricity|Gas|CC|w/o CCS,
+Secondary Energy|Electricity|Gas|ST|w/o CCS,
