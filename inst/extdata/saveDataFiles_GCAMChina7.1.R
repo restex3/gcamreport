@@ -553,6 +553,72 @@ gains_industry_vars <- data.frame(
 )
 template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_industry_vars)
 
+# Add GAINS-format production variables
+gains_production_vars <- data.frame(
+  Variable = c(
+    "Production|Cement",
+    "Production|Chemicals|Fertilizer",
+    "Production|Chemicals|Nitrogen Fertilizer"
+  ),
+  Unit = "Mt/yr",
+  Tier = 3,
+  Internal_variable = "industry_production_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_production_vars)
+
+# Add GAINS-format primary energy variables
+gains_primary_energy_vars <- data.frame(
+  Variable = c(
+    "Primary Energy|Biomass|Convert",
+    "Primary Energy|Coal|Convert",
+    "Primary Energy|Gas|Convert",
+    "Primary Energy|Oil|Convert",
+    "Primary Energy|Oil|Liquids",
+    "Primary Energy|Electricity|Nuclear",
+    "Primary Energy|Electricity|Oil|w/ CCS"
+  ),
+  Unit = "EJ/yr",
+  Tier = 3,
+  Internal_variable = "primary_energy_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_primary_energy_vars)
+
+# Add GAINS-format residential variables
+gains_residential_vars <- data.frame(
+  Variable = c(
+    "Final Energy|Residential and Commercial|Electricity",
+    "Final Energy|Residential and Commercial|Solids|Biomass",
+    "Final Energy|Residential and Commercial|Solids|Coal"
+  ),
+  Unit = "EJ/yr",
+  Tier = 3,
+  Internal_variable = "fe_sector_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_residential_vars)
+
+# Add GAINS-format off-road construction variables
+gains_offroad_vars <- data.frame(
+  Variable = c(
+    "Final Energy|Industry|Off-road|Construction",
+    "Final Energy|Industry|Off-road|Construction|Electricity",
+    "Final Energy|Industry|Off-road|Construction|Gases",
+    "Final Energy|Industry|Off-road|Construction|Hydrogen",
+    "Final Energy|Industry|Off-road|Construction|Liquids"
+  ),
+  Unit = "EJ/yr",
+  Tier = 3,
+  Internal_variable = "fe_sector_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_offroad_vars)
+
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 

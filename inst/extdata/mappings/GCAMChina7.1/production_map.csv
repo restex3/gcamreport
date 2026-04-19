@@ -6,6 +6,7 @@ alumina,Production|Non-Ferrous Metals|Aluminum Oxide,,,Mt
 aluminum,Production|Non-Ferrous Metals|Aluminum,,,Mt
 ammonia,Production|Chemicals,Production|Chemicals|Ammonia,,Mt NH3
 cement,Production|Non-Metallic Minerals|Cement,,,Mt
+cement,Production|Cement,,,Mt
 chemical,Production|Chemicals,Production|Chemicals|High-Value Chemicals,,EJ
 chemical energy use,NoReported,,,EJ
 chemical feedstocks,NoReported,,,EJ
@@ -16,6 +17,7 @@ food processing,NoReported,,,Pcal
 iron and steel,Production|Iron and Steel|Steel,,,Mt
 mining energy use,NoReported,,,EJ
 N fertilizer,Production|Chemicals,Production|Chemicals|Nitrogen Fertilizer,,Mt N
+N fertilizer,Production|Chemicals,Production|Chemicals|Fertilizer,,Mt N
 other industrial energy use,NoReported,,,EJ
 other industrial feedstocks,NoReported,,,EJ
 paper,Production|Pulp and Paper|Paper,,,Mt
