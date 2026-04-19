@@ -1,0 +1,21 @@
+gcam_crop,crop_category,gains_sector,gains_subsector,description
+Corn,cereal,Agriculture,Cereals - Corn,玉米
+Rice,cereal,Agriculture,Cereals - Rice,水稻
+Wheat,cereal,Agriculture,Cereals - Wheat,小麦
+OtherGrain,cereal,Agriculture,Cereals - Other,其他谷物
+Soybean,oilseed,Agriculture,Oilseeds - Soybean,大豆
+OilCrop,oilseed,Agriculture,Oilseeds - Other,其他油料作物
+OilPalm,oilseed,Agriculture,Oilseeds - Palm,油棕
+SugarCrop,sugar,Agriculture,Sugar Crops,糖料作物
+RootTuber,root,Agriculture,Root & Tuber,根茎类作物
+Vegetables,vegetable,Agriculture,Vegetables,蔬菜
+Fruits,fruit,Agriculture,Fruits,水果
+Legumes,legume,Agriculture,Legumes,豆类
+NutsSeeds,other,Agriculture,Nuts & Seeds,坚果和种子
+MiscCrop,other,Agriculture,Miscellaneous Crops,其他作物
+FiberCrop,fiber,Agriculture,Fiber Crops,纤维作物
+FodderGrass,feed,Agriculture,Fodder - Grass,饲草
+FodderHerb,feed,Agriculture,Fodder - Herb,饲料草本
+Pasture,feed,Agriculture,Pasture,牧场
+biomass,energy,Agriculture,Energy Crops,能源作物
+Forest,forestry,Agriculture,Forestry,林业

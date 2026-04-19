@@ -1,0 +1,23 @@
+gcam_sector,gcam_subsector,industry_type,gains_sector,gains_subsector,description
+cement,process heat cement,energy-intensive,Industry,Cement,水泥
+iron and steel,iron and steel,energy-intensive,Industry,Iron & Steel,钢铁
+aluminum,aluminum,energy-intensive,Industry,Aluminum,铝
+alumina,alumina,energy-intensive,Industry,Alumina,氧化铝
+chemical,chemical,energy-intensive,Industry,Chemicals,化工
+chemical energy use,chemical energy use,energy-intensive,Industry,Chemicals Energy,化工能源使用
+chemical feedstocks,chemical feedstocks,energy-intensive,Industry,Chemicals Feedstocks,化工原料
+ammonia,ammonia,energy-intensive,Industry,Ammonia,氨/化肥
+paper,paper,light,Industry,Pulp & Paper,造纸
+process heat paper,process heat paper,light,Industry,Pulp & Paper Heat,造纸加工热
+waste biomass for paper,waste biomass for paper,light,Industry,Pulp & Paper Biomass,造纸生物质
+food processing,food processing,light,Industry,Food Processing,食品加工
+process heat food processing,process heat food processing,light,Industry,Food Processing Heat,食品加工热
+glass,glass,light,Industry,Glass,玻璃
+construction,construction,light,Industry,Construction Materials,建筑材料
+construction energy use,construction energy use,light,Industry,Construction Energy,建筑业能源使用
+construction feedstocks,construction feedstocks,light,Industry,Construction Feedstocks,建筑业原料
+mining energy use,mining energy use,extractive,Industry,Mining,采矿业
+agricultural energy use,agricultural energy use,agricultural,Industry,Agriculture Energy,农业能源使用
+other industrial energy use,other industrial energy use,other,Industry,Other Industry Energy,其他工业能源
+other industrial feedstocks,other industrial feedstocks,other,Industry,Other Industry Feedstocks,其他工业原料
+N fertilizer,N fertilizer,agricultural,Industry,Nitrogen Fertilizer,氮肥

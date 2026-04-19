@@ -4165,10 +4165,30 @@ get_land <- function(GCAM_version = "v7.1") {
     dplyr::select(all_of(gcamreport::long_columns))
 
 
+  # Custom aggregations for GAINS variables
+  # Land Cover|Cropland|Crops = sum of all cropland except OtherArable
+  land_cropland_crops <- land_tmp2 %>%
+    dplyr::filter(grepl('Land Cover\\|Cropland\\|', var) &
+                  var != 'Land Cover|Cropland|Otherarable' &
+                  !grepl('Irrigated|Rainfed', var)) %>%
+    dplyr::group_by(scenario, region, year) %>%
+    dplyr::summarise(value = sum(value, na.rm = TRUE)) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(var = 'Land Cover|Cropland|Crops') %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  # Land Cover|Forest|Managed = Land Cover|Forest (assuming all forest in GCAM is managed)
+  land_forest_managed <- land_tmp2 %>%
+    dplyr::filter(var == 'Land Cover|Forest') %>%
+    dplyr::mutate(var = 'Land Cover|Forest|Managed') %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
   # aggregate
   land_clean <- rbind(
     land_tmp2,
-    land_achange
+    land_achange,
+    land_cropland_crops,
+    land_forest_managed
   )
 
   # consider land cover to estimate yield (undo the PhysicalLand_scaler and divide

@@ -1,0 +1,9 @@
+gcam_fuel,gains_fuel,fuel_category,description
+electricity,Electricity,clean,电力
+refined liquids,Oil Products,fossil,成品油
+delivered coal,Coal,fossil,煤炭
+delivered gas,Natural Gas,fossil,天然气
+wholesale gas,Natural Gas,fossil,天然气（批发）
+hydrogen,Hydrogen,clean,氢能
+biomass,Biomass,renewable,生物质
+heat,District Heat,clean,集中供热

@@ -1,0 +1,32 @@
+province_code,province_name_en,province_name_zh,region_code,description
+AH,Anhui,安徽,East,East China
+BJ,Beijing,北京,North,North China
+CQ,Chongqing,重庆,Southwest,Southwest China
+FJ,Fujian,福建,East,East China
+GD,Guangdong,广东,South,South China
+GS,Gansu,甘肃,Northwest,Northwest China
+GX,Guangxi,广西,South,South China
+GZ,Guizhou,贵州,Southwest,Southwest China
+HA,Henan,河南,Central,Central China
+HB,Hubei,湖北,Central,Central China
+HE,Hebei,河北,North,North China
+HI,Hainan,海南,South,South China
+HL,Heilongjiang,黑龙江,Northeast,Northeast China
+HN,Hunan,湖南,Central,Central China
+JL,Jilin,吉林,Northeast,Northeast China
+JS,Jiangsu,江苏,East,East China
+JX,Jiangxi,江西,East,East China
+LN,Liaoning,辽宁,Northeast,Northeast China
+NM,Inner Mongolia,内蒙古,North,North China
+NX,Ningxia,宁夏,Northwest,Northwest China
+QH,Qinghai,青海,Northwest,Northwest China
+SC,Sichuan,四川,Southwest,Southwest China
+SD,Shandong,山东,East,East China
+SH,Shanghai,上海,East,East China
+SN,Shaanxi,陕西,Northwest,Northwest China
+SX,Shanxi,山西,North,North China
+TJ,Tianjin,天津,North,North China
+XJ,Xinjiang,新疆,Northwest,Northwest China
+XZ,Tibet,西藏,Southwest,Southwest China
+YN,Yunnan,云南,Southwest,Southwest China
+ZJ,Zhejiang,浙江,East,East China

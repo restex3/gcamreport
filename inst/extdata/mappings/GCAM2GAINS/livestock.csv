@@ -1,0 +1,6 @@
+gcam_livestock,livestock_category,gains_sector,gains_subsector,primary_feed,description
+Beef,ruminant,Agriculture,Livestock - Beef,FodderGrass;FodderHerb;Corn,牛肉
+Dairy,ruminant,Agriculture,Livestock - Dairy,FodderGrass;FodderHerb;Corn,乳制品
+SheepGoat,ruminant,Agriculture,Livestock - Sheep & Goat,FodderGrass;FodderHerb,羊肉
+Pork,monogastric,Agriculture,Livestock - Pork,Corn;Soybean,猪肉
+Poultry,monogastric,Agriculture,Livestock - Poultry,Corn;Soybean,禽肉

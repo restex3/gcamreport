@@ -1,0 +1,7 @@
+gcam_service,gcam_building_type,gains_sector,gains_subsector,description
+comm cooling,commercial,Buildings,Commercial Cooling,商业建筑制冷
+comm heating,commercial,Buildings,Commercial Heating,商业建筑供暖
+comm others,commercial,Buildings,Commercial Other,商业建筑其他用能
+resid cooling,residential,Buildings,Residential Cooling,居民建筑制冷
+resid heating,residential,Buildings,Residential Heating,居民建筑供暖
+resid others,residential,Buildings,Residential Other,居民建筑其他用能

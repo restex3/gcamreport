@@ -1,0 +1,16 @@
+gcam_mode,gcam_sector,mode_type,gains_sector,gains_subsector,description
+Walk,trn_pass,non-motorized,Transport,Passenger Non-motorized,步行
+Cycle,trn_pass,non-motorized,Transport,Passenger Non-motorized,自行车
+Bus,trn_pass_road,public,Transport,Passenger Road - Bus,公交车
+HSR,trn_pass,public,Transport,Passenger Rail - HSR,高速铁路
+Passenger Rail,trn_pass,public,Transport,Passenger Rail,客运铁路
+Domestic Aviation,trn_pass,public,Transport,Passenger Aviation - Domestic,国内航空
+International Aviation,trn_aviation_intl,public,Transport,Passenger Aviation - International,国际航空
+LDV,trn_pass_road_LDV,private,Transport,Passenger Road - LDV,轻型客车
+2W and 3W,trn_pass_road,private,Transport,Passenger Road - 2W/3W,两轮/三轮车
+Heavy truck,trn_freight_road,freight,Transport,Freight Road - Heavy,重型货车
+Medium truck,trn_freight_road,freight,Transport,Freight Road - Medium,中型货车
+Light truck,trn_freight_road,freight,Transport,Freight Road - Light,轻型货车
+Freight Rail,trn_freight,freight,Transport,Freight Rail,货运铁路
+Domestic Ship,trn_freight,freight,Transport,Freight Water - Domestic,国内水运
+International Shipping,trn_shipping_intl,freight,Transport,Freight Water - International,国际航运
