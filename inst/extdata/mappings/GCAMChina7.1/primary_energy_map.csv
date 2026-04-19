@@ -21,6 +21,7 @@ d sugar for ethanol CCS,Primary Energy,Primary Energy|Biomass,Primary Energy|Bio
 first gen biomass,Primary Energy,Primary Energy|Biomass,Primary Energy|Biomass|w/o CCS,Primary Energy|Biomass|1st Generation,,,,,,,1
 first gen biomass CCS,Primary Energy,Primary Energy|Biomass,Primary Energy|Biomass|w/ CCS,Primary Energy|Biomass|1st Generation,,,,,,,1
 e nuclear,Primary Energy,Primary Energy|Nuclear,,,,,,,,,1
+e nuclear,Primary Energy,Primary Energy|Electricity,Primary Energy|Electricity|Nuclear,,,,,,,,1
 f hydro,Primary Energy,Primary Energy|Non-Biomass Renewables,Primary Energy|Hydro,,,,,,,,1
 g wind,Primary Energy,Primary Energy|Non-Biomass Renewables,Primary Energy|Wind,,,,,,,,1
 h solar,Primary Energy,Primary Energy|Non-Biomass Renewables,Primary Energy|Solar,,,,,,,,1

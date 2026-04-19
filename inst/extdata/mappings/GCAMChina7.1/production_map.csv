@@ -5,6 +5,8 @@ airCO2,NoReported,,,EJ
 alumina,Production|Non-Ferrous Metals|Aluminum Oxide,,,Mt
 aluminum,Production|Non-Ferrous Metals|Aluminum,,,Mt
 ammonia,Production|Chemicals,Production|Chemicals|Ammonia,,Mt NH3
+ammonia,Production|Chemicals,Production|Chemicals|Nitrogen Fertilizer,,Mt NH3
+ammonia,Production|Chemicals,Production|Chemicals|Fertilizer,,Mt NH3
 cement,Production|Non-Metallic Minerals|Cement,,,Mt
 cement,Production|Cement,,,Mt
 chemical,Production|Chemicals,Production|Chemicals|High-Value Chemicals,,EJ
