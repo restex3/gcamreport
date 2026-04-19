@@ -497,6 +497,25 @@ primary_energy_elec_vars <- data.frame(
   stringsAsFactors = FALSE
 )
 template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, primary_energy_elec_vars)
+
+# Add GAINS-format livestock variables
+gains_livestock_vars <- data.frame(
+  Variable = c(
+    "Agricultural Production|Non-Energy|Livestock",
+    "Agricultural Production|Non-Energy|Livestock|Beef",
+    "Agricultural Production|Non-Energy|Livestock|Dairy",
+    "Agricultural Production|Non-Energy|Livestock|Pork",
+    "Agricultural Production|Non-Energy|Livestock|Poultry",
+    "Agricultural Production|Non-Energy|Livestock|SheepGoat"
+  ),
+  Unit = "million t DM/yr",
+  Tier = 3,
+  Internal_variable = "ag_production_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_livestock_vars)
+
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 
