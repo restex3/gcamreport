@@ -17,12 +17,13 @@ N fertilizer,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,,Final 
 N fertilizer,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,Final Energy|Industry|Hydrogen,Final Energy|Industry|Chemicals|Hydrogen,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Hydrogen,,,1
 N fertilizer,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Industry,,Final Energy|Industry|Liquids,Final Energy|Industry|Chemicals|Liquids,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Liquids,,,1
 N fertilizer,H2 industrial,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,Final Energy|Industry|Hydrogen,Final Energy|Industry|Chemicals|Hydrogen,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Hydrogen,,,1
-chemical feedstocks,coal,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Soilds,Final Energy|Non-Energy Use|Soilds|Coal,,,,,,,,,,1
+chemical feedstocks,coal,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Solids,Final Energy|Non-Energy Use|Solids|Coal,Final Energy|Non-Energy Use|Coal,,,,,,,,,1
 chemical feedstocks,gas,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Gas,,,,,,,,,,,1
 chemical feedstocks,refined liquids,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Oil,,,,,,,,,,,1
+chemical feedstocks,biomass,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Biomass,,,,,,,,,,,1
 alumina,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|Non-ferrous metals,Final Energy|Industry|Non-ferrous metals|Solids,Final Energy|Industry|Non-ferrous metals|Solids|Fossil,,1
 alumina,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,,Final Energy|Industry|Gases,,Final Energy|Industry|Non-ferrous metals,Final Energy|Industry|Non-ferrous metals|Gases,,,1
-comm appliances,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,,,,,,1
+comm appliances,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,,1
 comm cooling,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,Final Energy|Commercial|Cooling,,,,,1
 comm heating,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,Final Energy|Solids|Biomass|Modern,Final Energy|Commercial,Final Energy|Residential|Solids,Final Energy|Commercial|Solids|Biomass,Final Energy|Commercial|Heating|Space,Final Energy|Residential and Commercial|Commercial|Solids,,,,1
 comm heating,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Commercial,Final Energy|Residential|Solids,Final Energy|Commercial|Solids|Coal,Final Energy|Commercial|Heating|Space,Final Energy|Residential and Commercial|Commercial|Solids,Final Energy|Residential and Commercial|Commercial|Solids|Coal,,,1
@@ -36,10 +37,10 @@ comm hot water_cooking,electricity,Final Energy,Final Energy|Electricity,,,Final
 comm hot water_cooking,gas,Final Energy,Final Energy|Gases,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,Final Energy|Commercial|Heating|Space,,,,,1
 comm hot water_cooking,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Commercial,Final Energy|Commercial|Liquids,,Final Energy|Commercial|Heating|Space,,,,,1
 comm lighting,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,Final Energy|Commercial|Heating|Space,,,,,1
-comm others,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,Final Energy|Solids|Biomass|Modern,Final Energy|Commercial,Final Energy|Commercial|Solids,Final Energy|Commercial|Solids|Biomass,,,,,,1
-comm others,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Commercial,Final Energy|Commercial|Solids,Final Energy|Commercial|Solids|Coal,,,,,,1
+comm others,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,Final Energy|Solids|Biomass|Modern,Final Energy|Commercial,Final Energy|Commercial|Solids,Final Energy|Commercial|Solids|Biomass,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Solids,Final Energy|Residential and Commercial|Solids|Biomass,,,1
+comm others,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Commercial,Final Energy|Commercial|Solids,Final Energy|Commercial|Solids|Coal,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Solids,Final Energy|Residential and Commercial|Solids|Coal,,,1
 comm others,district heat,Final Energy,Final Energy|Heat,,,Final Energy|Commercial,Final Energy|Commercial|Heat,,,,,,,1
-comm others,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,,,,,,1
+comm others,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 comm others,gas,Final Energy,Final Energy|Gases,,,Final Energy|Commercial,Final Energy|Commercial|Gases,,,,,,,1
 comm others,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Commercial,Final Energy|Commercial|Hydrogen,,,,,,,1
 comm others,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Commercial,Final Energy|Commercial|Liquids,,,,,,,1
@@ -66,6 +67,11 @@ construction energy use,gas,Final Energy,Final Energy|Gases,,,Final Energy|Indus
 irrigation water abstraction,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Industry,,Final Energy|Industry|Electricity,,,,,,1
 construction energy use,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,Final Energy|Industry|Hydrogen,,Final Energy|Industry|construction energy use,Final Energy|Industry|construction energy use|Hydrogen,,,1
 construction energy use,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Industry,,Final Energy|Industry|Liquids,,Final Energy|Industry|construction energy use,Final Energy|Industry|construction energy use|Liquids,,,1
+construction energy use,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Industry,Final Energy|Industry|Off-road,Final Energy|Industry|Electricity,Final Energy|Industry|Off-road|Construction,Final Energy|Industry|Off-road|Construction|Electricity,,,,1
+construction energy use,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,Final Energy|Industry|Off-road,Final Energy|Industry|Gases,Final Energy|Industry|Off-road|Construction,Final Energy|Industry|Off-road|Construction|Gases,,,,1
+construction energy use,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,Final Energy|Industry|Off-road,Final Energy|Industry|Hydrogen,Final Energy|Industry|Off-road|Construction,Final Energy|Industry|Off-road|Construction|Hydrogen,,,,1
+construction energy use,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Industry,Final Energy|Industry|Off-road,Final Energy|Industry|Liquids,Final Energy|Industry|Off-road|Construction,Final Energy|Industry|Off-road|Construction|Liquids,,,,1
+construction energy use,H2 industrial,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,Final Energy|Industry|Off-road,Final Energy|Industry|Hydrogen,Final Energy|Industry|Off-road|Construction,Final Energy|Industry|Off-road|Construction|Hydrogen,,,,1
 mining energy use,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|mining energy use,Final Energy|Industry|mining energy use|Solids,Final Energy|Industry|mining energy use|Solids|Coal,,1
 mining energy use,district heat,Final Energy,Final Energy|Heat,,,Final Energy|Industry,,Final Energy|Industry|Heat,,Final Energy|Industry|mining energy use,Final Energy|Industry|mining energy use|Heat,,,1
 mining energy use,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Industry,,Final Energy|Industry|Electricity,,Final Energy|Industry|mining energy use,Final Energy|Industry|mining energy use|Electricity,,,1
@@ -161,6 +167,7 @@ trn_shipping_intl,electricity,Final Energy,Final Energy|Electricity,,,Final Ener
 trn_shipping_intl,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Transportation,Final Energy|Transportation|Freight,Final Energy|Transportation|Hydrogen,Final Energy|Transportation|Freight|Hydrogen,Final Energy|Transportation|Shipping,,,,1
 trn_shipping_intl,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Transportation,Final Energy|Transportation|Freight,Final Energy|Transportation|Liquids,Final Energy|Transportation|Freight|Liquids,Final Energy|Transportation|Shipping,,,,1
 coke,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|Steel,Final Energy|Industry|Steel|Solids,Final Energy|Industry|Steel|Solids|Coal,,1
+coke,coal,Feedstock,Feedstock|Industry,Feedstock|Industry|Steel,Feedstock|Industry|Steel|Coke,,,,,,,,,1
 chemical,chemical energy use,Final Energy,,,,,,,,,,,,0
 chemical,chemical feedstocks,Final Energy,,,,,,,,,,,,0
 coke,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Industry,,Final Energy|Industry|Electricity,,Final Energy|Industry|Steel,Final Energy|Industry|Steel|Electricity,,,1
@@ -184,26 +191,26 @@ ammonia,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final En
 ammonia,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,,,,,,,,1
 ammonia,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,,,,,,,1
 ammonia,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Industry,,,,,,,,1
-resid_rural appliances modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural appliances modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural cooling modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_rural appliances modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural appliances modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural cooling modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_rural heating modern_d1,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural heating modern_d2,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural heating modern_d3,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
@@ -214,16 +221,16 @@ resid_rural heating modern_d7,coal,Final Energy,Final Energy|Solids,Final Energy
 resid_rural heating modern_d8,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural heating modern_d9,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural heating modern_d10,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
-resid_rural heating modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural heating modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_rural heating modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural heating modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_rural heating modern_d1,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_rural heating modern_d2,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_rural heating modern_d3,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
@@ -264,16 +271,16 @@ resid_rural hot water_cooking modern_d7,coal,Final Energy,Final Energy|Solids,Fi
 resid_rural hot water_cooking modern_d8,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural hot water_cooking modern_d9,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural hot water_cooking modern_d10,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
-resid_rural hot water_cooking modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural hot water_cooking modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_rural hot water_cooking modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural hot water_cooking modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_rural hot water_cooking modern_d1,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_rural hot water_cooking modern_d2,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_rural hot water_cooking modern_d3,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
@@ -304,36 +311,36 @@ resid_rural hot water_cooking modern_d7,traditional biomass,Final Energy,Final E
 resid_rural hot water_cooking modern_d8,traditional biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural hot water_cooking modern_d9,traditional biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_rural hot water_cooking modern_d10,traditional biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
-resid_rural lighting modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_rural lighting modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban appliances modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban cooling modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_rural lighting modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_rural lighting modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban appliances modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban cooling modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_urban heating modern_d1,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_urban heating modern_d2,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_urban heating modern_d3,biomass,Final Energy,Final Energy|Solids,Final Energy|Solids|Biomass,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
@@ -364,16 +371,16 @@ resid_urban heating modern_d7,district heat,Final Energy,Final Energy|Heat,,,Fin
 resid_urban heating modern_d8,district heat,Final Energy,Final Energy|Heat,,,Final Energy|Residential,Final Energy|Residential|Heat,,,,,,,1
 resid_urban heating modern_d9,district heat,Final Energy,Final Energy|Heat,,,Final Energy|Residential,Final Energy|Residential|Heat,,,,,,,1
 resid_urban heating modern_d10,district heat,Final Energy,Final Energy|Heat,,,Final Energy|Residential,Final Energy|Residential|Heat,,,,,,,1
-resid_urban heating modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban heating modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_urban heating modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban heating modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_urban heating modern_d1,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_urban heating modern_d2,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_urban heating modern_d3,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
@@ -414,16 +421,16 @@ resid_urban hot water_cooking modern_d7,coal,Final Energy,Final Energy|Solids,Fi
 resid_urban hot water_cooking modern_d8,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_urban hot water_cooking modern_d9,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
 resid_urban hot water_cooking modern_d10,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Residential,Final Energy|Residential|Solids,,,,,,,1
-resid_urban hot water_cooking modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban hot water_cooking modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_urban hot water_cooking modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban hot water_cooking modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
 resid_urban hot water_cooking modern_d1,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_urban hot water_cooking modern_d2,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
 resid_urban hot water_cooking modern_d3,gas,Final Energy,Final Energy|Gases,,,Final Energy|Residential,Final Energy|Residential|Gases,,,,,,,1
@@ -444,13 +451,13 @@ resid_urban hot water_cooking modern_d7,refined liquids,Final Energy,Final Energ
 resid_urban hot water_cooking modern_d8,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Residential,Final Energy|Residential|Liquids,,,,,,,1
 resid_urban hot water_cooking modern_d9,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Residential,Final Energy|Residential|Liquids,,,,,,,1
 resid_urban hot water_cooking modern_d10,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Residential,Final Energy|Residential|Liquids,,,,,,,1
-resid_urban lighting modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
-resid_urban lighting modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,,,,,,,1
+resid_urban lighting modern_d1,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d2,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d3,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d4,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d5,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d6,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d7,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d8,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d9,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
+resid_urban lighting modern_d10,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Residential,Final Energy|Residential|Electricity,Final Energy|Residential and Commercial,Final Energy|Residential and Commercial|Electricity,,,,,1
