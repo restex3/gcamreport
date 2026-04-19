@@ -516,6 +516,22 @@ gains_livestock_vars <- data.frame(
 )
 template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_livestock_vars)
 
+# Add GAINS-format land cover variables
+gains_land_vars <- data.frame(
+  Variable = c(
+    "Land Cover|Cropland|Crops",
+    "Land Cover|Cropland|Otherarable",
+    "Land Cover|Forest|Managed",
+    "Land Cover|Pasture|Grazed"
+  ),
+  Unit = "thous km2",
+  Tier = 3,
+  Internal_variable = "land_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_land_vars)
+
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 
