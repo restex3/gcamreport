@@ -532,6 +532,27 @@ gains_land_vars <- data.frame(
 )
 template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_land_vars)
 
+# Add GAINS-format industry variables
+gains_industry_vars <- data.frame(
+  Variable = c(
+    "Final Energy|Industry|Steel|Electricity",
+    "Final Energy|Industry|Steel|Gases",
+    "Final Energy|Industry|Steel|Liquids",
+    "Final Energy|Industry|Steel|Solids|Coal",
+    "Final Energy|Non-Energy Use|Biomass",
+    "Final Energy|Non-Energy Use|Coal",
+    "Final Energy|Non-Energy Use|Gas",
+    "Final Energy|Non-Energy Use|Oil",
+    "Feedstock|Industry|Steel|Coke"
+  ),
+  Unit = "EJ/yr",
+  Tier = 3,
+  Internal_variable = "fe_sector_clean",
+  Model = "GCAM-China 7.1",
+  stringsAsFactors = FALSE
+)
+template_vGCAMChina7.1 <- dplyr::bind_rows(template_vGCAMChina7.1, gains_industry_vars)
+
 use_data(template_vGCAMChina7.1, overwrite = T)
 
 
