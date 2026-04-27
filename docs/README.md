@@ -1,27 +1,42 @@
 # Documentation
 
-This directory contains project documentation that is not part of the R package vignettes.
+This directory contains project documentation that is not part of the R package
+vignettes.
 
-## Contents
+## GCAM-China to GAINS Integration
 
-### GCAM-China to GAINS Integration (NEW)
-- **[EXECUTIVE_SUMMARY_CN.md](EXECUTIVE_SUMMARY_CN.md)** - 执行摘要（推荐首先阅读）⭐
-- **[GCAM_CHINA_GAINS_INTEGRATION_REPORT.md](GCAM_CHINA_GAINS_INTEGRATION_REPORT.md)** - 完整技术报告
-- [GAINS_Final_Report.md](GAINS_Final_Report.md) - 最终项目报告
-- [GAINS_Work_Summary.md](GAINS_Work_Summary.md) - 工作总结
-- [HANDOFF_TO_CODEX.md](HANDOFF_TO_CODEX.md) - Codex 交接文档
+Primary integration references:
 
-**项目状态**: ✅ 已完成 | **覆盖率**: 97.5% (79/81)
+- `EXECUTIVE_SUMMARY_CN.md`
+- `GCAM_CHINA_GAINS_INTEGRATION_REPORT.md`
+- `GAINS_Final_Report.md`
+- `GAINS_Work_Summary.md`
+- `HANDOFF_TO_CODEX.md`
 
-### GCAM-China General Documentation
-- `gcam-china/` - GCAM-China specific documentation
-  - `README_GCAM-China.md` - GCAM-China support overview
-  - `GCAM-China_AGENT_MANUAL.md` - Agent manual for GCAM-China development
-  - `GCAM-China_IMPROVEMENTS.md` - Improvement tracking
-  - `GCAM_CHINA_WORK_PLAN.md` - Development work plan
+Official Tangrong upstream scripts:
 
-### Other Documentation
-- `AGENTS.md` - Agent configuration and usage
-- `CHANGELOG_SUMMARY.md` - Summary of major changes
+- `../dev_scripts/generate_tangrong_latest.R`
+- `../dev_scripts/analyze_tangrong_coverage.R`
 
-For user-facing documentation, see the package vignettes in the `vignettes/` directory.
+Official Tangrong upstream artifacts:
+
+- `E:/GCAM/GCAM_tools/gcamreport/output/tangrong_gains_latest.csv`
+- `E:/GCAM/GCAM_tools/gcamreport/output/tangrong_coverage_report.txt`
+
+Current accepted coverage:
+
+- `97.5% (79/81)`
+
+## GCAM-China General Documentation
+
+- `gcam-china/README_GCAM-China.md`
+- `gcam-china/GCAM-China_AGENT_MANUAL.md`
+- `gcam-china/GCAM-China_IMPROVEMENTS.md`
+- `gcam-china/GCAM_CHINA_WORK_PLAN.md`
+
+## Other Documentation
+
+- `AGENTS.md`
+- `CHANGELOG_SUMMARY.md`
+
+For user-facing package documentation, see the files under `vignettes/`.

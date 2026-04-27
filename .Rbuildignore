@@ -17,3 +17,5 @@
 ^CITATION\.cff$
 ^DISCLAIMER$
 ^CHANGELOG_SUMMARY\.md$
+^PROJECT_STATUS\.md$
+^\.Rhistory$

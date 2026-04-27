@@ -210,7 +210,9 @@ ui <- dashboardPage(
   # body
   dashboardBody(
     # css file
-    includeCSS(paste0(here::here(), "/R/www/style.css")),
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+    ),
 
     # dashboard items
     fluidRow(

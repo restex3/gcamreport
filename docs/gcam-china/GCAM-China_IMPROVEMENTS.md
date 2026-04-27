@@ -105,8 +105,8 @@ Implemented:
 - `production_price_clean` tolerates missing optional production price queries
 - selected official zero-valued placeholders are injected when absent
 - official comparison scripts added:
-  - `GCAM-China_fullcheck.R`
-  - `GCAM-China_compare_official.R`
+  - `dev_scripts/GCAM-China_fullcheck.R`
+  - `dev_scripts/GCAM-China_compare_official.R`
 - comparison artifacts standardized under:
   `E:/GCAM/GCAM_tools/tmp_china60ref_compare`
 
@@ -148,8 +148,8 @@ Metadata and mappings:
 
 Validation:
 
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_fullcheck.R`
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_compare_official.R`
+- `dev_scripts/GCAM-China_fullcheck.R`
+- `dev_scripts/GCAM-China_compare_official.R`
 - `E:/GCAM/GCAM_tools/tmp_china60ref_compare/fullcheck_summary.txt`
 
 ## Remaining Non-Blocking Issues

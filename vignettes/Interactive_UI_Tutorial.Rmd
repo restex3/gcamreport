@@ -93,18 +93,13 @@ When running `launch_gcamreport_ui(data_path = "path/to/your/data.RData", GCAM_v
     The following objects are masked from ‘package:methods’:
 
     removeClass, show
-    Warning in file(con, "r") :
-    cannot open file '/home/user/R/www/style.css': No such file or directory
-    Warning: Error in file: cannot open the connection
-    72: file
-    71: readLines
-    70: includeCSS
-    2: runApp
-    1: launch_gcamreport_ui [/home/user/gcamreport/R/main.R#724]
+    Error:
+    Could not find the bundled gcamreport UI app.
+    Reinstall the package or run devtools::load_all() from the repository root.
 
 **Possible solution 1**: make sure that you cloned the repo. Check the instructions [here](https://bc3lc.github.io/gcamreport/index.html#installation-guide).
 
-**Possible solution 2**: make sure that you are using the `gcamreport` Rproject and that the R session working directory points the `gcamreport` cloned folder. In addition:
+**Possible solution 2**: if you are developing locally, make sure that you launched the package from the repository root with `devtools::load_all(".", reset = TRUE)`. In addition:
 
 -   In case you are using the `gcamreport` package following the [R installation](#with-r), try to copy the whole path to your data, for instance `data_path = C:\Users\username\Documents\path\to\your\gcamfolder\examples\example3.RData` if you are using a Windows distribution.
 
@@ -132,13 +127,14 @@ generate_report(data_path = "examples/amazingDataset.RData")
 When launching the UI either through R, Rstudio or Docker, you might get this message:
 
 
-    Error in `shinyAppDir()`:
-    ! No Shiny application exists at the path "inst/gcamreport_ui"
+    Error:
+    Could not find the bundled gcamreport UI app.
+    Reinstall the package or run devtools::load_all() from the repository root.
 
 
 **Possible solution 1**: make sure that you are using the `gcamreport` package through Rstudio (following the full R installation) or Docker. Otherwise the UI can not be launched. Check the installation instructions [here](https://bc3lc.github.io/gcamreport/index.html#installation-guide).
 
-**Possible solution 2**: make sure that you have a folder called `inst/gcamreport_ui` in your working session. It might be that your working directory has changed. To check it, run `getwd()` on your R console. If necessary, set again the working environment with `setwd()`.
+**Possible solution 2**: if you are working from a cloned repository, reload the package from the repository root with `devtools::load_all(".", reset = TRUE)` before calling `launch_gcamreport_ui()`.
 
 
 

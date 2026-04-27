@@ -92,14 +92,14 @@ Detailed overlap comparison:
 
 ### Validation scripts
 
-- `GCAM-China_fullcheck.R`
-- `GCAM-China_compare_official.R`
+- `dev_scripts/GCAM-China_fullcheck.R`
+- `dev_scripts/GCAM-China_compare_official.R`
 
 ### Human-readable documentation
 
-- `README_GCAM-China.md`
-- `GCAM-China_IMPROVEMENTS.md`
-- `GCAM_CHINA_WORK_PLAN.md`
+- `docs/gcam-china/README_GCAM-China.md`
+- `docs/gcam-china/GCAM-China_IMPROVEMENTS.md`
+- `docs/gcam-china/GCAM_CHINA_WORK_PLAN.md`
 
 ## 4. End-to-End Reporting Flow
 
@@ -235,7 +235,7 @@ Expected console message:
 Run:
 
 ```r
-source("GCAM-China_fullcheck.R")
+source("dev_scripts/GCAM-China_fullcheck.R")
 ```
 
 Outputs:
@@ -248,7 +248,7 @@ Outputs:
 Run:
 
 ```r
-source("GCAM-China_compare_official.R")
+source("dev_scripts/GCAM-China_compare_official.R")
 ```
 
 Outputs:
@@ -305,5 +305,6 @@ treated as the primary user workflow:
 - `GCAM-China_test.r`
 - `GCAM-China_mapping_fallbacks.R`
 - `rebuild_mappings.R`
+- these helpers live under `dev_scripts/`
 
 They may still be useful during debugging.

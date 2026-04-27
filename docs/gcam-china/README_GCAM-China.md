@@ -7,7 +7,7 @@ to `gcamreport`, how to use it, how it compares to the official
 For an index-style manual optimized for coding agents and quick technical
 lookup, see:
 
-- `GCAM-China_AGENT_MANUAL.md`
+- `docs/gcam-china/GCAM-China_AGENT_MANUAL.md`
 
 ## Scope
 
@@ -139,7 +139,7 @@ Two scripts were added to make the official comparison reproducible.
 
 File:
 
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_fullcheck.R`
+- `dev_scripts/GCAM-China_fullcheck.R`
 
 Purpose:
 
@@ -154,7 +154,7 @@ Purpose:
 
 File:
 
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_compare_official.R`
+- `dev_scripts/GCAM-China_compare_official.R`
 
 Purpose:
 
@@ -195,9 +195,9 @@ Query and dependency metadata:
 
 Utilities:
 
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_fullcheck.R`
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM-China_compare_official.R`
-- `E:/GCAM/GCAM_tools/gcamreport/GCAM_CHINA_WORK_PLAN.md`
+- `dev_scripts/GCAM-China_fullcheck.R`
+- `dev_scripts/GCAM-China_compare_official.R`
+- `docs/gcam-china/GCAM_CHINA_WORK_PLAN.md`
 
 ## Remaining Maintenance Items
 
@@ -224,6 +224,8 @@ For ongoing maintenance of GCAM-China support:
    - `fullcheck_official_only.csv`
    - `fullcheck_gcamreport_only.csv`
    - `fullcheck_vetting_summary.rds`
+
+Both scripts are stored under `dev_scripts/`.
 
 ## Summary
 

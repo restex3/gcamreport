@@ -981,5 +981,15 @@ launch_gcamreport_ui <- function(data_path = NULL, data = NULL, GCAM_version = '
   # save a list of all variables
   all_varss <<- do_collapse_df(cols.global)
 
-  shiny::runApp("inst/gcamreport_ui")
+  app_dir <- system.file("gcamreport_ui", package = "gcamreport")
+  if (identical(app_dir, "")) {
+    app_dir <- file.path("inst", "gcamreport_ui")
+  }
+  if (!dir.exists(app_dir)) {
+    stop(
+      "Could not find the bundled gcamreport UI app. Reinstall the package or run devtools::load_all() from the repository root."
+    )
+  }
+
+  shiny::runApp(appDir = app_dir)
 }

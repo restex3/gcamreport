@@ -1,10 +1,32 @@
-devtools::load_all(".", reset = TRUE)
-source("inst/extdata/saveDataFiles_GCAMChina7.1.R")
-devtools::load_all(".")
+find_repo_dir <- function() {
+  candidates <- c(".", "..", "../..", "E:/GCAM/GCAM_tools/gcamreport")
+
+  for (candidate in candidates) {
+    candidate_path <- tryCatch(
+      normalizePath(candidate, winslash = "/", mustWork = TRUE),
+      error = function(...) NULL
+    )
+
+    if (!is.null(candidate_path) &&
+        file.exists(file.path(candidate_path, "DESCRIPTION"))) {
+      return(candidate_path)
+    }
+  }
+
+  stop(
+    "Could not locate the gcamreport repository root. Run this script from the repo root or from dev_scripts/."
+  )
+}
+
+repo_dir <- find_repo_dir()
+
+devtools::load_all(repo_dir, reset = TRUE)
+source(file.path(repo_dir, "inst", "extdata", "saveDataFiles_GCAMChina7.1.R"))
+devtools::load_all(repo_dir)
 library(gcamreport)
 dbpath <- "E:/GCAM/GCAM-China_v7.1/output/"
 dbname <- "steel_ref"
-prjname <- "test.dat"
+prjname <- file.path(repo_dir, "dev_scripts", "test.dat")
 scen <- ("ref") #c("scen1", "scen2", "scen3")
 GCAMv <- "vGCAMChina7.1"
 generate_report(db_path = dbpath, db_name = dbname, prj_name = prjname,

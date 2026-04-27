@@ -657,7 +657,9 @@ add_gcam_china_zero_report_vars <- function(report) {
 
   zero_vars <- c(
     "Capacity|Electricity|Geothermal",
-    "Capacity Additions|Electricity|Geothermal"
+    "Capacity Additions|Electricity|Geothermal",
+    "Final Energy|Residential and Commercial|Solids|Biomass",
+    "Final Energy|Residential and Commercial|Solids|Coal"
   )
 
   template_data <- get("template_vGCAMChina7.1", envir = asNamespace("gcamreport")) %>%
