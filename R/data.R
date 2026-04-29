@@ -3298,3 +3298,44 @@
 #' gcamreport::reg_cont_v7.0
 #' }
 "reg_cont_v7.0"
+
+#' @title co2_sector_map_vGCAMChina8.0
+#' @description CO2 sector mapping for GCAM-China 8.0
+#' @format data frame
+"co2_sector_map_vGCAMChina8.0"
+
+#' @title co2_resource_map_vGCAMChina8.0
+#' @description CO2 resource mapping for GCAM-China 8.0
+#' @format data frame
+"co2_resource_map_vGCAMChina8.0"
+
+#' @title nonco2_emis_sector_map_vGCAMChina8.0
+#' @description Non-CO2 emissions sector mapping for GCAM-China 8.0
+#' @format data frame
+"nonco2_emis_sector_map_vGCAMChina8.0"
+
+#' @title kyoto_sector_map_vGCAMChina8.0
+#' @description Kyoto sector mapping for GCAM-China 8.0
+#' @format data frame
+"kyoto_sector_map_vGCAMChina8.0"
+
+#' @title template_vGCAMChina8.0
+#' @description Template for GCAM-China 8.0
+#' @format data frame
+"template_vGCAMChina8.0"
+
+
+#' @title queries_general_vGCAMChina8.0
+#' @description General queries for GCAM-China 8.0
+#' @format character vector
+"queries_general_vGCAMChina8.0"
+
+#' @title queries_nonCO2_vGCAMChina8.0
+#' @description Non-CO2 queries for GCAM-China 8.0
+#' @format character vector
+"queries_nonCO2_vGCAMChina8.0"
+
+#' @title nonco2_emissions_list_vGCAMChina8.0
+#' @description Non-CO2 emissions list for GCAM-China 8.0
+#' @format character vector
+"nonco2_emissions_list_vGCAMChina8.0"
