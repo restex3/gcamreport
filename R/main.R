@@ -122,7 +122,7 @@ load_project <- function(project_path, desired_regions = "All", scenarios = NULL
     for (s in names(prj)) {
       # for all variables in prj
       for (v in names(prj[[s]])) {
-        if (GCAM_version == "vGCAMChina7.1") {
+        if (GCAM_version %in% GCAMCHINA_VERSIONS) {
           prj[[s]][[v]] <- suppressWarnings(
             filter_loading_regions(prj[[s]][[v]], desired_regions, v, GCAM_version)
           )
@@ -602,6 +602,9 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   }
   .myGlobals$GCAM_version <- GCAM_version
 
+  # Warn early if JVM heap is too small for GCAM-China queries
+  check_java_heap()
+
   # check that GWP_version is available
   if (is.character(GWP_version)) {
     if (!GWP_version %in% gcamreport::available_GWP_versions) {
@@ -807,7 +810,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
 
   # make interactive a global variable
   .myGlobals$interactive.global <- interactive
-  if (GCAM_version == "vGCAMChina7.1") {
+  if (GCAM_version %in% GCAMCHINA_VERSIONS) {
     init_gcam_china_run_notes()
   }
 
@@ -825,7 +828,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   years_in_prj <<- years_in_prj
   desired_regions.global <<- desired_regions
   desired_variables.global <<- desired_variables
-  if (GCAM_version == "vGCAMChina7.1") {
+  if (GCAM_version %in% GCAMCHINA_VERSIONS) {
     suppress_dplyr_join_messages(
       for (i in 1:nrow(.myGlobals$variables.global)) {
         if (.myGlobals$variables.global$required[i]) {
@@ -852,7 +855,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   }
 
   # bind and save results
-  if (GCAM_version == "vGCAMChina7.1") {
+  if (GCAM_version %in% GCAMCHINA_VERSIONS) {
     suppress_dplyr_join_messages(do_bind_results(GCAM_version, all_tier1))
   } else {
     do_bind_results(GCAM_version, all_tier1)
@@ -898,6 +901,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
       "Final Energy|Residential and Commercial|Other" = "Final Energy|Commercial|Others",
       # Agricultural Production V8 GAINS naming (Ruminant/Non-Ruminant)
       "Agricultural Production|Non-Energy|Livestock|Beef" = "Agricultural Production|Livestock|Ruminant|Meat",
+      "Agricultural Production|Non-Energy|Livestock|SheepGoat" = "Agricultural Production|Livestock|Ruminant|Meat",
       "Agricultural Production|Non-Energy|Livestock|Dairy" = "Agricultural Production|Livestock|Ruminant|Dairy",
       "Agricultural Production|Non-Energy|Livestock|Pork" = "Agricultural Production|Livestock|Non-Ruminant|Meat|Pig",
       "Agricultural Production|Non-Energy|Livestock|Poultry" = "Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry"
@@ -1016,6 +1020,64 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
       report <- dplyr::bind_rows(report, ne_biomass_agg)
     }
 
+    # Compute Final Energy|Non-Energy Use|Coal, Oil, Gas from sub-sector entries
+    # (Same pattern as Biomass above; ensures top-level GAINS variables exist)
+    for (ne_fuel in c("Coal", "Oil", "Gas")) {
+      ne_var <- paste0("Final Energy|Non-Energy Use|", ne_fuel)
+      if (!ne_var %in% unique(report$Variable)) {
+        # Sum granular Non-Energy Use entries matching this fuel
+        ne_fuel_data <- report %>%
+          dplyr::filter(grepl("Non-Energy Use", Variable, fixed = TRUE) &
+                        grepl(paste0("|", ne_fuel), Variable, fixed = TRUE)) %>%
+          dplyr::select(-Variable, -Unit)
+
+        if (nrow(ne_fuel_data) > 0) {
+          ne_fuel_agg <- ne_fuel_data %>%
+            dplyr::group_by(Model, Scenario, Region) %>%
+            dplyr::summarise(dplyr::across(dplyr::all_of(yr_cols), ~ sum(.x, na.rm = TRUE)),
+                             .groups = "drop") %>%
+            dplyr::mutate(Variable = ne_var, Unit = "EJ/yr")
+          report <- dplyr::bind_rows(report, ne_fuel_agg)
+        } else {
+          # Create zero placeholder when no sub-sector data exists
+          ne_template <- report %>%
+            dplyr::filter(Variable == "Final Energy|Non-Energy Use|Biomass") %>%
+            dplyr::select(-Variable, -Unit)
+          if (nrow(ne_template) > 0) {
+            ne_fuel_zero <- ne_template %>%
+              dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                            Variable = ne_var, Unit = "EJ/yr")
+            report <- dplyr::bind_rows(report, ne_fuel_zero)
+          }
+        }
+      }
+    }
+
+    # Generate Primary Energy|Electricity|* variables with CCS breakdown
+    # This function reads electricity generation data and creates Primary Energy|Electricity variables
+    if (GCAM_version %in% c("vGCAMChina7.1", "vGCAMChina8.0")) {
+      get_primary_energy_electricity(GCAM_version)
+      if (exists("primary_energy_electricity_clean") && nrow(primary_energy_electricity_clean) > 0) {
+        # Convert to wide format to match report structure
+        yr_cols <- grep("^[0-9]{4}$", colnames(report), value = TRUE)
+        pe_elec_wide <- primary_energy_electricity_clean %>%
+          tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0) %>%
+          dplyr::rename(Variable = var) %>%
+          dplyr::mutate(Unit = "EJ/yr")
+        
+        # Add Model column if missing
+        if (!"Model" %in% colnames(pe_elec_wide)) {
+          pe_elec_wide <- pe_elec_wide %>%
+            dplyr::mutate(Model = unique(report$Model)[1])
+        }
+        
+        # Merge with existing report, replacing any existing Primary Energy|Electricity variables
+        report <- report %>%
+          dplyr::filter(!grepl("^Primary Energy\\|Electricity\\|", Variable)) %>%
+          dplyr::bind_rows(pe_elec_wide)
+      }
+    }
+
     # Create zero-value CCS electricity variables (fallback: skip if data already exists)
     # These will be replaced by real data once CCS configuration is added to the model
     present_vars <- unique(report$Variable)
@@ -1065,6 +1127,27 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
         report <- dplyr::bind_rows(report, trn_elec_zero)
       }
     }
+
+    # Ensure Steel Final Energy breakdown variables exist (fallback only if missing)
+    # V8 may not have direct coal/electricity data for iron and steel sector;
+    # these placeholders get replaced by real data once the sector is configured.
+    steel_fe_fallback_vars <- c(
+      "Final Energy|Industry|Steel|Electricity",
+      "Final Energy|Industry|Steel|Solids|Coal"
+    )
+    for (sfv in steel_fe_fallback_vars) {
+      if (!sfv %in% unique(report$Variable)) {
+        steel_template <- report %>%
+          dplyr::filter(Variable == "Final Energy|Industry") %>%
+          dplyr::select(-Variable, -Unit)
+        if (nrow(steel_template) > 0) {
+          steel_zero <- steel_template %>%
+            dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                          Variable = sfv, Unit = "EJ/yr")
+          report <- dplyr::bind_rows(report, steel_zero)
+        }
+      }
+    }
   }
 
   save(report, file = paste0(output_file, ".RData"))
@@ -1091,7 +1174,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
                                     end = stringr::str_locate(as.character(vet$message), ":") - 1
   )[1]]] <- vet
 
-  if (GCAM_version != "vGCAMChina7.1" &&
+  if (!GCAM_version %in% GCAMCHINA_VERSIONS &&
       (identical(desired_regions, "All") || length(desired_regions) == gcamreport::GCAM_regions_number)) {
     vet <- do_check_vetting()
     vetting_summary[[stringr::str_sub(as.character(vet$message),
@@ -1117,15 +1200,15 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
     cat("To view the summary details, type:\n")
     cat('  - `vetting_summary$`NA variables` to check for NA values\n')
     cat('  - `vetting_summary$`Inf variables` to check for Inf values\n')
-    if (GCAM_version == "vGCAMChina7.1") {
-      cat('Historical World vetting is skipped for `vGCAMChina7.1` because the selected regions are China and provinces, not the standard GCAM world-region set.\n')
+    if (GCAM_version %in% GCAMCHINA_VERSIONS) {
+      cat('Historical World vetting is skipped for `', GCAM_version, '` because the selected regions are China and provinces, not the standard GCAM world-region set.\n')
     } else {
       cat('Since not all regions were selected, there is no vetting related to historical values\n')
     }
     cat("==============================================================\n")
   }
 
-  if (GCAM_version == "vGCAMChina7.1") {
+  if (GCAM_version %in% GCAMCHINA_VERSIONS) {
     print_gcam_china_run_notes()
   }
 

@@ -4422,13 +4422,13 @@ get_primary_energy_electricity <- function(GCAM_version = "v7.1") {
   check_queries("primary_energy_electricity_clean", GCAM_version)
 
   elec_pe <- check_inf(
-    rgcam::getQuery(prj, "elec gen by gen tech (cogen only)"),
-    dataset_name = "elec gen by gen tech (cogen only)"
+    rgcam::getQuery(prj, "elec gen by gen tech (incl cogen)"),
+    dataset_name = "elec gen by gen tech (incl cogen)"
   ) %>%
     dplyr::filter(Units == "EJ")
 
   if (nrow(elec_pe) == 0) {
-    warning("elec gen by gen tech (cogen only) query is empty; skipping primary_energy_electricity_clean.")
+    warning("elec gen by gen tech (incl cogen) query is empty; skipping primary_energy_electricity_clean.")
     primary_energy_electricity_clean <<- data.frame(
       scenario = character(0),
       region = character(0),
@@ -4875,11 +4875,11 @@ get_fe_sector_tmp <- function(GCAM_version = "v7.1") {
   # gather deciles if necessary
   tmp <- check_inf(rgcam::getQuery(prj, "final energy consumption by sector and fuel"),
                    dataset_name = "final energy consumption by sector and fuel")
-  if (GCAM_version != "vGCAMChina7.1") {
+  if (!GCAM_version %in% GCAMCHINA_VERSIONS) {
     tmp <- tmp %>% dplyr::filter(!stringr::str_starts(sector, 'trn'))
   }
   if(GCAM_version %in% get('deciles_GCAM_versions', envir = asNamespace("gcamreport")) &&
-     GCAM_version != "vGCAMChina7.1") {
+     !GCAM_version %in% GCAMCHINA_VERSIONS) {
     tmp <- tmp %>%
       tidyr::separate(sector, into = c("sector", "decile"), sep = "_d", extra = "merge", fill = "right") %>%
       dplyr::group_by(Units, scenario, region, sector, input, year) %>%

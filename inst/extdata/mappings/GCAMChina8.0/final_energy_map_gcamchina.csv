@@ -161,7 +161,8 @@ trn_pass_road_LDV_4W,refined liquids,Final Energy,Final Energy|Liquids,,,Final E
 trn_shipping_intl,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Transportation,Final Energy|Transportation|Freight,Final Energy|Transportation|Electricity,Final Energy|Transportation|Freight|Electricity,Final Energy|Transportation|Shipping,,,,1
 trn_shipping_intl,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Transportation,Final Energy|Transportation|Freight,Final Energy|Transportation|Hydrogen,Final Energy|Transportation|Freight|Hydrogen,Final Energy|Transportation|Shipping,,,,1
 trn_shipping_intl,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Transportation,Final Energy|Transportation|Freight,Final Energy|Transportation|Liquids,Final Energy|Transportation|Freight|Liquids,Final Energy|Transportation|Shipping,,,,1
-coke,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|Steel,Final Energy|Industry|Steel|Solids,Final Energy|Industry|Steel|Solids|Coal,,1
+coke,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|Steel,Final Energy|Industry|Steel|Solids,Final Energy|Industry|Steel|Solids|Coal,,1
+coke,coal,Feedstock,Feedstock|Industry,Feedstock|Industry|Steel,Feedstock|Industry|Steel|Coke,,,,,,,,,1
 chemical,chemical energy use,Final Energy,,,,,,,,,,,,0
 chemical,chemical feedstocks,Final Energy,,,,,,,,,,,,0
 coke,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Industry,,Final Energy|Industry|Electricity,,Final Energy|Industry|Steel,Final Energy|Industry|Steel|Electricity,,,1
