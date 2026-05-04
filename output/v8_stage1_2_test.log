@@ -1,0 +1,3 @@
+错误: package or namespace load failed for 'gcamreport' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ 不存在叫'ggplot2'这个名字的程辑包
+停止执行

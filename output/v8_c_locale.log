@@ -1,0 +1,67 @@
+[1] "C"
+There were 20 warnings (use warnings() to see them)
+=== V8 Debug (C locale) ===
+
+DAT path: E:/GCAM/GCAM-China_v8/output/database_basexdb_v8_test.dat 
+File exists: TRUE 
+
+Step 1: Load project...
+  ✅ Loaded
+  Scenarios: Reference 
+
+Step 2: Generate report...
+Loading project...
+Loading data, performing checks, and saving output...
+Joining, by = c("scenario", "region", "sector", "var", "year")
+
+❌ ERROR: Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 19 x 3
+   scenario  region   year
+   <chr>     <chr>   <dbl>
+ 1 Reference Ukraine  2010
+ 2 Reference Ukraine  2015
+ 3 Reference Ukraine  2021
+ 4 Reference Ukraine  2025
+ 5 Reference Ukraine  2030
+ 6 Reference Ukraine  2035
+ 7 Reference Ukraine  2040
+ 8 Reference Ukraine  2045
+ 9 Reference Ukraine  2050
+10 Reference Ukraine  2055
+11 Reference Ukraine  2060
+12 Reference Ukraine  2065
+13 Reference Ukraine  2070
+14 Reference Ukraine  2075
+15 Reference Ukraine  2080
+16 Reference Ukraine  2085
+17 Reference Ukraine  2090
+18 Reference Ukraine  2095
+19 Reference Ukraine  2100 
+<simpleError in left_join_strict(., refliq_bioshare %>% tidyr::complete(tidyr::nesting(scenario,     year), region = unique(na.omit(get(paste("reg_cont", GCAM_version,     sep = "_"), envir = asNamespace("gcamreport"))[["region"]])),     fill = list(share = 0)), by = c("scenario", "region", "year")): Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 19 x 3
+   scenario  region   year
+   <chr>     <chr>   <dbl>
+ 1 Reference Ukraine  2010
+ 2 Reference Ukraine  2015
+ 3 Reference Ukraine  2021
+ 4 Reference Ukraine  2025
+ 5 Reference Ukraine  2030
+ 6 Reference Ukraine  2035
+ 7 Reference Ukraine  2040
+ 8 Reference Ukraine  2045
+ 9 Reference Ukraine  2050
+10 Reference Ukraine  2055
+11 Reference Ukraine  2060
+12 Reference Ukraine  2065
+13 Reference Ukraine  2070
+14 Reference Ukraine  2075
+15 Reference Ukraine  2080
+16 Reference Ukraine  2085
+17 Reference Ukraine  2090
+18 Reference Ukraine  2095
+19 Reference Ukraine  2100>
+Warning messages:
+1: In get(var$fun)(GCAM_version) :
+  The 'Capital Stock' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.
+2: In get(var$fun)(GCAM_version) :
+  The 'Capital Formation' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.

@@ -857,6 +857,216 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
   } else {
     do_bind_results(GCAM_version, all_tier1)
   }
+
+  # Add GAINS variable aliases for GCAM-China 8.0
+  if (GCAM_version == "vGCAMChina8.0") {
+    # Create multiple aliases for the same source variable
+    alias_mappings <- list(
+      # Agricultural Production - Livestock: now produced directly by ag_production_map
+      # (CSV maps directly to Agricultural Production|Non-Energy|Livestock|* GAINS names)
+      # Land Cover
+      # Land Cover|Cropland|Crops and Otherarable are computed in get_land()
+      "Land Cover|Forest" = "Land Cover|Forest|Managed",
+      "Land Cover|Pasture" = "Land Cover|Pasture|Grazed",
+      # Production
+      "Production|Non-Metallic Minerals|Cement" = "Production|Cement",
+      # Production|Chemicals|Fertilizer computed below (Ammonia - N_Fertilizer)
+      # Steel tech breakdowns come from iron_steel_prod_tech_map (real data)
+      # Final Energy - Steel (map to Iron and Steel)
+      "Final Energy|Industry|Iron and Steel|Gases" = "Final Energy|Industry|Steel|Gases",
+      "Final Energy|Industry|Iron and Steel|Liquids" = "Final Energy|Industry|Steel|Liquids",
+      "Final Energy|Industry|Iron and Steel|Electricity" = "Final Energy|Industry|Steel|Electricity",
+      "Final Energy|Industry|Iron and Steel|Solids|Coal" = "Final Energy|Industry|Steel|Solids|Coal",
+      # Off-road Construction (V8 uses 'Other Sector' naming for residual industry)
+      "Final Energy|Industry|Other Sector|Electricity" = "Final Energy|Industry|Off-road|Construction|Electricity",
+      "Final Energy|Industry|Other Sector|Gases" = "Final Energy|Industry|Off-road|Construction|Gases",
+      "Final Energy|Industry|Other Sector|Hydrogen" = "Final Energy|Industry|Off-road|Construction|Hydrogen",
+      "Final Energy|Industry|Other Sector|Liquids" = "Final Energy|Industry|Off-road|Construction|Liquids",
+      # Primary Energy|*|Convert = Primary Energy|* (V8 doesn't split conversion separately)
+      "Primary Energy|Biomass" = "Primary Energy|Biomass|Convert",
+      "Primary Energy|Coal" = "Primary Energy|Coal|Convert",
+      "Primary Energy|Gas" = "Primary Energy|Gas|Convert",
+      "Primary Energy|Oil" = c("Primary Energy|Oil|Convert", "Primary Energy|Oil|Liquids"),
+      # Primary Energy|Electricity aliases (clean renewables: same value in primary = secondary)
+      "Primary Energy|Hydro" = "Primary Energy|Electricity|Hydro",
+      "Primary Energy|Nuclear" = "Primary Energy|Electricity|Nuclear",
+      "Primary Energy|Wind" = "Primary Energy|Electricity|Wind",
+      "Primary Energy|Geothermal" = "Primary Energy|Electricity|Geothermal",
+      # Final Energy "Other" categories (residual aggregation)
+      "Final Energy|Industry|Other Sector" = c("Final Energy|Industry|Other",
+                                               "Final Energy|Industry|Off-road|Construction"),
+      "Final Energy|Residential and Commercial|Other" = "Final Energy|Commercial|Others",
+      # Agricultural Production V8 GAINS naming (Ruminant/Non-Ruminant)
+      "Agricultural Production|Non-Energy|Livestock|Beef" = "Agricultural Production|Livestock|Ruminant|Meat",
+      "Agricultural Production|Non-Energy|Livestock|Dairy" = "Agricultural Production|Livestock|Ruminant|Dairy",
+      "Agricultural Production|Non-Energy|Livestock|Pork" = "Agricultural Production|Livestock|Non-Ruminant|Meat|Pig",
+      "Agricultural Production|Non-Energy|Livestock|Poultry" = "Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry"
+    )
+
+    gains_aliases <- list()
+    for (source_var in names(alias_mappings)) {
+      target_vars <- alias_mappings[[source_var]]
+      source_data <- report %>% dplyr::filter(Variable == source_var)
+      if (nrow(source_data) > 0) {
+        for (target_var in target_vars) {
+          alias_data <- source_data %>%
+            dplyr::mutate(Variable = target_var)
+          gains_aliases[[length(gains_aliases) + 1]] <- alias_data
+        }
+      }
+    }
+
+    if (length(gains_aliases) > 0) {
+      report <- dplyr::bind_rows(report, dplyr::bind_rows(gains_aliases)) %>%
+        dplyr::distinct(Model, Scenario, Region, Variable, Unit, .keep_all = TRUE)
+    }
+
+    # Compute Residential and Commercial Electricity sum
+    res_elec <- report %>%
+      dplyr::filter(Variable == "Final Energy|Residential|Electricity") %>%
+      dplyr::select(-Variable, -Unit)
+    com_elec <- report %>%
+      dplyr::filter(Variable == "Final Energy|Commercial|Electricity") %>%
+      dplyr::select(-Variable, -Unit)
+
+    if (nrow(res_elec) > 0 && nrow(com_elec) > 0) {
+      yr_cols <- grep("^[0-9]{4}$", colnames(report), value = TRUE)
+      res_com_elec <- res_elec %>%
+        dplyr::left_join(com_elec,
+                         by = c("Model", "Scenario", "Region"),
+                         suffix = c("_res", "_com"))
+      for (yr in yr_cols) {
+        res_col <- paste0(yr, "_res")
+        com_col <- paste0(yr, "_com")
+        if (res_col %in% colnames(res_com_elec) && com_col %in% colnames(res_com_elec)) {
+          res_com_elec[[yr]] <- res_com_elec[[res_col]] + res_com_elec[[com_col]]
+        }
+      }
+      res_com_elec <- res_com_elec %>%
+        dplyr::select(dplyr::all_of(c("Model", "Scenario", "Region")), dplyr::all_of(yr_cols)) %>%
+        dplyr::mutate(Variable = "Final Energy|Residential and Commercial|Electricity",
+                      Unit = "EJ/yr")
+
+      report <- dplyr::bind_rows(report, res_com_elec)
+    }
+
+    # Create Production|Chemicals|Nitrogen Fertilizer placeholder before Fertilizer computation
+    # (GCAM-China v8 does not have a separate N fertilizer production sector;
+    #  all fertilizer nitrogen is embedded in ammonia output)
+    yr_cols <- grep("^[0-9]{4}$", colnames(report), value = TRUE)
+    nfert_template <- report %>%
+      dplyr::filter(Variable == "Production|Chemicals") %>%
+      dplyr::select(-Variable, -Unit)
+
+    if (nrow(nfert_template) > 0) {
+      nfert_zero <- nfert_template %>%
+        dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                      Variable = "Production|Chemicals|Nitrogen Fertilizer",
+                      Unit = "Mt/yr")
+      report <- dplyr::bind_rows(report, nfert_zero)
+    }
+
+    # Compute Production|Chemicals|Fertilizer = Ammonia - N_Fertilizer (unit-corrected)
+    # Ammonia is in Mt NH3, N_Fertilizer is in Mt N, convert N to NH3: * 17/14
+    ammonia_data <- report %>%
+      dplyr::filter(Variable == "Production|Chemicals|Ammonia") %>%
+      dplyr::select(-Variable, -Unit)
+    nfert_data <- report %>%
+      dplyr::filter(Variable == "Production|Chemicals|Nitrogen Fertilizer") %>%
+      dplyr::select(-Variable, -Unit)
+
+    if (nrow(ammonia_data) > 0 && nrow(nfert_data) > 0) {
+      nh3_n_ratio <- 17.0 / 14.0
+      fertilizer_data <- ammonia_data %>%
+        dplyr::left_join(nfert_data,
+                         by = c("Model", "Scenario", "Region"),
+                         suffix = c("_ammonia", "_nfert"))
+
+      for (yr in yr_cols) {
+        amm_col <- paste0(yr, "_ammonia")
+        nfe_col <- paste0(yr, "_nfert")
+        if (amm_col %in% colnames(fertilizer_data) && nfe_col %in% colnames(fertilizer_data)) {
+          fertilizer_data[[yr]] <- fertilizer_data[[amm_col]] - fertilizer_data[[nfe_col]] * nh3_n_ratio
+        }
+      }
+
+      fertilizer_data <- fertilizer_data %>%
+        dplyr::select(dplyr::all_of(c("Model", "Scenario", "Region")), dplyr::all_of(yr_cols)) %>%
+        dplyr::mutate(Variable = "Production|Chemicals|Fertilizer",
+                      Unit = "Mt/yr")
+
+      report <- dplyr::bind_rows(report, fertilizer_data)
+    }
+
+    # Compute Final Energy|Non-Energy Use|Biomass from all sub-sector Biomass entries
+    yr_cols <- grep("^[0-9]{4}$", colnames(report), value = TRUE)
+    ne_biomass_data <- report %>%
+      dplyr::filter(grepl("Non-Energy Use", Variable, fixed = TRUE) &
+                    grepl("|Biomass", Variable, fixed = TRUE)) %>%
+      dplyr::select(-Variable, -Unit)
+
+    if (nrow(ne_biomass_data) > 0) {
+      ne_biomass_agg <- ne_biomass_data %>%
+        dplyr::group_by(Model, Scenario, Region) %>%
+        dplyr::summarise(dplyr::across(dplyr::all_of(yr_cols), ~ sum(.x, na.rm = TRUE)),
+                         .groups = "drop") %>%
+        dplyr::mutate(Variable = "Final Energy|Non-Energy Use|Biomass",
+                      Unit = "EJ/yr")
+
+      report <- dplyr::bind_rows(report, ne_biomass_agg)
+    }
+
+    # Create zero-value CCS electricity variables (fallback: skip if data already exists)
+    # These will be replaced by real data once CCS configuration is added to the model
+    present_vars <- unique(report$Variable)
+
+    if (!"Primary Energy|Electricity|Oil|w/ CCS" %in% present_vars) {
+      oil_ccs_template <- report %>%
+        dplyr::filter(Variable == "Primary Energy|Electricity|Oil|w/o CCS") %>%
+        dplyr::select(-Variable, -Unit)
+
+      if (nrow(oil_ccs_template) > 0) {
+        oil_ccs_zero <- oil_ccs_template %>%
+          dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                        Variable = "Primary Energy|Electricity|Oil|w/ CCS",
+                        Unit = "EJ/yr")
+        report <- dplyr::bind_rows(report, oil_ccs_zero)
+      }
+    }
+
+    for (fuel in c("Coal", "Gas")) {
+      ccs_var <- paste0("Primary Energy|Electricity|", fuel, "|w/ CCS")
+      if (!ccs_var %in% present_vars) {
+        ccs_template <- report %>%
+          dplyr::filter(Variable == paste0("Primary Energy|Electricity|", fuel, "|w/o CCS")) %>%
+          dplyr::select(-Variable, -Unit)
+
+        if (nrow(ccs_template) > 0) {
+          ccs_zero <- ccs_template %>%
+            dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                          Variable = ccs_var,
+                          Unit = "EJ/yr")
+          report <- dplyr::bind_rows(report, ccs_zero)
+        }
+      }
+    }
+
+    # Ensure Final Energy|Transportation|Electricity exists (fallback only if missing)
+    if (!"Final Energy|Transportation|Electricity" %in% unique(report$Variable)) {
+      trn_elec_template <- report %>%
+        dplyr::filter(Variable == "Final Energy|Transportation") %>%
+        dplyr::select(-Variable, -Unit)
+
+      if (nrow(trn_elec_template) > 0) {
+        trn_elec_zero <- trn_elec_template %>%
+          dplyr::mutate(dplyr::across(dplyr::all_of(yr_cols), ~ 0),
+                        Variable = "Final Energy|Transportation|Electricity",
+                        Unit = "EJ/yr")
+        report <- dplyr::bind_rows(report, trn_elec_zero)
+      }
+    }
+  }
+
   save(report, file = paste0(output_file, ".RData"))
 
   if (save_output == TRUE || save_output %in% c("CSV", "XLSX")) {
@@ -931,6 +1141,9 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
     # launch ui
     launch_gcamreport_ui(data = report, GCAM_version = GCAM_version)
   }
+
+  # Return the report
+  invisible(report)
 }
 
 

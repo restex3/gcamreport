@@ -199,6 +199,19 @@ filter_data_regions <- function(data) {
   return(data)
 }
 
+#' get_gcam_china_version_dir
+#'
+#' Helper to get the correct GCAM-China version directory.
+#' @keywords internal
+get_gcam_china_version_dir <- function() {
+  if (exists(".myGlobals") && !is.null(.myGlobals$GCAM_version) &&
+      .myGlobals$GCAM_version == "vGCAMChina8.0") {
+    "GCAMChina8.0"
+  } else {
+    "GCAMChina7.1"
+  }
+}
+
 #' get_runtime_var_fun_map
 #'
 #' Read the runtime variable-function mapping. For GCAM-China 7.1 we prefer the
@@ -209,8 +222,15 @@ filter_data_regions <- function(data) {
 #' @export
 get_runtime_var_fun_map <- function(GCAM_version = "v7.1") {
   if (GCAM_version %in% GCAMCHINA_VERSIONS) {
+    # Use version-specific mapping for GCAM-China
+    gcam_china_version <- if (GCAM_version == "vGCAMChina8.0") {
+      "GCAMChina8.0"
+    } else {
+      "GCAMChina7.1"
+    }
+
     mapping_path <- system.file(
-      "extdata", "mappings", "GCAMChina7.1", "variables_functions_mapping.csv",
+      "extdata", "mappings", gcam_china_version, "variables_functions_mapping.csv",
       package = "gcamreport"
     )
     var_fun_map <- utils::read.csv(
@@ -835,7 +855,7 @@ normalize_gcam_china_power_technology <- function(technology) {
 #' @export
 get_gcam_china_elec_gen_map <- function() {
   utils::read.csv(
-    system.file("extdata", "mappings", "GCAMChina7.1", "elec_gen_map_gcamchina.csv", package = "gcamreport"),
+    system.file("extdata", "mappings", get_gcam_china_version_dir(), "elec_gen_map_gcamchina.csv", package = "gcamreport"),
     skip = 1,
     na.strings = c("", "NA"),
     check.names = FALSE
@@ -862,8 +882,15 @@ get_gcam_china_provinces <- function() {
 #' @keywords internal
 #' @export
 get_gcam_china_final_energy_map <- function() {
+  gcam_china_version <- if (exists(".myGlobals") && !is.null(.myGlobals$GCAM_version) &&
+                             .myGlobals$GCAM_version == "vGCAMChina8.0") {
+    "GCAMChina8.0"
+  } else {
+    "GCAMChina7.1"
+  }
+
   utils::read.csv(
-    system.file("extdata", "mappings", "GCAMChina7.1", "final_energy_map_gcamchina.csv", package = "gcamreport"),
+    system.file("extdata", "mappings", gcam_china_version, "final_energy_map_gcamchina.csv", package = "gcamreport"),
     skip = 1,
     na.strings = c("", "NA"),
     check.names = FALSE
@@ -1428,8 +1455,10 @@ filter_variables <- function(data, variable = NULL, extra = NULL) {
   # if (variable %in% variables.global[variables.global$required == TRUE, ]$name) {
     if (!(length(desired_variables.global) == 1 && desired_variables.global == "All")) {
       if ("var" %in% colnames(data)) {
+        # Always keep Primary Energy|*|Convert and Primary Energy|Electricity|* variables for GAINS
+        gains_vars <- grep("Primary Energy\\|(.*\\|)?Convert$|Primary Energy\\|Electricity\\|", data$var, value = TRUE)
         data <- data %>%
-          dplyr::filter(var %in% c(desired_variables.global,'NoReported',extra))
+          dplyr::filter(var %in% c(desired_variables.global,'NoReported',extra, gains_vars))
       }
     }
   # }
@@ -4241,6 +4270,19 @@ get_land <- function(GCAM_version = "v7.1") {
     dplyr::mutate(var = 'Land Cover|Cropland|Crops') %>%
     dplyr::select(dplyr::all_of(gcamreport::long_columns))
 
+  # Land Cover|Cropland|Otherarable = Cropland - Crops
+  land_cropland_total <- land_tmp2 %>%
+    dplyr::filter(var == 'Land Cover|Cropland') %>%
+    dplyr::select(scenario, region, year, value)
+
+  land_cropland_otherarable <- land_cropland_crops %>%
+    dplyr::left_join(land_cropland_total,
+                     by = c('scenario', 'region', 'year'),
+                     suffix = c('', '_total')) %>%
+    dplyr::mutate(value = value_total - value,
+                  var = 'Land Cover|Cropland|Otherarable') %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
   # Land Cover|Forest|Managed = Land Cover|Forest (assuming all forest in GCAM is managed)
   land_forest_managed <- land_tmp2 %>%
     dplyr::filter(var == 'Land Cover|Forest') %>%
@@ -4252,6 +4294,7 @@ get_land <- function(GCAM_version = "v7.1") {
     land_tmp2,
     land_achange,
     land_cropland_crops,
+    land_cropland_otherarable,
     land_forest_managed
   )
 
@@ -4335,6 +4378,7 @@ get_primary_energy <- function(GCAM_version = "v7.1") {
     ) %>%
     left_join_strict(get(paste('primary_energy_map',GCAM_version,sep='_'), envir = asNamespace("gcamreport")),
                      by = c("fuel"), mapping = paste('primary_energy_map',GCAM_version,sep='_'), multiple = "all") %>%
+    gather_map() %>%
     dplyr::filter(var != 'NoReported', !is.na(var)) %>%
     filter_variables() %>%
     dplyr::mutate(value = value * unit_conv) %>%
@@ -4363,8 +4407,8 @@ get_primary_energy_electricity <- function(GCAM_version = "v7.1") {
   scenario <- region <- year <- value <- subsector <- technology <- Units <- var <- fuel <- NULL
   primary_energy_electricity_clean <- NULL
 
-  if (GCAM_version != "vGCAMChina7.1") {
-    warning("primary_energy_electricity_clean is only configured for vGCAMChina7.1; skipping.")
+  if (!GCAM_version %in% c("vGCAMChina7.1", "vGCAMChina8.0")) {
+    warning("primary_energy_electricity_clean is only configured for vGCAMChina7.1 and vGCAMChina8.0; skipping.")
     primary_energy_electricity_clean <<- data.frame(
       scenario = character(0),
       region = character(0),
@@ -4402,6 +4446,7 @@ get_primary_energy_electricity <- function(GCAM_version = "v7.1") {
         subsector == "coal" ~ "Coal",
         subsector == "gas" ~ "Gas",
         subsector == "refined liquids" ~ "Oil",
+        subsector == "nuclear" ~ "Nuclear",
         subsector == "hydro" ~ "Hydro",
         subsector == "wind" ~ "Wind",
         subsector %in% c("solar", "rooftop_pv") ~ "Solar",
@@ -4427,10 +4472,24 @@ get_primary_energy_electricity <- function(GCAM_version = "v7.1") {
       dplyr::distinct()
   )
 
+  elec_pe_filtered <- elec_pe %>%
+    dplyr::filter(var != "NoReported", !is.na(var))
+
+  if (nrow(elec_pe_filtered) == 0) {
+    warning("All electricity generation data was filtered out; check subsector/technology mapping.")
+    primary_energy_electricity_clean <<- data.frame(
+      scenario = character(0),
+      region = character(0),
+      var = character(0),
+      year = numeric(0),
+      value = numeric(0)
+    )
+    return(invisible(NULL))
+  }
+
   primary_energy_electricity_clean <-
-    elec_pe %>%
-    dplyr::filter(var != "NoReported", !is.na(var)) %>%
-    filter_variables() %>%
+    elec_pe_filtered %>%
+    # Skip filter_variables() since these are custom variables not in desired_variables.global
     dplyr::group_by(scenario, region, year, var) %>%
     dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
     tidyr::complete(
@@ -4861,6 +4920,28 @@ get_fe_sector_tmp <- function(GCAM_version = "v7.1") {
     ) %>%
     dplyr::select(dplyr::all_of(gcamreport::long_columns))
 
+  # Add GAINS-required Non-Energy Use aggregations for GCAM-China 8.0
+  if (GCAM_version == "vGCAMChina8.0") {
+    gains_neu <- fe_sector %>%
+      dplyr::filter(grepl("^Final Energy\\|Non-Energy Use\\|", var)) %>%
+      dplyr::mutate(
+        gains_var = dplyr::case_when(
+          grepl("Solids\\|Coal$", var) ~ "Final Energy|Non-Energy Use|Coal",
+          grepl("Gases$", var) ~ "Final Energy|Non-Energy Use|Gas",
+          grepl("Liquids$", var) ~ "Final Energy|Non-Energy Use|Oil",
+          grepl("Solids$", var) ~ "Final Energy|Non-Energy Use|Biomass",
+          TRUE ~ NA_character_
+        )
+      ) %>%
+      dplyr::filter(!is.na(gains_var)) %>%
+      dplyr::group_by(scenario, region, year, var = gains_var) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE)) %>%
+      dplyr::ungroup()
+
+    fe_sector <- dplyr::bind_rows(fe_sector, gains_neu) %>%
+      dplyr::distinct(scenario, region, year, var, .keep_all = TRUE)
+  }
+
   fe_sector_raw <<- fe_sector_raw
   fe_sector <<- fe_sector
 }
@@ -4913,6 +4994,18 @@ get_fe_transportation_tmp <- function(GCAM_version = "v7.1") {
                     fill = list(value = 0)
     ) %>%
     dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  # Add GAINS-required Transportation Electricity for GCAM-China 8.0
+  if (GCAM_version == "vGCAMChina8.0") {
+    trans_elec <- fe_transportation_raw %>%
+      dplyr::filter(input == "elect_td_trn") %>%
+      dplyr::group_by(scenario, region, year) %>%
+      dplyr::summarise(value = sum(value, na.rm = TRUE), .groups = "drop") %>%
+      dplyr::mutate(var = "Final Energy|Transportation|Electricity")
+
+    fe_transportation <- dplyr::bind_rows(fe_transportation, trans_elec) %>%
+      dplyr::distinct(scenario, region, year, var, .keep_all = TRUE)
+  }
 
   fe_transportation_raw <<- fe_transportation_raw
   fe_transportation <<- fe_transportation
@@ -5308,6 +5401,36 @@ get_iron_steel_clean <- function(GCAM_version = 'v7.1') {
   )
 
   iron_steel_clean <<- iron_steel_clean
+}
+
+
+#' get_iron_steel_inputs
+#'
+#' Retrieves iron and steel feedstock inputs (coke) from the inputs-by-tech query.
+#'
+#' @param GCAM_version Main GCAM compatible version.
+#' @return `iron_steel_inputs_clean` global variable.
+#' @keywords internal iron steel inputs
+#' @importFrom magrittr %>%
+#' @export
+get_iron_steel_inputs <- function(GCAM_version = "v7.1") {
+  sector <- input <- value <- scenario <- region <- year <- Units <-
+    iron_steel_inputs_clean <- NULL
+
+  check_queries("iron_steel_inputs_clean", GCAM_version)
+
+  iron_steel_inputs_clean <-
+    check_inf(rgcam::getQuery(prj, "inputs by tech"),
+              dataset_name = "inputs by tech") %>%
+    dplyr::filter(sector == "iron and steel",
+                  input == "coke") %>%
+    dplyr::group_by(scenario, region, year) %>%
+    dplyr::summarise(value = sum(value, na.rm = TRUE)) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(var = "Feedstock|Industry|Steel|Coke") %>%
+    dplyr::select(dplyr::all_of(gcamreport::long_columns))
+
+  iron_steel_inputs_clean <<- iron_steel_inputs_clean
 }
 
 

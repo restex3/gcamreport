@@ -1,0 +1,51 @@
+[1] "C"
+There were 20 warnings (use warnings() to see them)
+=== V8 Debug (C locale) ===
+
+DAT path: E:/GCAM/GCAM-China_v8/output/database_basexdb_v8_test.dat 
+File exists: TRUE 
+
+Step 1: Load project...
+  ✅ Loaded
+  Scenarios: Reference 
+
+Step 2: Generate report...
+Loading project...
+Loading data, performing checks, and saving output...
+Joining, by = c("scenario", "region", "sector", "var", "year")
+
+❌ ERROR: Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 59 x 3
+   scenario  region  year
+   <chr>     <chr>  <dbl>
+ 1 Reference BJ      2010
+ 2 Reference BJ      2015
+ 3 Reference BJ      2021
+ 4 Reference CQ      2010
+ 5 Reference CQ      2021
+ 6 Reference GD      2010
+ 7 Reference GD      2015
+ 8 Reference GD      2021
+ 9 Reference GS      2010
+10 Reference GS      2015
+# i 49 more rows 
+<simpleError in left_join_strict(., refliq_bioshare %>% tidyr::complete(tidyr::nesting(scenario,     year), region = unique(na.omit(get(paste("reg_cont", GCAM_version,     sep = "_"), envir = asNamespace("gcamreport"))[["region"]])),     fill = list(share = 0)), by = c("scenario", "region", "year")): Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 59 x 3
+   scenario  region  year
+   <chr>     <chr>  <dbl>
+ 1 Reference BJ      2010
+ 2 Reference BJ      2015
+ 3 Reference BJ      2021
+ 4 Reference CQ      2010
+ 5 Reference CQ      2021
+ 6 Reference GD      2010
+ 7 Reference GD      2015
+ 8 Reference GD      2021
+ 9 Reference GS      2010
+10 Reference GS      2015
+# i 49 more rows>
+Warning messages:
+1: In get(var$fun)(GCAM_version) :
+  The 'Capital Stock' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.
+2: In get(var$fun)(GCAM_version) :
+  The 'Capital Formation' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.

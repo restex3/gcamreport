@@ -1,0 +1,105 @@
+================================================================================
+GCAM-China V8 vs ORIGINAL GAINS Map Coverage
+================================================================================
+Date: 2026-05-04 22:29:59 
+
+SUMMARY
+-------
+ORIGINAL GAINS required: 81 
+V8 matched: 81 
+V8 missing: 0 
+Coverage rate: 100.0% 
+
+BY REGION
+---------
+National: 12 / 12 (100.0%) 
+Regional: 69 / 69 (100.0%) 
+
+MATCHED VARIABLES ( 81 )
+================================================================================ 
+[ National ] Land Cover|Cropland|Otherarable 
+[ National ] Agricultural Production|Non-Energy|Livestock|Beef 
+[ National ] Agricultural Production|Non-Energy|Livestock|Dairy 
+[ National ] Agricultural Production|Non-Energy|Livestock|SheepGoat 
+[ National ] Agricultural Production|Non-Energy|Livestock|Pork 
+[ National ] Agricultural Production|Non-Energy|Livestock|Poultry 
+[ Regional ] Population 
+[ Regional ] Final Energy|Industry|Off-road|Construction 
+[ Regional ] Primary Energy|Coal|Convert 
+[ Regional ] Primary Energy|Gas|Convert 
+[ Regional ] Primary Energy|Oil|Convert 
+[ Regional ] Primary Energy|Biomass|Convert 
+[ Regional ] Final Energy|Residential and Commercial|Electricity 
+[ Regional ] Final Energy|Residential and Commercial|Gases 
+[ Regional ] Final Energy|Residential and Commercial|Heat 
+[ Regional ] Final Energy|Residential and Commercial|Hydrogen 
+[ Regional ] Final Energy|Residential and Commercial|Liquids 
+[ Regional ] Final Energy|Residential and Commercial|Other 
+[ Regional ] Final Energy|Residential and Commercial|Solids|Biomass 
+[ Regional ] Final Energy|Residential and Commercial|Solids|Coal 
+[ Regional ] Production|Chemicals|Nitrogen Fertilizer 
+[ National ] Land Cover|Forest|Managed 
+[ National ] Land Cover|Pasture|Grazed 
+[ Regional ] Final Energy|Industry|Solids|Biomass 
+[ Regional ] Final Energy|Industry|Chemicals|Liquids 
+[ Regional ] Final Energy|Industry|Chemicals|Electricity 
+[ Regional ] Final Energy|Industry|Chemicals|Solids|Coal 
+[ Regional ] Final Energy|Industry|Chemicals|Gases 
+[ Regional ] Final Energy|Industry|Chemicals|Hydrogen 
+[ Regional ] Final Energy|Industry|Electricity 
+[ Regional ] Final Energy|Industry|Gases 
+[ Regional ] Final Energy|Industry|Solids|Coal 
+[ Regional ] Final Energy|Industry|Hydrogen 
+[ Regional ] Final Energy|Industry|Liquids 
+[ Regional ] Final Energy|Industry|Other 
+[ Regional ] Final Energy|Industry|Chemicals|Heat 
+[ Regional ] Final Energy|Industry|Steel|Electricity 
+[ Regional ] Final Energy|Industry|Steel|Gases 
+[ Regional ] Final Energy|Industry|Heat 
+[ Regional ] Final Energy|Industry|Steel|Liquids 
+[ Regional ] Final Energy|Industry|Steel|Solids|Coal 
+[ Regional ] GDP|MER 
+[ National ] Resource|Extraction|Coal 
+[ Regional ] Final Energy|Non-Energy Use|Biomass 
+[ Regional ] Final Energy|Non-Energy Use|Coal 
+[ Regional ] Final Energy|Non-Energy Use|Oil 
+[ Regional ] Final Energy|Non-Energy Use|Gas 
+[ Regional ] Primary Energy|Electricity|Oil|w/o CCS 
+[ Regional ] Primary Energy|Electricity|Gas|w/o CCS 
+[ Regional ] Primary Energy|Electricity|Coal|w/o CCS 
+[ Regional ] Primary Energy|Electricity|Biomass|w/o CCS 
+[ Regional ] Primary Energy|Electricity|Coal|w/ CCS 
+[ Regional ] Primary Energy|Electricity|Oil|w/ CCS 
+[ Regional ] Primary Energy|Electricity|Biomass|w/ CCS 
+[ Regional ] Primary Energy|Electricity|Gas|w/ CCS 
+[ Regional ] Primary Energy|Electricity|Nuclear 
+[ Regional ] Primary Energy|Electricity|Hydro 
+[ Regional ] Secondary Energy|Electricity 
+[ Regional ] Primary Energy|Electricity|Wind 
+[ Regional ] Primary Energy|Electricity|Geothermal 
+[ Regional ] Final Energy|Heat 
+[ Regional ] Primary Energy|Electricity|Solar 
+[ National ] Resource|Extraction|Oil 
+[ National ] Resource|Extraction|Gas 
+[ Regional ] Production|Steel|Blast Furnace 
+[ Regional ] Production|Cement 
+[ Regional ] Feedstock|Industry|Steel|Coke 
+[ Regional ] Production|Steel|EAF-scrap 
+[ Regional ] Production|Steel|Hydrogen-DRI 
+[ Regional ] Production|Steel|EAF-DRI 
+[ Regional ] Production|Chemicals|Fertilizer 
+[ Regional ] Primary Energy|Oil|Liquids 
+[ National ] Land Cover|Cropland|Crops 
+[ Regional ] Final Energy|Transportation|Gases 
+[ Regional ] Final Energy|Transportation|Liquids 
+[ Regional ] Final Energy|Transportation|Hydrogen 
+[ Regional ] Final Energy|Industry|Off-road|Construction|Liquids 
+[ Regional ] Final Energy|Industry|Off-road|Construction|Gases 
+[ Regional ] Final Energy|Industry|Off-road|Construction|Electricity 
+[ Regional ] Final Energy|Industry|Off-road|Construction|Hydrogen 
+[ Regional ] Final Energy|Transportation|Electricity 
+
+================================================================================
+VERDICT
+================================================================================
+SUCCESS: 100% coverage!

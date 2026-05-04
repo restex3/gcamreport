@@ -17,9 +17,10 @@ N fertilizer,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,,Final 
 N fertilizer,hydrogen,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,Final Energy|Industry|Hydrogen,Final Energy|Industry|Chemicals|Hydrogen,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Hydrogen,,,1
 N fertilizer,refined liquids,Final Energy,Final Energy|Liquids,,,Final Energy|Industry,,Final Energy|Industry|Liquids,Final Energy|Industry|Chemicals|Liquids,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Liquids,,,1
 N fertilizer,H2 industrial,Final Energy,Final Energy|Hydrogen,,,Final Energy|Industry,,Final Energy|Industry|Hydrogen,Final Energy|Industry|Chemicals|Hydrogen,Final Energy|Industry|N fertilizer,Final Energy|Industry|N fertilizer|Hydrogen,,,1
-chemical feedstocks,coal,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Soilds,Final Energy|Non-Energy Use|Soilds|Coal,,,,,,,,,,1
+chemical feedstocks,coal,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Coal,,,,,,,,,,,1
 chemical feedstocks,gas,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Gas,,,,,,,,,,,1
 chemical feedstocks,refined liquids,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Oil,,,,,,,,,,,1
+chemical feedstocks,biomass,Final Energy|Non-Energy Use,Final Energy|Non-Energy Use|Biomass,,,,,,,,,,,1
 alumina,coal,Final Energy,Final Energy|Solids,Final Energy|Solids|Coal,,Final Energy|Industry,,Final Energy|Industry|Solids,Final Energy|Industry|Solids|Coal,Final Energy|Industry|Non-ferrous metals,Final Energy|Industry|Non-ferrous metals|Solids,Final Energy|Industry|Non-ferrous metals|Solids|Fossil,,1
 alumina,gas,Final Energy,Final Energy|Gases,,,Final Energy|Industry,,Final Energy|Industry|Gases,,Final Energy|Industry|Non-ferrous metals,Final Energy|Industry|Non-ferrous metals|Gases,,,1
 comm appliances,electricity,Final Energy,Final Energy|Electricity,,,Final Energy|Commercial,Final Energy|Commercial|Electricity,,,,,,,1

@@ -1,0 +1,6 @@
+=== Testing V8 GAINS Coverage (Simplified) ===
+
+Error in generate_report(prj_name = "E:/GCAM/GCAM-China_v8/output/database_basexdb_v8_test.dat",  : 
+  The variable Production is not available for reporting. Please check the available variables by running `available_variables()` in your console./n
+          Further information at https://bc3lc.github.io/gcamreport/articles/Dataset_Generation_Tutorial.html#example-5-specify-the-variables.
+Í£Ö¹Ö´ÐÐ

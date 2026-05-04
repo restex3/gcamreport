@@ -1,0 +1,58 @@
+=== GCAM-China V8 GAINS Coverage Report ===
+Date: 2026-05-04 21:10:20 
+
+Required variables: 48 
+Matched variables: 0 
+Missing variables: 48 
+Coverage rate: 0.0% 
+
+Missing variables list:
+------------------------
+Land Cover|Cropland 
+Agricultural Production|Livestock|Ruminant|Meat 
+Agricultural Production|Livestock|Ruminant|Dairy 
+Agricultural Production|Livestock|Non-Ruminant|Meat|Pig 
+Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry 
+Population 
+Final Energy|Residential and Commercial|Electricity 
+Final Energy|Residential and Commercial|Gases 
+Final Energy|Residential and Commercial|Heat 
+Final Energy|Residential and Commercial|Hydrogen 
+Final Energy|Residential and Commercial|Liquids 
+Final Energy|Residential and Commercial|Other 
+Final Energy|Residential and Commercial|Solids|Biomass 
+Final Energy|Residential and Commercial|Solids|Coal 
+Production|Chemicals|Ammonia 
+Land Cover|Forest 
+Land Cover|Pasture 
+Final Energy|Industry|Solids|Biomass 
+Final Energy|Industry|Chemicals|Liquids 
+Final Energy|Industry|Chemicals|Electricity 
+Final Energy|Industry|Chemicals|Solids|Coal 
+Final Energy|Industry|Chemicals|Gases 
+Final Energy|Industry|Chemicals|Hydrogen 
+Final Energy|Industry|Electricity 
+Final Energy|Industry|Gases 
+Final Energy|Industry|Solids|Coal 
+Final Energy|Industry|Hydrogen 
+Final Energy|Industry|Liquids 
+Final Energy|Industry|Other 
+Final Energy|Industry|Chemicals|Heat 
+Final Energy|Industry|Iron and Steel|Gases 
+Final Energy|Industry|Heat 
+Final Energy|Industry|Iron and Steel|Liquids 
+GDP|MER 
+Resource|Extraction|Coal 
+Final Energy|Non-Energy Use|Solids 
+Final Energy|Non-Energy Use|Solids|Coal 
+Final Energy|Non-Energy Use|Liquids 
+Final Energy|Non-Energy Use|Gases 
+Secondary Energy|Electricity 
+Final Energy|Heat 
+Resource|Extraction|Oil 
+Resource|Extraction|Gas 
+Production|Iron and Steel|Steel 
+Production|Non-Metallic Minerals|Cement 
+Final Energy|Transportation|Gases 
+Final Energy|Transportation|Liquids 
+Final Energy|Transportation|Hydrogen 

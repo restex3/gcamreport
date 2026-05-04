@@ -1,0 +1,4 @@
+i Loading gcamreport
+Error in load_imports(path) : The package "ggplot2" is required.
+Calls: <Anonymous> ... load_imports -> deps_check_installed -> check_installed
+Í£Ö¹Ö´ÐÐ

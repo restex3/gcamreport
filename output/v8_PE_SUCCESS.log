@@ -1,0 +1,21 @@
+=== V8 Primary Energy GAINS Coverage Test ===
+
+Loading project...
+Loading data, performing checks, and saving output...
+Vetting summary:
+Inf variables: OK
+NA variables: OK
+To view the summary details, type:
+  - `vetting_summary$`NA variables` to check for NA values
+  - `vetting_summary$`Inf variables` to check for Inf values
+Since not all regions were selected, there is no vetting related to historical values
+==============================================================
+Total Primary Energy variables: 0 
+
+=== GAINS Coverage for Primary Energy ===
+Matched: 0 / 18 
+Coverage: 0 %
+
+Primary Energy|Electricity variables:
+
+Primary Energy|*|Convert variables:

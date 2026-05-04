@@ -1,0 +1,6 @@
+=== Quick V8 Test ===
+
+Testing with: database_basexdb 
+
+错误: 句法分析器11行里不能有多字节字符
+停止执行

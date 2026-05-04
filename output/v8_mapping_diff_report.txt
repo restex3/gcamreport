@@ -1,0 +1,140 @@
+
+‘ÿ»Î≥Ãº≠∞¸£∫'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+=== GCAM-China V7.1 vs V8.0 Mapping Difference Analysis ===
+
+
+ ================================================================================ 
+FILE: ag_production_map.csv 
+================================================================================ 
+
+V7.1 rows: 31 
+V8.0 rows: 25 
+Difference: -6 
+
+REMOVED in V8 (6 rows):
+# A tibble: 6 x 1
+  `# Agricultural production balance`                                           
+  <chr>                                                                         
+1 Beef,Agricultural Production,Agricultural Production|Livestock,Agricultural P~
+2 Dairy,Agricultural Production,Agricultural Production|Livestock,Agricultural ~
+3 Pork,Agricultural Production,Agricultural Production|Livestock,Agricultural P~
+4 Poultry,Agricultural Production,Agricultural Production|Livestock,Agricultura~
+5 SheepGoat,Agricultural Production,Agricultural Production|Livestock,Agricultu~
+6 Forest,Agricultural Production,Agricultural Production|Crops,Agricultural Pro~
+
+
+ ================================================================================ 
+FILE: primary_energy_map.csv 
+================================================================================ 
+
+V7.1 rows: 60 
+V8.0 rows: 54 
+Difference: -6 
+
+REMOVED in V8 (6 rows):
+# A tibble: 6 x 1
+  `# Energy consumption by technology`                                          
+  <chr>                                                                         
+1 a oil,Primary Energy,Primary Energy|Oil,Primary Energy|Oil|Convert,,,,,,,,1   
+2 a oil,Primary Energy,Primary Energy|Oil,Primary Energy|Oil|Liquids,,,,,,,,1   
+3 b natural gas,Primary Energy,Primary Energy|Gas,Primary Energy|Gas|Convert,,,~
+4 c coal,Primary Energy,Primary Energy|Coal,Primary Energy|Coal|Convert,,,,,,,,1
+5 d biomass,Primary Energy,Primary Energy|Biomass,Primary Energy|Biomass|Conver~
+6 e nuclear,Primary Energy,Primary Energy|Electricity,Primary Energy|Electricit~
+
+
+ ================================================================================ 
+FILE: final_energy_map_gcamchina.csv 
+================================================================================ 
+
+New names:
+* `` -> `...2`
+* `` -> `...3`
+* `` -> `...4`
+* `` -> `...5`
+* `` -> `...6`
+* `` -> `...7`
+* `` -> `...8`
+* `` -> `...9`
+* `` -> `...10`
+* `` -> `...11`
+* `` -> `...12`
+* `` -> `...13`
+* `` -> `...14`
+* `` -> `...15`
+New names:
+* `` -> `...2`
+* `` -> `...3`
+* `` -> `...4`
+* `` -> `...5`
+* `` -> `...6`
+* `` -> `...7`
+* `` -> `...8`
+* `` -> `...9`
+* `` -> `...10`
+* `` -> `...11`
+* `` -> `...12`
+* `` -> `...13`
+* `` -> `...14`
+* `` -> `...15`
+V7.1 rows: 462 
+V8.0 rows: 455 
+Difference: -7 
+
+No key differences found (possible value changes only)
+
+
+ ================================================================================ 
+FILE: production_map.csv 
+================================================================================ 
+
+New names:
+* `` -> `...2`
+* `` -> `...3`
+* `` -> `...4`
+* `` -> `...5`
+New names:
+* `` -> `...2`
+* `` -> `...3`
+* `` -> `...4`
+* `` -> `...5`
+V7.1 rows: 33 
+V8.0 rows: 29 
+Difference: -4 
+
+No key differences found (possible value changes only)
+
+Warning messages:
+1: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+2: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+3: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+4: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+5: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+
+ ================================================================================ 
+Analysis complete
+================================================================================ 

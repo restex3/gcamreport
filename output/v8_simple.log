@@ -1,0 +1,9 @@
+[1] "C"
+=== V8 Simple Test ===
+
+Functions loaded
+Project loaded
+Generating report...
+Error in generate_report(prj_name = "E:/GCAM/GCAM-China_v8/output/database_basexdb_v8_test.dat",  : 
+  找不到对象'.myGlobals'
+停止执行

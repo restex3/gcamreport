@@ -1,0 +1,38 @@
+=== Testing V8 Primary Energy Variables ===
+
+Loading project...
+Loading data, performing checks, and saving output...
+Error in `dplyr::filter()`:
+i In argument: `var != "NoReported"`.
+Caused by error:
+! `..1` must be of size 15369 or 1, not size 0.
+Backtrace:
+     x
+  1. +-gcamreport::generate_report(...)
+  2. | \-gcamreport::load_variable(...)
+  3. |   \-get(var$fun)(GCAM_version)
+  4. |     \-... %>% ...
+  5. +-dplyr::select(., dplyr::all_of(gcamreport::long_columns))
+  6. +-tidyr::complete(...)
+  7. +-dplyr::ungroup(.)
+  8. +-dplyr::summarise(., value = sum(value, na.rm = T))
+  9. +-dplyr::group_by(., scenario, region, year, var)
+ 10. +-dplyr::mutate(., value = value * unit_conv)
+ 11. +-gcamreport::filter_variables(.)
+ 12. | +-"var" %in% colnames(data)
+ 13. | \-base::colnames(data)
+ 14. |   \-base::is.data.frame(x)
+ 15. +-dplyr::filter(., var != "NoReported", !is.na(var))
+ 16. +-dplyr:::filter.data.frame(., var != "NoReported", !is.na(var))
+ 17. | \-dplyr:::filter_rows(.data, dots, by)
+ 18. |   \-dplyr:::filter_eval(...)
+ 19. |     +-base::withCallingHandlers(...)
+ 20. |     \-mask$eval_all_filter(dots, env_filter)
+ 21. |       \-dplyr (local) eval()
+ 22. +-dplyr:::dplyr_internal_error(...)
+ 23. | \-rlang::abort(class = c(class, "dplyr:::internal_error"), dplyr_error_data = data)
+ 24. |   \-rlang:::signal_abort(cnd, .file)
+ 25. |     \-base::signalCondition(cnd)
+ 26. \-dplyr (local) `<fn>`(`<dpl:::__>`)
+ 27.   \-rlang::abort(message, class = error_class, parent = parent, call = error_call)
+Í£Ö¹Ö´ÐÐ

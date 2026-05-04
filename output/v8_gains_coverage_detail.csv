@@ -1,0 +1,49 @@
+Variable,Covered,Region
+Land Cover|Cropland,FALSE,National
+Agricultural Production|Livestock|Ruminant|Meat,FALSE,National
+Agricultural Production|Livestock|Ruminant|Dairy,FALSE,National
+Agricultural Production|Livestock|Non-Ruminant|Meat|Pig,FALSE,National
+Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry,FALSE,National
+Population,FALSE,Regional
+Final Energy|Residential and Commercial|Electricity,FALSE,Regional
+Final Energy|Residential and Commercial|Gases,FALSE,Regional
+Final Energy|Residential and Commercial|Heat,FALSE,Regional
+Final Energy|Residential and Commercial|Hydrogen,FALSE,Regional
+Final Energy|Residential and Commercial|Liquids,FALSE,Regional
+Final Energy|Residential and Commercial|Other,FALSE,Regional
+Final Energy|Residential and Commercial|Solids|Biomass,FALSE,Regional
+Final Energy|Residential and Commercial|Solids|Coal,FALSE,Regional
+Production|Chemicals|Ammonia,FALSE,Regional
+Land Cover|Forest,FALSE,National
+Land Cover|Pasture,FALSE,National
+Final Energy|Industry|Solids|Biomass,FALSE,Regional
+Final Energy|Industry|Chemicals|Liquids,FALSE,Regional
+Final Energy|Industry|Chemicals|Electricity,FALSE,Regional
+Final Energy|Industry|Chemicals|Solids|Coal,FALSE,Regional
+Final Energy|Industry|Chemicals|Gases,FALSE,Regional
+Final Energy|Industry|Chemicals|Hydrogen,FALSE,Regional
+Final Energy|Industry|Electricity,FALSE,Regional
+Final Energy|Industry|Gases,FALSE,Regional
+Final Energy|Industry|Solids|Coal,FALSE,Regional
+Final Energy|Industry|Hydrogen,FALSE,Regional
+Final Energy|Industry|Liquids,FALSE,Regional
+Final Energy|Industry|Other,FALSE,Regional
+Final Energy|Industry|Chemicals|Heat,FALSE,Regional
+Final Energy|Industry|Iron and Steel|Gases,FALSE,Regional
+Final Energy|Industry|Heat,FALSE,Regional
+Final Energy|Industry|Iron and Steel|Liquids,FALSE,Regional
+GDP|MER,FALSE,Regional
+Resource|Extraction|Coal,FALSE,National
+Final Energy|Non-Energy Use|Solids,FALSE,Regional
+Final Energy|Non-Energy Use|Solids|Coal,FALSE,Regional
+Final Energy|Non-Energy Use|Liquids,FALSE,Regional
+Final Energy|Non-Energy Use|Gases,FALSE,Regional
+Secondary Energy|Electricity,FALSE,Regional
+Final Energy|Heat,FALSE,Regional
+Resource|Extraction|Oil,FALSE,National
+Resource|Extraction|Gas,FALSE,National
+Production|Iron and Steel|Steel,FALSE,Regional
+Production|Non-Metallic Minerals|Cement,FALSE,Regional
+Final Energy|Transportation|Gases,FALSE,Regional
+Final Energy|Transportation|Liquids,FALSE,Regional
+Final Energy|Transportation|Hydrogen,FALSE,Regional

@@ -1,0 +1,257 @@
+=== Steel variables ===
+Carbon Capture|Energy|Demand|Industry|Iron and Steel
+Carbon Capture|Energy|Demand|Industry|Iron and Steel|Fossil
+Emissions|CO2|Energy|Demand|Industry|Iron and Steel
+Final Energy|Industry|Iron and Steel
+Final Energy|Industry|Iron and Steel|Gases
+Final Energy|Industry|Iron and Steel|Gases|Other
+Final Energy|Industry|Iron and Steel|Heat
+Final Energy|Industry|Iron and Steel|Heat|Other
+Final Energy|Industry|Iron and Steel|Hydrogen
+Final Energy|Industry|Iron and Steel|Hydrogen|Other
+Final Energy|Industry|Iron and Steel|Liquids
+Final Energy|Industry|Iron and Steel|Liquids|Other
+Final Energy|Industry|Iron and Steel|Other
+Final Energy|Non-Energy Use|Iron and Steel
+Final Energy|Non-Energy Use|Iron and Steel|Gases
+Final Energy|Non-Energy Use|Iron and Steel|Gases|Other
+Final Energy|Non-Energy Use|Iron and Steel|Heat
+Final Energy|Non-Energy Use|Iron and Steel|Heat|Other
+Final Energy|Non-Energy Use|Iron and Steel|Hydrogen
+Final Energy|Non-Energy Use|Iron and Steel|Hydrogen|Other
+Final Energy|Non-Energy Use|Iron and Steel|Liquids
+Final Energy|Non-Energy Use|Iron and Steel|Liquids|Other
+Final Energy|Non-Energy Use|Iron and Steel|Other
+Price|Final Energy|Industry|Iron and Steel|Gases|Other
+Price|Final Energy|Industry|Iron and Steel|Heat|Other
+Price|Final Energy|Industry|Iron and Steel|Hydrogen|Other
+Price|Final Energy|Industry|Iron and Steel|Liquids|Other
+Price|Production|Iron and Steel|Steel
+Production|Iron and Steel|Steel
+Emissions|BC|Industrial Processes|Iron and Steel
+Emissions|CH4|Industrial Processes|Iron and Steel
+Emissions|CO|Industrial Processes|Iron and Steel
+Emissions|Sulfur|Industrial Processes|Iron and Steel
+
+=== Production variables ===
+Production|Chemicals
+Production|Chemicals|Ammonia
+Production|Chemicals|High-Value Chemicals
+Production|Iron and Steel|Steel
+Production|Non-Metallic Minerals|Cement
+Production|Pulp and Paper|Paper
+Production|Non-Ferrous Metals|Aluminum
+Production|Non-Ferrous Metals|Aluminum Oxide
+
+=== Primary Energy.*Electricity ===
+Primary Energy|Biomass|Electricity
+Primary Energy|Biomass|Electricity|w/o CCS
+
+=== Final Energy.*Industry ===
+Final Energy|Industry
+Final Energy|Industry|Chemicals
+Final Energy|Industry|Chemicals|Ammonia
+Final Energy|Industry|Chemicals|Ammonia|Gases
+Final Energy|Industry|Chemicals|Ammonia|Gases|Other
+Final Energy|Industry|Chemicals|Ammonia|Heat
+Final Energy|Industry|Chemicals|Ammonia|Heat|Other
+Final Energy|Industry|Chemicals|Ammonia|Hydrogen
+Final Energy|Industry|Chemicals|Ammonia|Hydrogen|Other
+Final Energy|Industry|Chemicals|Ammonia|Liquids
+Final Energy|Industry|Chemicals|Ammonia|Liquids|Other
+Final Energy|Industry|Chemicals|Ammonia|Other
+Final Energy|Industry|Chemicals|Electricity
+Final Energy|Industry|Chemicals|Gases
+Final Energy|Industry|Chemicals|Gases|Other
+Final Energy|Industry|Chemicals|Heat
+Final Energy|Industry|Chemicals|Heat|Other
+Final Energy|Industry|Chemicals|High-Value Chemicals
+Final Energy|Industry|Chemicals|High-Value Chemicals|Gases
+Final Energy|Industry|Chemicals|High-Value Chemicals|Gases|Other
+
+=== Non-Energy Use ===
+Emissions|Kyoto Gases|Product Use|Non-Energy Use
+Final Energy|Non-Energy Use
+Final Energy|Non-Energy Use|Chemicals
+Final Energy|Non-Energy Use|Chemicals|Ammonia
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Gases
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Gases|Other
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Heat
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Heat|Other
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Hydrogen|Other
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Liquids
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Liquids|Other
+Final Energy|Non-Energy Use|Chemicals|Ammonia|Other
+Final Energy|Non-Energy Use|Chemicals|Gases
+Final Energy|Non-Energy Use|Chemicals|Gases|Other
+Final Energy|Non-Energy Use|Chemicals|Heat
+Final Energy|Non-Energy Use|Chemicals|Heat|Other
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Gases
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Gases|Other
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Heat
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Heat|Other
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Hydrogen|Other
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Liquids
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Liquids|Other
+Final Energy|Non-Energy Use|Chemicals|High-Value Chemicals|Other
+Final Energy|Non-Energy Use|Chemicals|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Hydrogen|Other
+Final Energy|Non-Energy Use|Chemicals|Liquids
+Final Energy|Non-Energy Use|Chemicals|Liquids|Other
+Final Energy|Non-Energy Use|Chemicals|Methanol
+Final Energy|Non-Energy Use|Chemicals|Methanol|Gases
+Final Energy|Non-Energy Use|Chemicals|Methanol|Gases|Other
+Final Energy|Non-Energy Use|Chemicals|Methanol|Heat
+Final Energy|Non-Energy Use|Chemicals|Methanol|Heat|Other
+Final Energy|Non-Energy Use|Chemicals|Methanol|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Methanol|Hydrogen|Other
+Final Energy|Non-Energy Use|Chemicals|Methanol|Liquids
+Final Energy|Non-Energy Use|Chemicals|Methanol|Liquids|Other
+Final Energy|Non-Energy Use|Chemicals|Methanol|Other
+Final Energy|Non-Energy Use|Chemicals|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Biomass
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Coal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Electricity
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Fossil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Gas
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Gases|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Biomass
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Coal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Electricity
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Fossil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Gas
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Geothermal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Nuclear
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Oil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Heat|Solar
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Biomass
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Coal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Electricity
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Fossil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Gas
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Nuclear
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Oil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Hydrogen|Solar
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Biomass
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Coal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Electricity
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Fossil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Gas
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Hydrogen
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Oil
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Liquids|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Other
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Solids
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Solids|Biomass
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Solids|Coal
+Final Energy|Non-Energy Use|Chemicals|Other Sector|Waste
+Final Energy|Non-Energy Use|Gases
+Final Energy|Non-Energy Use|Gases|Other
+Final Energy|Non-Energy Use|Heat
+Final Energy|Non-Energy Use|Heat|Other
+Final Energy|Non-Energy Use|Hydrogen
+Final Energy|Non-Energy Use|Hydrogen|Other
+Final Energy|Non-Energy Use|Iron and Steel
+Final Energy|Non-Energy Use|Iron and Steel|Gases
+Final Energy|Non-Energy Use|Iron and Steel|Gases|Other
+Final Energy|Non-Energy Use|Iron and Steel|Heat
+Final Energy|Non-Energy Use|Iron and Steel|Heat|Other
+Final Energy|Non-Energy Use|Iron and Steel|Hydrogen
+Final Energy|Non-Energy Use|Iron and Steel|Hydrogen|Other
+Final Energy|Non-Energy Use|Iron and Steel|Liquids
+Final Energy|Non-Energy Use|Iron and Steel|Liquids|Other
+Final Energy|Non-Energy Use|Iron and Steel|Other
+Final Energy|Non-Energy Use|Liquids
+Final Energy|Non-Energy Use|Liquids|Other
+Final Energy|Non-Energy Use|Non-Ferrous Metals
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Gases
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Gases|Other
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Heat
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Heat|Other
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Hydrogen
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Hydrogen|Other
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Liquids
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Liquids|Other
+Final Energy|Non-Energy Use|Non-Ferrous Metals|Other
+Final Energy|Non-Energy Use|Non-Metallic Minerals
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Gases
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Gases|Other
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Heat
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Heat|Other
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Hydrogen
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Hydrogen|Other
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Liquids
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Liquids|Other
+Final Energy|Non-Energy Use|Non-Metallic Minerals|Other
+Final Energy|Non-Energy Use|Other
+Final Energy|Non-Energy Use|Other Sector
+Final Energy|Non-Energy Use|Other Sector|Gases
+Final Energy|Non-Energy Use|Other Sector|Gases|Biomass
+Final Energy|Non-Energy Use|Other Sector|Gases|Coal
+Final Energy|Non-Energy Use|Other Sector|Gases|Electricity
+Final Energy|Non-Energy Use|Other Sector|Gases|Fossil
+Final Energy|Non-Energy Use|Other Sector|Gases|Gas
+Final Energy|Non-Energy Use|Other Sector|Gases|Hydrogen
+Final Energy|Non-Energy Use|Other Sector|Gases|Other
+Final Energy|Non-Energy Use|Other Sector|Heat
+Final Energy|Non-Energy Use|Other Sector|Heat|Biomass
+Final Energy|Non-Energy Use|Other Sector|Heat|Coal
+Final Energy|Non-Energy Use|Other Sector|Heat|Electricity
+Final Energy|Non-Energy Use|Other Sector|Heat|Fossil
+Final Energy|Non-Energy Use|Other Sector|Heat|Gas
+Final Energy|Non-Energy Use|Other Sector|Heat|Geothermal
+Final Energy|Non-Energy Use|Other Sector|Heat|Hydrogen
+Final Energy|Non-Energy Use|Other Sector|Heat|Nuclear
+Final Energy|Non-Energy Use|Other Sector|Heat|Oil
+Final Energy|Non-Energy Use|Other Sector|Heat|Other
+Final Energy|Non-Energy Use|Other Sector|Heat|Solar
+Final Energy|Non-Energy Use|Other Sector|Hydrogen
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Biomass
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Coal
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Electricity
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Fossil
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Gas
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Nuclear
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Oil
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Other
+Final Energy|Non-Energy Use|Other Sector|Hydrogen|Solar
+Final Energy|Non-Energy Use|Other Sector|Liquids
+Final Energy|Non-Energy Use|Other Sector|Liquids|Biomass
+Final Energy|Non-Energy Use|Other Sector|Liquids|Coal
+Final Energy|Non-Energy Use|Other Sector|Liquids|Electricity
+Final Energy|Non-Energy Use|Other Sector|Liquids|Fossil
+Final Energy|Non-Energy Use|Other Sector|Liquids|Gas
+Final Energy|Non-Energy Use|Other Sector|Liquids|Hydrogen
+Final Energy|Non-Energy Use|Other Sector|Liquids|Oil
+Final Energy|Non-Energy Use|Other Sector|Liquids|Other
+Final Energy|Non-Energy Use|Other Sector|Other
+Final Energy|Non-Energy Use|Other Sector|Solids
+Final Energy|Non-Energy Use|Other Sector|Solids|Biomass
+Final Energy|Non-Energy Use|Other Sector|Solids|Coal
+Final Energy|Non-Energy Use|Other Sector|Waste
+Final Energy|Non-Energy Use|Plastics
+Final Energy|Non-Energy Use|Plastics|Gases
+Final Energy|Non-Energy Use|Plastics|Gases|Other
+Final Energy|Non-Energy Use|Plastics|Heat
+Final Energy|Non-Energy Use|Plastics|Heat|Other
+Final Energy|Non-Energy Use|Plastics|Hydrogen
+Final Energy|Non-Energy Use|Plastics|Hydrogen|Other
+Final Energy|Non-Energy Use|Plastics|Liquids
+Final Energy|Non-Energy Use|Plastics|Liquids|Other
+Final Energy|Non-Energy Use|Plastics|Other
+Final Energy|Non-Energy Use|Solids
+Final Energy|Non-Energy Use|Solids|Coal
+
+=== Transportation.*Electricity ===

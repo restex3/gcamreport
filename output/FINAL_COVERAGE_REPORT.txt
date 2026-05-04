@@ -1,0 +1,16 @@
+Coverage: 85.2 %
+Matched: 69 / 81
+
+Missing:
+  - Final Energy|Industry|Off-road|Construction
+  - Final Energy|Residential and Commercial|Electricity
+  - Primary Energy|Electricity|Coal|w/ CCS
+  - Primary Energy|Electricity|Oil|w/ CCS
+  - Primary Energy|Electricity|Gas|w/ CCS
+  - Feedstock|Industry|Steel|Coke
+  - Primary Energy|Oil|Liquids
+  - Final Energy|Industry|Off-road|Construction|Liquids
+  - Final Energy|Industry|Off-road|Construction|Gases
+  - Final Energy|Industry|Off-road|Construction|Electricity
+  - Final Energy|Industry|Off-road|Construction|Hydrogen
+  - Final Energy|Transportation|Electricity

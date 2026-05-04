@@ -1,0 +1,33 @@
+[1] "C"
+Warning message:
+≥Ãº≠∞¸'testthat' «”√R∞Ê±æ4.1.3 ¿¥Ω®‘Ïµƒ 
+=== V8 Test (ignore Ukraine error) ===
+
+Generating report (will ignore mapping errors)...
+Loading project...
+Loading data, performing checks, and saving output...
+Joining, by = c("scenario", "region", "sector", "var", "year")
+
+‚ùå FATAL ERROR: Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 19 x 3
+   scenario  region   year
+   <chr>     <chr>   <dbl>
+ 1 Reference Ukraine  2010
+ 2 Reference Ukraine  2015
+ 3 Reference Ukraine  2021
+ 4 Reference Ukraine  2025
+ 5 Reference Ukraine  2030
+ 6 Reference Ukraine  2035
+ 7 Reference Ukraine  2040
+ 8 Reference Ukraine  2045
+ 9 Reference Ukraine  2050
+10 Reference Ukraine  2055
+11 Reference Ukraine  2060
+12 Reference Ukraine  2065
+13 Reference Ukraine  2070
+14 Reference Ukraine  2075
+15 Reference Ukraine  2080
+16 Reference Ukraine  2085
+17 Reference Ukraine  2090
+18 Reference Ukraine  2095
+19 Reference Ukraine  2100 

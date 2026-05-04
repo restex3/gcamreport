@@ -1,0 +1,8 @@
+[1] "C"
+There were 20 warnings (use warnings() to see them)
+=== V8 Test (China only) ===
+
+Generating report for China region only...
+
+âŒ ERROR: ²ÎÊıÃ»ÓĞÓÃ(reg_cont = data.frame(region = "China", continent = "Asia")) 
+<simpleError in generate_report(prj_name = dat_path, scenarios = "Reference",     GCAM_version = "vGCAMChina8.0", final_year = 2050, reg_cont = data.frame(region = "China",         continent = "Asia")): ²ÎÊıÃ»ÓĞÓÃ(reg_cont = data.frame(region = "China", continent = "Asia"))>

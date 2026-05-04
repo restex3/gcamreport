@@ -1,0 +1,13 @@
+=== TANGRONG COVERAGE REPORT ===
+timestamp=2026-04-20 20:34:05
+input_file=E:/GCAM/GCAM_tools/gcamreport/output/tangrong_gains_latest.csv
+mapping_file=E:/GCAM/GCAM_tools/gcam2gains/GCAM_GAINS_SEC_ACT_MAP.csv
+required_total=81
+matched_total=79
+missing_total=2
+coverage_pct=97.5
+expected_missing_only=TRUE
+
+Missing variables:
+  - Final Energy|Non-Energy Use|Biomass
+  - Primary Energy|Electricity|Oil|w/ CCS

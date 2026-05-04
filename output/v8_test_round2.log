@@ -1,0 +1,30 @@
+[1] "C"
+Warning message:
+程辑包'testthat'是用R版本4.1.3 来建造的 
+Generating V8 report...
+Loading project...
+Loading data, performing checks, and saving output...
+Joining, by = c("scenario", "region", "sector", "var", "year")
+Error in left_join_strict(., refliq_bioshare %>% tidyr::complete(tidyr::nesting(scenario,  : 
+  Error: Some rows in the left dataset do not have matching keys in the right dataset. Type `left_join_strict_details` to see the full log. Some of the rows that the mapping  miss are:
+# A tibble: 58 x 3
+   scenario  region  year
+   <chr>     <chr>  <dbl>
+ 1 Reference BJ      2010
+ 2 Reference BJ      2015
+ 3 Reference BJ      2021
+ 4 Reference CQ      2021
+ 5 Reference GD      2010
+ 6 Reference GD      2015
+ 7 Reference GD      2021
+ 8 Reference GS      2010
+ 9 Reference GS      2015
+10 Reference GS      2021
+# i 48 more rows
+Calls: generate_report ... <Anonymous> -> <Anonymous> -> <Anonymous> -> <Anonymous> -> list2
+此外: Warning messages:
+1: In get(var$fun)(GCAM_version) :
+  The 'Capital Stock' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.
+2: In get(var$fun)(GCAM_version) :
+  The 'Capital Formation' variable is unavailable in your project. It is only supported from GCAM version 7.0 onwards. If you are using version 7.0 or newer, please ensure the `National Accunt` query is valid and not returning empty results.
+停止执行

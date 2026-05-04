@@ -1,0 +1,39 @@
+Feedstock|Industry|Steel|Coke
+Final Energy|Industry|Off-road|Construction
+Final Energy|Industry|Off-road|Construction|Electricity
+Final Energy|Industry|Off-road|Construction|Gases
+Final Energy|Industry|Off-road|Construction|Hydrogen
+Final Energy|Industry|Off-road|Construction|Liquids
+Final Energy|Industry|Steel|Electricity
+Final Energy|Industry|Steel|Gases
+Final Energy|Industry|Steel|Liquids
+Final Energy|Industry|Steel|Solids|Coal
+Final Energy|Non-Energy Use|Biomass
+Final Energy|Non-Energy Use|Coal
+Final Energy|Non-Energy Use|Gas
+Final Energy|Non-Energy Use|Oil
+Final Energy|Transportation|Electricity
+Primary Energy|Biomass|Convert
+Primary Energy|Biomass|Electricity|w/ CCS
+Primary Energy|Coal|Convert
+Primary Energy|Coal|Electricity|w/ CCS
+Primary Energy|Coal|Electricity|w/o CCS
+Primary Energy|Gas|Convert
+Primary Energy|Gas|Electricity|w/ CCS
+Primary Energy|Gas|Electricity|w/o CCS
+Primary Energy|Geothermal|Electricity
+Primary Energy|Hydro|Electricity
+Primary Energy|Nuclear|Electricity
+Primary Energy|Oil|Convert
+Primary Energy|Oil|Electricity|w/ CCS
+Primary Energy|Oil|Electricity|w/o CCS
+Primary Energy|Oil|Liquids
+Primary Energy|Solar|Electricity
+Primary Energy|Wind|Electricity
+Production|Cement
+Production|Chemicals|Fertilizer
+Production|Chemicals|Nitrogen Fertilizer
+Production|Steel|Blast Furnace
+Production|Steel|EAF-DRI
+Production|Steel|EAF-scrap
+Production|Steel|Hydrogen-DRI

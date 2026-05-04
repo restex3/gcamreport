@@ -1,0 +1,41 @@
+Installing gcamreport...
+Installing 2 packages: S7, ggplot2
+
+  有二进制版本的，但源代码版本是后来的:
+        binary source needs_compilation
+ggplot2  3.4.2  4.0.3             FALSE
+
+Package which is only available in source form, and may need
+  compilation of C/C++/Fortran: 'S7'
+安装源码包'S7', 'ggplot2'
+
+Error in `(function (command = NULL, args = character(), error_on_status = TRUE, ...`:
+! System command 'Rcmd.exe' failed
+---
+Exit status: 1
+Stdout & stderr:
+* installing to library 'E:/Program Files/R/R-4.1.0/library'
+ERROR: dependency 'ggplot2' is not available for package 'gcamreport'
+* removing 'E:/Program Files/R/R-4.1.0/library/gcamreport'
+---
+Backtrace:
+ 1. devtools::install(".", quiet = TRUE, upgrade = "never")
+ 2. pkgbuild::with_build_tools(required = FALSE, callr::rcmd("INSTALL", ...
+ 3. pkgbuild:::withr_with_path(rtools_path(), code)
+ 4. base::force(code)
+ 5. callr::rcmd("INSTALL", c(install_path, opts), echo = !quiet, ...
+ 6. callr:::run_r(options)
+ 7. base::with(options, with_envvar(env, do.call(processx::run, c(list(bin, ...
+ 8. base::with.default(options, with_envvar(env, do.call(processx::run, ...
+ 9. base::eval(substitute(expr), data, enclos = parent.frame())
+10. base::eval(substitute(expr), data, enclos = parent.frame())
+11. callr:::with_envvar(env, do.call(processx::run, c(list(bin, args = real_cmdargs,...
+12. base::force(code)
+13. base::do.call(processx::run, c(list(bin, args = real_cmdargs, stdout_line_call...
+14. (function (command = NULL, args = character(), error_on_status = TRUE, ...
+15. processx:::throw(new_process_error(res, call = sys.call(), echo = echo, ...
+Warning messages:
+1: In i.p(...) : installation of package 'S7' had non-zero exit status
+2: In i.p(...) :
+  installation of package 'ggplot2' had non-zero exit status
+停止执行

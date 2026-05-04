@@ -1,0 +1,19 @@
+=== Testing GCAM-China V8 Support ===
+
+Configuration:
+  Database: E:/GCAM/GCAM-China_v8/output//test1.basex 
+  Project: gcamchina_v8_test.dat 
+  Scenarios: reference 
+  GCAM Version: vGCAMChina8.0 
+
+Generating V8 report...
+Project does not exists. Creating project...
+
+!!! ERROR !!!
+Message: 'C:\Users\ljf96\AppData\Local\Temp\RtmpM1AV7Q\file1ef5c2607447' does not exist. 
+Call: NULL 
+¥ÌŒÛ: 'C:\Users\ljf96\AppData\Local\Temp\RtmpM1AV7Q\file1ef5c2607447' does not exist.
+¥ÀÕ‚: Warning message:
+In system2("java", args = paste(cmd_args, collapse = " ")) :
+  '"java"' not found
+Õ£÷π÷¥––

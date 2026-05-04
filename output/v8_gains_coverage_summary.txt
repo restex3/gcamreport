@@ -1,0 +1,63 @@
+GCAM-China V8 GAINS Coverage Report
+====================================
+Date: 2026-05-04 21:11:02 
+
+Total required: 48 
+Matched: 0 
+Missing: 48 
+Coverage: 0.0% 
+
+By Region:
+  National: 0 / 10 (0.0%) 
+  Regional: 0 / 38 (0.0%) 
+
+Missing Variables:
+------------------
+[ National ] Land Cover|Cropland 
+[ National ] Agricultural Production|Livestock|Ruminant|Meat 
+[ National ] Agricultural Production|Livestock|Ruminant|Dairy 
+[ National ] Agricultural Production|Livestock|Non-Ruminant|Meat|Pig 
+[ National ] Agricultural Production|Livestock|Non-Ruminant|Meat|Poultry 
+[ Regional ] Population 
+[ Regional ] Final Energy|Residential and Commercial|Electricity 
+[ Regional ] Final Energy|Residential and Commercial|Gases 
+[ Regional ] Final Energy|Residential and Commercial|Heat 
+[ Regional ] Final Energy|Residential and Commercial|Hydrogen 
+[ Regional ] Final Energy|Residential and Commercial|Liquids 
+[ Regional ] Final Energy|Residential and Commercial|Other 
+[ Regional ] Final Energy|Residential and Commercial|Solids|Biomass 
+[ Regional ] Final Energy|Residential and Commercial|Solids|Coal 
+[ Regional ] Production|Chemicals|Ammonia 
+[ National ] Land Cover|Forest 
+[ National ] Land Cover|Pasture 
+[ Regional ] Final Energy|Industry|Solids|Biomass 
+[ Regional ] Final Energy|Industry|Chemicals|Liquids 
+[ Regional ] Final Energy|Industry|Chemicals|Electricity 
+[ Regional ] Final Energy|Industry|Chemicals|Solids|Coal 
+[ Regional ] Final Energy|Industry|Chemicals|Gases 
+[ Regional ] Final Energy|Industry|Chemicals|Hydrogen 
+[ Regional ] Final Energy|Industry|Electricity 
+[ Regional ] Final Energy|Industry|Gases 
+[ Regional ] Final Energy|Industry|Solids|Coal 
+[ Regional ] Final Energy|Industry|Hydrogen 
+[ Regional ] Final Energy|Industry|Liquids 
+[ Regional ] Final Energy|Industry|Other 
+[ Regional ] Final Energy|Industry|Chemicals|Heat 
+[ Regional ] Final Energy|Industry|Iron and Steel|Gases 
+[ Regional ] Final Energy|Industry|Heat 
+[ Regional ] Final Energy|Industry|Iron and Steel|Liquids 
+[ Regional ] GDP|MER 
+[ National ] Resource|Extraction|Coal 
+[ Regional ] Final Energy|Non-Energy Use|Solids 
+[ Regional ] Final Energy|Non-Energy Use|Solids|Coal 
+[ Regional ] Final Energy|Non-Energy Use|Liquids 
+[ Regional ] Final Energy|Non-Energy Use|Gases 
+[ Regional ] Secondary Energy|Electricity 
+[ Regional ] Final Energy|Heat 
+[ National ] Resource|Extraction|Oil 
+[ National ] Resource|Extraction|Gas 
+[ Regional ] Production|Iron and Steel|Steel 
+[ Regional ] Production|Non-Metallic Minerals|Cement 
+[ Regional ] Final Energy|Transportation|Gases 
+[ Regional ] Final Energy|Transportation|Liquids 
+[ Regional ] Final Energy|Transportation|Hydrogen 
