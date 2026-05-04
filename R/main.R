@@ -1062,7 +1062,7 @@ generate_report <- function(db_path = NULL, db_name = NULL, prj_name, scenarios 
         yr_cols <- grep("^[0-9]{4}$", colnames(report), value = TRUE)
         pe_elec_wide <- primary_energy_electricity_clean %>%
           tidyr::pivot_wider(names_from = year, values_from = value, values_fill = 0) %>%
-          dplyr::rename(Variable = var) %>%
+          dplyr::rename(Variable = var, Scenario = scenario, Region = region) %>%
           dplyr::mutate(Unit = "EJ/yr")
         
         # Add Model column if missing
